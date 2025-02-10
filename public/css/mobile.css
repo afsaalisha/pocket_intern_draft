@@ -1,0 +1,141 @@
+/* Burger menu */
+.burger-menu {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 10px;
+  }
+  
+  .mobile-nav {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    background: #FCFDFF;
+    color: #555555;
+    width: 100%;
+    top: 50px;
+    left: 0;
+    padding: 10px 0;
+  }
+  
+  .mobile-nav a {
+    color: #555555;
+    background: #FCFDFF;
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
+    text-decoration: none;
+    display: block;
+  }
+  
+  .mobile-nav.active {
+    display: flex;
+  }
+  
+  /* Mobile view adjustments */
+  @media (max-width: 768px) {
+  
+    .burger-menu {
+      display: block;
+      background-color: #FCFDFF;
+    }
+  
+    .sidebar {
+      display: none;
+    }
+  
+    .content {
+      margin-top: 30px;
+      margin-left: auto;
+      overflow-y: scroll;
+      height: calc(100vh - 30px);
+      width: 100%;
+    }
+  
+    .title {
+      font-size: 24px;
+      margin-left: auto;
+    }
+  
+    .tab-menu {
+      margin-left: auto;
+    }
+  
+    .cards-container {
+      grid-template-columns: 1fr;
+      grid-template-rows: auto;
+      gap: 10px;
+      margin-left: auto;
+      padding: auto;
+      width: 100%;
+    }
+  
+    .card, .red-card {
+      width: 100%;
+      max-width: 100%;
+      box-sizing: border-box;
+      height: auto;
+      padding: 10px;
+    }
+  
+    .card-title, #red-card-title {
+      font-size: 16px;
+    }
+  
+    .card-value, #red-card-value {
+      font-size: 30px;
+    }
+  
+    .date-time-boxes {
+      flex-direction: column;
+      margin-left: auto;
+    }
+  
+    #from-date, #to-date {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+  
+    .breadcrumb {
+      margin-left: auto;
+    }
+  
+    .header-container {
+      flex-direction: column;
+      align-items: flex-start;
+      margin: 0 auto;
+    }
+  
+    .add-user {
+      margin-left: 0;
+      margin-top: 10px;
+    }
+  
+    .table-controls {
+      flex-direction: column;
+      align-items: flex-start;
+      margin: 10px auto;
+    }
+  
+    .search {
+      width: 100%;
+      margin-right: 0;
+      margin-bottom: 10px;
+    }
+  
+    table {
+      width: calc(100% - 40px);
+      margin: 0 auto;
+    }
+  
+    .table-footer {
+      flex-direction: column;
+      align-items: flex-start;
+      margin: 10px auto;
+    }
+  
+    .pagination {
+      margin-top: 10px;
+    }
+  
+  }

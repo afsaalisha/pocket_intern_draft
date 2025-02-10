@@ -447,7 +447,7 @@ body {
 }
 
 /* Burger menu */
-.burger-menu {
+/* .burger-menu {
   display: none;
   font-size: 24px;
   cursor: pointer;
@@ -478,10 +478,10 @@ body {
 
 .mobile-nav.active {
   display: flex;
-}
+} */
 
 /* Mobile view adjustments */
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
 
   .burger-menu {
     display: block;
@@ -582,4 +582,4 @@ body {
     margin-top: 10px;
   }
 
-}
+} */
