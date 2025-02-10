@@ -448,7 +448,8 @@ body {
   display: none;
   flex-direction: column;
   position: absolute;
-  background: #333;
+  background: #FCFDFF;
+  color: #555555;
   width: 100%;
   top: 50px;
   left: 0;
@@ -456,9 +457,11 @@ body {
 }
 
 .mobile-nav a {
-  color: white;
+  color: #555555;
+  background: #FCFDFF;
   padding: 10px;
   text-align: center;
+  font-weight: bold;
   text-decoration: none;
   display: block;
 }
@@ -475,44 +478,51 @@ body {
     background-color: #FCFDFF;
   }
 
-  /* a {
-    background-color: #FCFDFF;
-    color: #333;
-  } */
-
   .sidebar {
     display: none;
   }
 
   .content {
-    margin-left: 200px;
+    margin-top: 30px;
+    margin-left: auto;
     padding: 10px;
+    overflow-y: scroll;
+    height: calc(100vh - 30px);
   }
 
   .title {
     font-size: 24px;
-    margin-left: 20px;
+    margin-left: auto;
   }
 
   .tab-menu {
-    margin-left: 20px;
+    margin-left: auto;
   }
 
   .cards-container {
     grid-template-columns: 1fr;
     grid-template-rows: auto;
     gap: 10px;
-    margin-left: 20px;
+    margin-left: auto;
   }
 
   .card, .red-card {
-    width: 100%;
+    width: 95%;
     height: auto;
+    padding: 10px;
+  }
+
+  .card-title, #red-card-title {
+    font-size: 16px;
+  }
+
+  .card-value, #red-card-value {
+    font-size: 30px;
   }
 
   .date-time-boxes {
     flex-direction: column;
-    margin-left: 20px;
+    margin-left: auto;
   }
 
   #from-date, #to-date {
@@ -521,13 +531,13 @@ body {
   }
 
   .breadcrumb {
-    margin-left: 20px;
+    margin-left: auto;
   }
 
   .header-container {
     flex-direction: column;
     align-items: flex-start;
-    margin: 0 20px;
+    margin: 0 auto;
   }
 
   .add-user {
@@ -538,7 +548,7 @@ body {
   .table-controls {
     flex-direction: column;
     align-items: flex-start;
-    margin: 10px 20px;
+    margin: 10px auto;
   }
 
   .search {
@@ -549,13 +559,13 @@ body {
 
   table {
     width: calc(100% - 40px);
-    margin: 0 20px;
+    margin: 0 auto;
   }
 
   .table-footer {
     flex-direction: column;
     align-items: flex-start;
-    margin: 10px 20px;
+    margin: 10px auto;
   }
 
   .pagination {

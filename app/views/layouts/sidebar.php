@@ -26,7 +26,7 @@
         </div>
     </div>
     <ul class="menu">
-    <li><a href="/poshet/stement" style="text-decoration: none !important; color: inherit !important;"><i class="fa-solid fa-file"></i> Statement</a></li>
+        <li><a href="/poshet/stement" style="text-decoration: none !important; color: inherit !important;"><i class="fa-solid fa-file"></i> Statement</a></li>
         <li><i class="fa-solid fa-mobile"></i> Terminal</li>
         <li><i class="fa-solid fa-building"></i> Branches</li>
         <li><i class="fa-solid fa-key"></i> Manage Keys</li>
