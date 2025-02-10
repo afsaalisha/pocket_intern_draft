@@ -57,16 +57,26 @@ body {
   cursor: pointer;
   padding-left: 40px;
 }
+
+.menu li a {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+  width: 100%;
+}
+
 .menu li i {
   font-size: 18px;
-  width: 30px;
-  text-align: center;
+  min-width: 30px;
 }
+
 .menu li.active {
-  background-color: #FFF2E5;
+  background-color: #FFF0E3;
   border-radius: 5px;
   color: #FF7F00;
 }
+
 
 .selected-page {
   color: #FF7F00;
