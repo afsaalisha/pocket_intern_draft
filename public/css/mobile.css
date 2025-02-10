@@ -37,7 +37,9 @@
   
     .burger-menu {
       display: block;
-      background-color: #FCFDFF;
+      background-color: transparent;
+      color: #555555;
+      position: fixed;
     }
   
     .sidebar {
