@@ -467,6 +467,10 @@ body {
     width: 30%;
 }
 
+.burger-menu, .mobile-nav, .mobile-nav.active {
+  display: none;
+}
+
 /* Burger menu */
 /* .burger-menu {
   display: none;
