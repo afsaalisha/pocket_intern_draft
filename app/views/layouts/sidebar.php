@@ -14,6 +14,7 @@
     <a href="#">Manage Payment Plans</a>
 </nav>
 
+<!-- Sidebar -->
 <div class="sidebar">
     <div class="logo">
         <img src="/poshet/public/images/pocket.png" alt="Logo" width="40">
@@ -138,4 +139,11 @@
             loginButton.style.display = "none";
         });
     });
+
+    function toggleMenu() {
+        const mobileNav = document.querySelector('.mobile-nav');
+        const content = document.querySelector('.content');
+        mobileNav.classList.toggle('active');
+        content.classList.toggle('shifted');
+    }
 </script>
