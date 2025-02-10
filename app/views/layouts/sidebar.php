@@ -26,13 +26,13 @@
         </div>
     </div>
     <ul class="menu">
-        <li><a href="/poshet/stement"><i class="fa-solid fa-file"></i> Statement</a></li>
+    <li><a href="/poshet/stement" style="text-decoration: none !important; color: inherit !important;"><i class="fa-solid fa-file"></i> Statement</a></li>
         <li><i class="fa-solid fa-mobile"></i> Terminal</li>
         <li><i class="fa-solid fa-building"></i> Branches</li>
         <li><i class="fa-solid fa-key"></i> Manage Keys</li>
         <li><i class="fa-solid fa-briefcase"></i> Services</li>
         <li><i class="fa-solid fa-money-bill"></i> Finances</li>
-        <li><a href="/poshet/home"><i class="fa-solid fa-gear"></i> Settings</a></li>
+        <li><a href="/poshet/home" style="text-decoration: none !important; color: inherit !important;"><i class="fa-solid fa-gear"></i> Settings</a></li>
         <li><i class="fa-solid fa-link"></i> Integration</li>
         <li><i class="fa-solid fa-file-invoice"></i> Manage Payment Plans</li>
     </ul>
