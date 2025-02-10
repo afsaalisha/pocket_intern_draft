@@ -26,6 +26,7 @@
         </div>
     </div>
     <ul class="menu">
+        <li data-page="dashboard"><a href="#" style="text-decoration: none !important; color: inherit !important;"><i class="fa-solid fa-book"></i> Dashboard</a></li>
         <li data-page="statement"><a href="/poshet/stement" style="text-decoration: none !important; color: inherit !important;"><i class="fa-solid fa-file"></i> Statement</a></li>
         <li data-page="terminal"><a href="#" style="text-decoration: none !important; color: inherit !important;"><i class="fa-solid fa-mobile"></i> Terminal</a></li>
         <li data-page="branches"><a href="#" style="text-decoration: none !important; color: inherit !important;"><i class="fa-solid fa-building"></i> Branches</a></li>
