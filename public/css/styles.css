@@ -6,6 +6,7 @@ body {
   background-color: #f4f6fc;
 }
 
+/* Sidebar container */
 .sidebar {
   width: 250px;
   height: 100vh;
@@ -17,15 +18,16 @@ body {
   padding: 20px;
   display: flex;
   flex-direction: column;
-  overflow-y: auto;
 }
 
+/* Logo styling */
 .logo {
   display: flex;
   justify-content: left;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
+/* Profile styling */
 .profile {
   background: #FF7F00;
   padding: 15px;
@@ -36,17 +38,38 @@ body {
   color: white;
   font-weight: bold;
 }
+
 .profile img {
   width: 40px;
   height: 40px;
   border-radius: 50%;
 }
+
+/* Menu container: make it scrollable */
 .menu {
   list-style: none;
   padding: 0;
   flex-grow: 1;
-  
+  overflow-y: auto; /* Enable vertical scrolling */
+  margin-bottom: 50px;
 }
+
+/* Scrollbar styling */
+.menu::-webkit-scrollbar {
+  width: 8px; /* Adjust width of the scrollbar */
+  margin-right: 10px; /* Push scrollbar further to the right */
+}
+
+.menu::-webkit-scrollbar-thumb {
+  background-color: #c8d3e3;
+  border-radius: 10px;
+}
+
+.menu::-webkit-scrollbar-button {
+  display: none; /* Remove the scrollbar arrow */
+}
+
+/* Menu item styling */
 .menu li {
   display: flex;
   align-items: center;
@@ -71,17 +94,14 @@ body {
   min-width: 30px;
 }
 
+/* Active menu item styling */
 .menu li.active {
   background-color: #FFF0E3;
   border-radius: 5px;
   color: #FF7F00;
 }
 
-
-.selected-page {
-  color: #FF7F00;
-}
-
+/* Logout button styling */
 .logout {
   background: #F7C1C1;
   padding: 10px;
@@ -91,8 +111,9 @@ body {
   color: #9E0E29;
   cursor: pointer;
   position: sticky;
-  bottom: 30px;
+  bottom: 10px;
 }
+
 
 .content {
   margin-left: 250px;
