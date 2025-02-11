@@ -8,6 +8,15 @@
         <a href="/poshet/void" class="tab" onclick="setActiveTab(event, 'void')">Void</a>
 
     </div>
+
+    <!-- Real-Time Calendar Display -->
+    <div class="calendar-container">
+        <div class="calendar-box">
+            <span class="calendar-icon"><i class="fa-solid fa-calendar"></i></span>
+
+            <span id="real-time-clock"></span>
+        </div>
+    </div>
     <div class="cards-container">
         <div class="card">
             <p class="card-title">NO. OF TRANSACTIONS</p>
@@ -43,3 +52,26 @@
 </div>
 
 <?php require_once 'layouts/footer.php'; ?>
+
+
+<script>
+function updateClock() {
+    const now = new Date();
+
+    // Format day, month, and year
+    const weekday = now.toLocaleDateString('en-GB', { weekday: 'short' }); // Get the short day name (Tue)
+    const day = now.getDate().toString().padStart(2, '0'); // Get the day (11)
+    const month = now.toLocaleDateString('en-GB', { month: 'short' }); // Get the short month name (Feb)
+    const year = now.getFullYear().toString().slice(-2); // Get the last two digits of the year (25)
+
+    // Combine into the desired format
+    const formattedDate = `${weekday}, ${day} ${month} ${year}`;
+
+    // Update the clock with the formatted date, highlighting the weekday
+    document.getElementById('real-time-clock').innerHTML = `<b class="highlight">${weekday}</b>, ${day} ${month} ${year}`;
+}
+
+setInterval(updateClock, 1000);
+updateClock();
+
+</script>
