@@ -19,8 +19,9 @@
     <div class="logo">
         <img src="/poshet/public/images/pocket.png" alt="Logo" width="40">
     </div>
-    <div class="profile">
-        <img src="/poshet/public/images/kiyoshi.jpg" alt="Profile">
+    <div class="profile" onclick="changeProfilePic()" style="cursor: pointer;">
+        <input type="file" id="profilePicInput" accept="image/*" style="display: none;">
+        <img id="profilePic" src="/poshet/public/images/kiyoshi.jpg" alt="Profile">
         <div>
             <div>Username</div>
             <div class="subtext">ID or something</div>
@@ -178,4 +179,27 @@
     });
 });
 
+function changeProfilePic() {
+        document.getElementById('profilePicInput').click();
+    }
+
+    document.getElementById('profilePicInput').addEventListener('change', function(event) {
+        const file = event.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const imageData = e.target.result;
+                document.getElementById('profilePic').src = imageData;
+                localStorage.setItem('profilePic', imageData);
+            };
+            reader.readAsDataURL(file);
+        }
+    });
+
+    document.addEventListener("DOMContentLoaded", function() {
+        const savedProfilePic = localStorage.getItem('profilePic');
+        if (savedProfilePic) {
+            document.getElementById('profilePic').src = savedProfilePic;
+        }
+    });
 </script>
