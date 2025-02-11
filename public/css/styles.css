@@ -80,6 +80,17 @@ body {
   cursor: pointer;
   padding-left: 40px;
 }
+/* Hover effect for menu items */
+
+.menu li:hover {
+  transform: scale(1.0); /* Slight pop-out effect */
+  color: #72B9FF; /* Match brand color */
+}
+
+.menu li:hover i {
+  color: #72B9FF; /* Icon color change on hover */
+  transition: color 0.3s ease;
+}
 
 .menu li a {
   display: flex;
@@ -99,6 +110,16 @@ body {
   background-color: #FFF0E3;
   border-radius: 5px;
   color: #FF7F00;
+}
+.menu li.active i {
+  color: #FF7F00 !important; /* Keep the orange color */
+  background: transparent !important; /* Remove background */
+}
+
+/* Prevent icon from changing on hover if it's active */
+.menu li.active:hover i {
+  color: #FF7F00 !important; /* Maintain color */
+  background: transparent !important;
 }
 
 /* Logout button styling */

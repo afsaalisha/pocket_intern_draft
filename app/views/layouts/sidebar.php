@@ -27,16 +27,16 @@
         </div>
     </div>
     <ul class="menu">
-        <li data-page="dashboard"><a href="#" style="text-decoration: none !important; color: inherit !important;"><i class="fa-solid fa-book"></i> Dashboard</a></li>
+        <li data-page="dashboard"><a href="/poshet/dashi" style="text-decoration: none !important; color: inherit !important;"><i class="fa-solid fa-book"></i> Dashboard</a></li>
         <li data-page="statement"><a href="/poshet/stement" style="text-decoration: none !important; color: inherit !important;"><i class="fa-solid fa-file"></i> Statement</a></li>
-        <li data-page="terminal"><a href="#" style="text-decoration: none !important; color: inherit !important;"><i class="fa-solid fa-mobile"></i> Terminal</a></li>
-        <li data-page="branches"><a href="#" style="text-decoration: none !important; color: inherit !important;"><i class="fa-solid fa-building"></i> Branches</a></li>
-        <li data-page="manage-keys"><a href="#" style="text-decoration: none !important; color: inherit !important;"><i class="fa-solid fa-key"></i> Manage Keys</a></li>
-        <li data-page="services"><a href="#" style="text-decoration: none !important; color: inherit !important;"><i class="fa-solid fa-briefcase"></i> Services</a></li>
-        <li data-page="finances"><a href="#" style="text-decoration: none !important; color: inherit !important;"><i class="fa-solid fa-money-bill"></i> Finances</a></li>
+        <li data-page="terminal"><a href="/poshet/tetris" style="text-decoration: none !important; color: inherit !important;"><i class="fa-solid fa-mobile"></i> Terminal</a></li>
+        <li data-page="branches"><a href="/poshet/branch" style="text-decoration: none !important; color: inherit !important;"><i class="fa-solid fa-building"></i> Branches</a></li>
+        <li data-page="manage-keys"><a href="/poshet/keys" style="text-decoration: none !important; color: inherit !important;"><i class="fa-solid fa-key"></i> Manage Keys</a></li>
+        <li data-page="services"><a href="/poshet/service" style="text-decoration: none !important; color: inherit !important;"><i class="fa-solid fa-briefcase"></i> Services</a></li>
+        <li data-page="finances"><a href="/poshet/finance" style="text-decoration: none !important; color: inherit !important;"><i class="fa-solid fa-money-bill"></i> Finances</a></li>
         <li data-page="home"><a href="/poshet/home" style="text-decoration: none !important; color: inherit !important;"><i class="fa-solid fa-gear"></i> Settings</a></li>
-        <li data-page="integration"><a href="#" style="text-decoration: none !important; color: inherit !important;"><i class="fa-solid fa-link"></i> Integration</a></li>
-        <li data-page="manage-payment"><a href="#" style="text-decoration: none !important; color: inherit !important;"><i class="fa-solid fa-file-invoice"></i> Manage Payment Plans</a></li>
+        <li data-page="integration"><a href="/poshet/intete" style="text-decoration: none !important; color: inherit !important;"><i class="fa-solid fa-link"></i> Integration</a></li>
+        <li data-page="manage-payment"><a href="/poshet/pans" style="text-decoration: none !important; color: inherit !important;"><i class="fa-solid fa-file-invoice"></i> Manage Payment Plans</a></li>
     </ul>
 
     <div class="logout">Logout</div>
@@ -146,4 +146,36 @@
         mobileNav.classList.toggle('active');
         content.classList.toggle('shifted');
     }
+
+    document.addEventListener("DOMContentLoaded", function() {
+    const menu = document.querySelector(".menu");
+    const menuItems = document.querySelectorAll(".menu li");
+
+    // Restore scroll position
+    const savedScrollPosition = localStorage.getItem("menuScrollPosition");
+    if (savedScrollPosition) {
+        menu.scrollTop = savedScrollPosition;
+    }
+
+    menuItems.forEach(item => {
+        item.addEventListener("click", function(event) {
+            event.preventDefault(); // Prevent default anchor behavior
+
+            // Save the current scroll position before redirecting
+            localStorage.setItem("menuScrollPosition", menu.scrollTop);
+
+            const page = this.getAttribute("data-page");
+            localStorage.setItem("activePage", page);
+            menuItems.forEach(i => i.classList.remove("active"));
+            this.classList.add("active");
+
+            // Redirect to the selected page
+            const link = this.querySelector("a");
+            if (link && link.href) {
+                window.location.href = link.href;
+            }
+        });
+    });
+});
+
 </script>
