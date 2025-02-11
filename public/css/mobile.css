@@ -117,7 +117,8 @@
     }
   
     .tab-menu {
-      margin-left: auto;
+      margin-left: 1px;
+      width: 80%;
     }
   
     .cards-container {
@@ -236,4 +237,90 @@
     height: 22px;
     margin-right: 10px;
     color: #555555;
+  }
+
+  /* Settings container and rows */
+  .settings-container {
+    margin-top: 20px;
+    margin-left: 0;
+    padding: 0 10px;
+  }
+
+  .settings-row {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    padding: 12px;
+    border-radius: 20px; /* Curved edges */
+    width: 90%; /* 90% width for the row */
+    margin-bottom: 15px;
+    margin-left: auto; /* Center the row */
+    margin-right: auto; /* Center the row */
+    color: #333; /* Default font color */
+  }
+
+  .settings-row label {
+    margin-bottom: 8px;
+    font-size: 14px;
+    color: #333; /* Default font color */
+  }
+
+  /* Full-width dropdown box styling for mobile */
+  .dropdown-box {
+    width: 100%; /* Ensure the dropdown box is the same width as its container */
+    text-align: left;
+    border-radius: 15px; /* Curved dropdown */
+    margin-left: auto; /* Center the dropdown */
+    margin-right: auto; /* Center the dropdown */
+    background-color: #ff7f00; /* Orange background */
+  }
+
+  /* Full-width dropdown styling */
+  .styled-dropdown {
+    width: 100%; /* Make the dropdown take full width */
+    padding: 10px;
+    font-size: 14px;
+    border-radius: 15px; /* Fully curved edges */
+    background-color: #ff7f00; /* Orange background */
+    border: none; /* Remove border */
+    color: white; /* White font for contrast */
+  }
+
+  .urmom {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    border-radius: 15px; /* Curved dropdown options */
+    background-color: #f2f2f2; /* Light background for the dropdown */
+    border: none; /* Remove border */
+  }
+
+  /* Breadcrumb styling for mobile */
+  .breadcrumb {
+    margin-left: 0;
+    font-size: 14px;
+    margin-bottom: 10px;
+    color: #333; /* Default font color */
+  }
+
+  .breadcrumb .active {
+    font-weight: bold;
+    color: #FF7F00;
+  }
+
+  /* Compact and curved layout for settings row */
+  .settings-row {
+    flex-direction: column;
+    padding: 12px;
+    gap: 10px;
+    border-radius: 15px; /* Curved box */
+    width: 90%; /* 90% width for settings row */
+    margin-left: auto; /* Center the row */
+    margin-right: auto; /* Center the row */
+  }
+
+  /* Make labels smaller and more compact for mobile */
+  .settings-row label {
+    font-size: 14px;
+    margin-bottom: 10px;
   }
