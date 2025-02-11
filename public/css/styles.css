@@ -353,7 +353,7 @@ body {
   }
   
   .add-user {
-    background-color: #FFA53B;
+    background-color: #ff7f00;
     color: white;
     font-size: 18px;
     font-weight: bold;
@@ -362,10 +362,20 @@ body {
     border-radius: 5px;
     cursor: pointer;
     margin-left: auto;
+    width: 10%;
+    font-display: center;
+  }
+
+  .add-user i {
+    margin-right: 10px;
   }
   
   .add-user:hover {
-    background-color: #ff8c00;
+    background-color: #FFA74D;
+  }
+  
+  .add-user:active {
+    background-color: #CC5E00;
   }
   
   .table-controls {
@@ -464,8 +474,9 @@ body {
 .pagination {
   display: flex;
   gap: 10px;
-  width: 20%;
+  width: 15%;
   justify-content: space-between;
+  margin-left: auto;
 }
 
 .pagination button {
@@ -476,6 +487,15 @@ body {
   border-radius: 5px;
   cursor: pointer;
   flex-grow: 1;
+
+}
+
+.pagination button:hover {
+  background-color: #FFA74D;
+}
+
+.pagination button:active {
+  background-color: #CC5E00;
 }
 
 .pagination span {

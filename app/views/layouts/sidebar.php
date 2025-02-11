@@ -20,8 +20,9 @@
     <div class="logo">
         <img src="/poshet/public/images/pocket.png" alt="Logo" width="40">
     </div>
-    <div class="profile">
-        <img src="/poshet/public/images/kiyoshi.jpg" alt="Profile">
+    <div class="profile" onclick="changeProfilePic()" style="cursor: pointer;">
+        <input type="file" id="profilePicInput" accept="image/*" style="display: none;">
+        <img id="profilePic" src="/poshet/public/images/kiyoshi.jpg" alt="Profile">
         <div>
             <div>Username</div>
             <div class="subtext">ID or something</div>
