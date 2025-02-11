@@ -9,6 +9,7 @@
     <div class="tab-menu">
         <a href="/poshet/home" class="tab" onclick="setActiveTab(event, 'home')">Rent To Own Settings</a>
         <a href="/poshet/user" class="tab active" onclick="setActiveTab(event, 'user')">Branch User Accounts</a>
+        <span class="add-user"><i class="fa-solid fa-plus"></i> Add User</span>
     </div>
 
     <div class="table-controls">

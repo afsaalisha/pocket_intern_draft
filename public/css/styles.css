@@ -365,7 +365,11 @@ body {
   }
   
   .add-user:hover {
-    background-color: #ff8c00;
+    background-color: #FFA74D;
+  }
+  
+  .add-user:active {
+    background-color: #CC5E00;
   }
   
   .table-controls {
@@ -476,6 +480,14 @@ body {
   border-radius: 5px;
   cursor: pointer;
   flex-grow: 1;
+}
+
+.pagination button:hover {
+  background-color: #FFA74D;
+}
+
+.pagination button:active {
+  background-color: #CC5E00;
 }
 
 .pagination span {
