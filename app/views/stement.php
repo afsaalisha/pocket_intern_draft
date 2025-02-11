@@ -37,15 +37,15 @@
     </div>
 
     <div class="date-time-boxes">
-        <div>
+        <div class="date-time-box">
             <label for="from-date">From:</label>
             <input type="date" id="from-date" name="from-date">
         </div>
-        <div>
+        <div class="date-time-box">
             <label for="to-date">To:</label>
             <input type="date" id="to-date" name="to-date">
         </div>
-        <div>
+        <div class="date-time-box">
             <button type="button" id="go-button">Go</button>
         </div>
     </div>
@@ -55,23 +55,26 @@
 
 
 <script>
-function updateClock() {
-    const now = new Date();
+    function updateClock() {
+        const now = new Date();
 
-    // Format day, month, and year
-    const weekday = now.toLocaleDateString('en-GB', { weekday: 'short' }); // Get the short day name (Tue)
-    const day = now.getDate().toString().padStart(2, '0'); // Get the day (11)
-    const month = now.toLocaleDateString('en-GB', { month: 'short' }); // Get the short month name (Feb)
-    const year = now.getFullYear().toString().slice(-2); // Get the last two digits of the year (25)
+        // Format day, month, and year
+        const weekday = now.toLocaleDateString('en-GB', {
+            weekday: 'short'
+        }); // Get the short day name (Tue)
+        const day = now.getDate().toString().padStart(2, '0'); // Get the day (11)
+        const month = now.toLocaleDateString('en-GB', {
+            month: 'short'
+        }); // Get the short month name (Feb)
+        const year = now.getFullYear().toString().slice(-2); // Get the last two digits of the year (25)
 
-    // Combine into the desired format
-    const formattedDate = `${weekday}, ${day} ${month} ${year}`;
+        // Combine into the desired format
+        const formattedDate = `${weekday}, ${day} ${month} ${year}`;
 
-    // Update the clock with the formatted date, highlighting the weekday
-    document.getElementById('real-time-clock').innerHTML = `<b class="highlight">${weekday}</b>, ${day} ${month} ${year}`;
-}
+        // Update the clock with the formatted date, highlighting the weekday
+        document.getElementById('real-time-clock').innerHTML = `<b class="highlight">${weekday}</b>, ${day} ${month} ${year}`;
+    }
 
-setInterval(updateClock, 1000);
-updateClock();
-
+    setInterval(updateClock, 1000);
+    updateClock();
 </script>

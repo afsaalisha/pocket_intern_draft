@@ -140,7 +140,8 @@ body {
   margin-left: 250px;
   flex: 1;
   padding: 20px;
-  position: fixed;
+  overflow-y: auto; /* Enable vertical scrolling */
+  height: 100vh; /* Ensure it takes the full viewport height */
 }
 
 .title {
@@ -724,8 +725,16 @@ body {
   width: 22px;
   height: 22px;
   margin-right: 10px;
+  color: #555555;
 }
+
 .highlight {
   color: #ff7f00;
   font-weight: bold;
+}
+
+#real-time-clock {
+  font-size: 20px;
+  font-weight: bold;
+  color: #555555;
 }

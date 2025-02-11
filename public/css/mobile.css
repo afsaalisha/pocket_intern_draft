@@ -121,22 +121,23 @@
     }
   
     .cards-container {
-      grid-template-columns: 1fr;
-      grid-template-rows: auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
       gap: 10px;
-      margin-left: auto;
-      padding: auto;
-      width: 100%;
+      padding: 0; /* Remove extra padding */
+      margin: auto -20px; /* Center it */
+      width: 100%; /* Match desired width */
     }
-  
+
     .card, .red-card {
-      width: 100%;
-      max-width: 100%;
-      box-sizing: border-box;
-      height: auto;
-      padding: 10px;
+      width: 100%; /* Match the parent width */
+      max-width: 90%; /* Prevent overflow */
+      box-sizing: border-box; /* Ensures padding is included in width */
+      margin: 0 auto; /* Align with calendar */
     }
-  
+
     .card-title, #red-card-title {
       font-size: 16px;
     }
@@ -146,12 +147,25 @@
     }
   
     .date-time-boxes {
+      display: flex;
       flex-direction: column;
       margin-left: auto;
+      gap: 10px;
     }
-  
+    
+    /* .date-time-boxes label {
+      font-size: 14px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    } */
+    
+    .date-time-box  {
+      display: flex;
+      flex-direction: column;
+    }
+
     #from-date, #to-date {
-      width: 100%;
+      width: 90%;
       margin-bottom: 10px;
     }
   
@@ -197,4 +211,29 @@
       margin-top: 10px;
     }
   
+  }
+
+  .calendar-container {
+    display: flex;
+    justify-content: left;
+    margin-bottom: 15px;
+    margin-left: auto;
+  }
+  
+  .calendar-box {
+    display: flex;
+    align-items: center;
+    background: white;
+    padding: 10px 18px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-size: 18px;
+    font-weight: 500;
+  }
+  
+  .calendar-icon {
+    width: 22px;
+    height: 22px;
+    margin-right: 10px;
+    color: #555555;
   }
