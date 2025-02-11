@@ -3,14 +3,14 @@
 
 <!-- Mobile Navigation -->
 <nav class="mobile-nav">
-    <a href="/poshet/dashi"><i class="fa-solid fa-book"></i>Dashboard</a>
+    <a href="/poshet/home"><i class="fa-solid fa-book"></i>Dashboard</a>
     <a href="/poshet/stement"><i class="fa-solid fa-file"></i>Statement</a>
     <a href="/poshet/tetris"><i class="fa-solid fa-mobile"></i>Terminal</a>
     <a href="/poshet/branch"><i class="fa-solid fa-building"></i>Branches</a>
     <a href="/poshet/keys"><i class="fa-solid fa-key"></i>Manage Keys</a>
     <a href="/poshet/service"><i class="fa-solid fa-briefcase"></i>Services</a>
     <a href="/poshet/finance"><i class="fa-solid fa-money-bill"></i>Finances</a>
-    <a href="/poshet/home"><i class="fa-solid fa-gear"></i>Settings</a>
+    <a href="/poshet/set"><i class="fa-solid fa-gear"></i>Settings</a>
     <a href="/poshet/intete"><i class="fa-solid fa-link"></i>Integration</a>
     <a href="/poshet/pans"><i class="fa-solid fa-file-invoice"></i>Manage Payment Plans</a>
 </nav>
@@ -29,14 +29,14 @@
         </div>
     </div>
     <ul class="menu">
-        <li data-page="dashboard"><a href="/poshet/dashi" style="text-decoration: none !important; color: inherit !important;"><i class="fa-solid fa-book"></i> Dashboard</a></li>
+        <li data-page="home"><a href="/poshet/home" style="text-decoration: none !important; color: inherit !important;"><i class="fa-solid fa-book"></i> Dashboard</a></li>
         <li data-page="statement"><a href="/poshet/stement" style="text-decoration: none !important; color: inherit !important;"><i class="fa-solid fa-file"></i> Statement</a></li>
         <li data-page="terminal"><a href="/poshet/tetris" style="text-decoration: none !important; color: inherit !important;"><i class="fa-solid fa-mobile"></i> Terminal</a></li>
         <li data-page="branches"><a href="/poshet/branch" style="text-decoration: none !important; color: inherit !important;"><i class="fa-solid fa-building"></i> Branches</a></li>
         <li data-page="manage-keys"><a href="/poshet/keys" style="text-decoration: none !important; color: inherit !important;"><i class="fa-solid fa-key"></i> Manage Keys</a></li>
         <li data-page="services"><a href="/poshet/service" style="text-decoration: none !important; color: inherit !important;"><i class="fa-solid fa-briefcase"></i> Services</a></li>
         <li data-page="finances"><a href="/poshet/finance" style="text-decoration: none !important; color: inherit !important;"><i class="fa-solid fa-money-bill"></i> Finances</a></li>
-        <li data-page="home"><a href="/poshet/home" style="text-decoration: none !important; color: inherit !important;"><i class="fa-solid fa-gear"></i> Settings</a></li>
+        <li data-page="set"><a href="/poshet/set" style="text-decoration: none !important; color: inherit !important;"><i class="fa-solid fa-gear"></i> Settings</a></li>
         <li data-page="integration"><a href="/poshet/intete" style="text-decoration: none !important; color: inherit !important;"><i class="fa-solid fa-link"></i> Integration</a></li>
         <li data-page="manage-payment"><a href="/poshet/pans" style="text-decoration: none !important; color: inherit !important;"><i class="fa-solid fa-file-invoice"></i> Manage Payment Plans</a></li>
     </ul>
@@ -84,8 +84,8 @@
             matchedPage = "statement";
         }
 
-        if (urlPath.includes("/poshet/home") || urlPath.includes("/poshet/branch-user-accounts")) {
-            matchedPage = "home";
+        if (urlPath.includes("/poshet/set") || urlPath.includes("/poshet/branch-user-accounts")) {
+            matchedPage = "set";
         }
 
         if (matchedPage) {

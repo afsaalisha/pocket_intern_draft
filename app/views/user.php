@@ -7,9 +7,9 @@
     </div>
     <h1 class="title">Settings</h1>
     <div class="tab-menu">
-        <a href="/poshet/home" class="tab" onclick="setActiveTab(event, 'home')">Rent To Own Settings</a>
+        <a href="/poshet/set" class="tab" onclick="setActiveTab(event, 'home')">Rent To Own Settings</a>
         <a href="/poshet/user" class="tab active" onclick="setActiveTab(event, 'user')">Branch User Accounts</a>
-        <span class="add-user"><i class="fa-solid fa-plus"></i> Add User</span>
+        <span class="add-user" id="openModal"><i class="fa-solid fa-plus"></i> Add User</span>
     </div>
 
     <div class="table-controls">
@@ -34,7 +34,7 @@
                 <th>Action</th>
             </tr>
         </thead>
-        <tbody>
+        <tbody id="userTableBody">
             <tr>
                 <td>bogurt</td>
                 <td>testmail@mail.com</td>
@@ -95,6 +95,22 @@
     </div>
 </div>
 
+    <!-- Modal -->
+    <div id="userModal" class="modal" style="display:none;">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Add User</h2>
+            <label>Username:</label>
+            <input type="text" id="username"><br>
+            <label>Email:</label>
+            <input type="email" id="email"><br>
+            <label>Phone Number:</label>
+            <input type="text" id="phone"><br>
+            <label>Branch:</label>
+            <input type="text" id="branch"><br>
+            <button id="saveUser">Save</button>
+        </div>
+    </div>
 <?php require_once 'layouts/footer.php'; ?>
 
 <script>
@@ -113,4 +129,40 @@
             statusCell.textContent = 'No';
         }
     }
+
+    document.getElementById('openModal').addEventListener('click', function() {
+        document.getElementById('userModal').style.display = 'block';
+    });
+
+    document.querySelector('.close').addEventListener('click', function() {
+        document.getElementById('userModal').style.display = 'none';
+    });
+
+    document.getElementById('saveUser').addEventListener('click', function() {
+        const username = document.getElementById('username').value;
+        const email = document.getElementById('email').value;
+        const phone = document.getElementById('phone').value;
+        const branch = document.getElementById('branch').value;
+        
+        if (username && email && phone && branch) {
+            const tableBody = document.getElementById('userTableBody');
+            const newRow = document.createElement('tr');
+            newRow.innerHTML = `
+                <td>${username}</td>
+                <td>${email}</td>
+                <td>${phone}</td>
+                <td>Branch Employee</td>
+                <td>${branch}</td>
+                <td class="active-status">No</td>
+                <td>
+                    <button class="permissions">Permissions</button>
+                    <button class="activate" onclick="toggleActivation(this, this.closest('tr'))">Activate</button>
+                </td>
+            `;
+            tableBody.appendChild(newRow);
+            document.getElementById('userModal').style.display = 'none';
+        } else {
+            alert('Please fill in all fields.');
+        }
+    });
 </script>
