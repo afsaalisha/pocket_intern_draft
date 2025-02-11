@@ -142,6 +142,27 @@ body {
   position: fixed;
 }
 
+/* Statement Scroll */
+.skroll {
+  overflow-y: auto;
+  max-height: calc(100vh - 20px); /* Adjust height to fit viewport */
+}
+
+.skroll::-webkit-scrollbar {
+  width: 8px; /* Adjust width of the scrollbar */
+  padding-right: 30px; /* Prevent scrollbar overlap */
+}
+
+.skroll::-webkit-scrollbar-thumb {
+  background-color: #c8d3e3;
+  border-radius: 10px;
+  height: 80px; /* Set a fixed height for the scrollbar thumb */
+}
+
+.skroll::-webkit-scrollbar-button {
+  display: none; /* Remove the scrollbar arrow */
+}
+
 .title {
   font-size: 30px;
   font-weight: bold;

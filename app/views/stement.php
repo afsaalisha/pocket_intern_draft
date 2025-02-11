@@ -1,12 +1,11 @@
 <?php require_once 'layouts/header.php'; ?>
 <?php require_once 'layouts/sidebar.php'; ?>
 
-<div class="content">
+<div class="content skroll">
     <h1 class="title">Statement</h1>
     <div class="tab-menu">
         <a href="/poshet/stement" class="tab active" onclick="setActiveTab(event, 'stement')">Statement</a>
         <a href="/poshet/void" class="tab" onclick="setActiveTab(event, 'void')">Void</a>
-
     </div>
 
     <!-- Real-Time Calendar Display -->
