@@ -3,15 +3,16 @@
 
 <!-- Mobile Navigation -->
 <nav class="mobile-nav">
-    <a href="#">Statement</a>
-    <a href="#">Terminal</a>
-    <a href="#">Branches</a>
-    <a href="#">Manage Keys</a>
-    <a href="#">Services</a>
-    <a href="#">Finances</a>
-    <a href="#">Settings</a>
-    <a href="#">Integration</a>
-    <a href="#">Manage Payment Plans</a>
+    <a href="/poshet/dashi"><i class="fa-solid fa-book"></i>Dashboard</a>
+    <a href="/poshet/stement"><i class="fa-solid fa-file"></i>Statement</a>
+    <a href="/poshet/tetris"><i class="fa-solid fa-mobile"></i>Terminal</a>
+    <a href="/poshet/branch"><i class="fa-solid fa-building"></i>Branches</a>
+    <a href="/poshet/keys"><i class="fa-solid fa-key"></i>Manage Keys</a>
+    <a href="/poshet/service"><i class="fa-solid fa-briefcase"></i>Services</a>
+    <a href="/poshet/finance"><i class="fa-solid fa-money-bill"></i>Finances</a>
+    <a href="/poshet/home"><i class="fa-solid fa-gear"></i>Settings</a>
+    <a href="/poshet/intete"><i class="fa-solid fa-link"></i>Integration</a>
+    <a href="/poshet/pans"><i class="fa-solid fa-file-invoice"></i>Manage Payment Plans</a>
 </nav>
 
 <!-- Sidebar -->
@@ -148,34 +149,33 @@
     }
 
     document.addEventListener("DOMContentLoaded", function() {
-    const menu = document.querySelector(".menu");
-    const menuItems = document.querySelectorAll(".menu li");
+        const menu = document.querySelector(".menu");
+        const menuItems = document.querySelectorAll(".menu li");
 
-    // Restore scroll position
-    const savedScrollPosition = localStorage.getItem("menuScrollPosition");
-    if (savedScrollPosition) {
-        menu.scrollTop = savedScrollPosition;
-    }
+        // Restore scroll position
+        const savedScrollPosition = localStorage.getItem("menuScrollPosition");
+        if (savedScrollPosition) {
+            menu.scrollTop = savedScrollPosition;
+        }
 
-    menuItems.forEach(item => {
-        item.addEventListener("click", function(event) {
-            event.preventDefault(); // Prevent default anchor behavior
+        menuItems.forEach(item => {
+            item.addEventListener("click", function(event) {
+                event.preventDefault(); // Prevent default anchor behavior
 
-            // Save the current scroll position before redirecting
-            localStorage.setItem("menuScrollPosition", menu.scrollTop);
+                // Save the current scroll position before redirecting
+                localStorage.setItem("menuScrollPosition", menu.scrollTop);
 
-            const page = this.getAttribute("data-page");
-            localStorage.setItem("activePage", page);
-            menuItems.forEach(i => i.classList.remove("active"));
-            this.classList.add("active");
+                const page = this.getAttribute("data-page");
+                localStorage.setItem("activePage", page);
+                menuItems.forEach(i => i.classList.remove("active"));
+                this.classList.add("active");
 
-            // Redirect to the selected page
-            const link = this.querySelector("a");
-            if (link && link.href) {
-                window.location.href = link.href;
-            }
+                // Redirect to the selected page
+                const link = this.querySelector("a");
+                if (link && link.href) {
+                    window.location.href = link.href;
+                }
+            });
         });
     });
-});
-
 </script>

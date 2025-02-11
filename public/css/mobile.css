@@ -10,18 +10,18 @@
     display: none;
     flex-direction: column;
     position: absolute;
-    background: #FCFDFF;
+    background: transparent;
     color: #555555;
-    width: 100%;
     top: 50px;
     left: 0;
     padding: 10px 0;
     transition: left 0.3s ease;
+    width: 100%;
   }
   
   .mobile-nav a {
     color: #555555;
-    background: #FCFDFF;
+    background: transparent;
     padding: 15px;
     text-align: center;
     font-weight: bold;
@@ -32,7 +32,41 @@
   .mobile-nav.active {
     display: flex;
     left: 0;
+    width: 69%;
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+    margin-left: auto;
+    margin-right: 0;
+    align-items: right;
+    gap: 10px;
+    padding: auto;
+    color: #555555;
+    font-weight: bold;
+    cursor: pointer;
   }
+/* Hover effect for menu items */
+
+.mobile-nav.active:hover {
+  transform: scale(1.0); /* Slight pop-out effect */
+  color: #72B9FF; /* Match brand color */
+}
+
+.mobile-nav.active:hover i {
+  color: #72B9FF; /* Icon color change on hover */
+  transition: color 0.3s ease;
+}
+
+.mobile-nav.active a {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+  width: 100%;
+}
+
+.mobile-nav.active i {
+  font-size: 18px;
+  min-width: 30px;
+}
 
   .content  {
     transition: margin-left 0.3s ease;
@@ -44,12 +78,25 @@
   
   /* Mobile view adjustments */
   @media (max-width: 768px) {
-  
     .burger-menu {
       display: block;
       background-color: transparent;
       color: #555555;
       position: fixed;
+    }
+    
+    .selekt {
+      background-color: transparent;
+      border-color: transparent;
+      width: 100%;
+      height: auto;
+      font-size: 18px;
+      padding: 5px;
+      border-radius: 10px;
+    }
+
+    .selekt i {
+      font-size: 24px; /* Increase icon size */
     }
   
     .sidebar {
