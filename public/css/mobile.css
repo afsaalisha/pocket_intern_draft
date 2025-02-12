@@ -32,7 +32,7 @@
   .mobile-nav.active {
     display: flex;
     left: 0;
-    width: 69%;
+    width: 50%;
     /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
     margin-left: auto;
     margin-right: 0;
@@ -43,17 +43,6 @@
     font-weight: bold;
     cursor: pointer;
   }
-/* Hover effect for menu items */
-
-.mobile-nav.active:hover {
-  transform: scale(1.0); /* Slight pop-out effect */
-  color: #72B9FF; /* Match brand color */
-}
-
-.mobile-nav.active:hover i {
-  color: #72B9FF; /* Icon color change on hover */
-  transition: color 0.3s ease;
-}
 
 .mobile-nav.active a {
   display: flex;
@@ -85,18 +74,15 @@
       position: fixed;
     }
     
-    .selekt {
-      background-color: transparent;
-      border-color: transparent;
-      width: 100%;
-      height: auto;
-      font-size: 18px;
-      padding: 5px;
-      border-radius: 10px;
+    .logo { 
+      position: fixed;
+      right: 5px;
+      top: 3px;
     }
 
-    .selekt i {
-      font-size: 24px; /* Increase icon size */
+    .profile {
+      width: 80%;
+      margin: 0 auto;
     }
   
     .sidebar {

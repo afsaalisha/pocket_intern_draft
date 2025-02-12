@@ -1,18 +1,32 @@
 <!-- Burger Menu -->
 <div class="burger-menu" onclick="toggleMenu()"><i class="fa-solid fa-bars"></i></div>
+<div class="logo">
+    <img src="/poshet/public/images/pocket.png" alt="Logo" width="40">
+</div>
 
 <!-- Mobile Navigation -->
 <nav class="mobile-nav">
-    <a href="/poshet/home"><i class="fa-solid fa-book"></i>Dashboard</a>
-    <a href="/poshet/stement"><i class="fa-solid fa-file"></i>Statement</a>
-    <a href="/poshet/tetris"><i class="fa-solid fa-mobile"></i>Terminal</a>
-    <a href="/poshet/branch"><i class="fa-solid fa-building"></i>Branches</a>
-    <a href="/poshet/keys"><i class="fa-solid fa-key"></i>Manage Keys</a>
-    <a href="/poshet/service"><i class="fa-solid fa-briefcase"></i>Services</a>
-    <a href="/poshet/finance"><i class="fa-solid fa-money-bill"></i>Finances</a>
-    <a href="/poshet/set"><i class="fa-solid fa-gear"></i>Settings</a>
-    <a href="/poshet/intete"><i class="fa-solid fa-link"></i>Integration</a>
-    <a href="/poshet/pans"><i class="fa-solid fa-file-invoice"></i>Manage Payment Links</a>
+    <div class="profile" onclick="changeProfilePic()" style="cursor: pointer;">
+        <input type="file" id="profilePicInput" accept="image/*" style="display: none;">
+        <img id="profilePic" src="/poshet/public/images/kiyoshi.jpg" alt="Profile">
+        <div>
+            <div>Username</div>
+            <div class="subtext">ID or something</div>
+        </div>
+    </div>
+
+    <div>
+        <a href="/poshet/home"><i class="fa-solid fa-book"></i>Dashboard</a>
+        <a href="/poshet/stement"><i class="fa-solid fa-file"></i>Statement</a>
+        <a href="/poshet/tetris"><i class="fa-solid fa-mobile"></i>Terminal</a>
+        <a href="/poshet/branch"><i class="fa-solid fa-building"></i>Branches</a>
+        <a href="/poshet/keys"><i class="fa-solid fa-key"></i>Manage Keys</a>
+        <a href="/poshet/service"><i class="fa-solid fa-briefcase"></i>Services</a>
+        <a href="/poshet/finance"><i class="fa-solid fa-money-bill"></i>Finances</a>
+        <a href="/poshet/set"><i class="fa-solid fa-gear"></i>Settings</a>
+        <a href="/poshet/intete"><i class="fa-solid fa-link"></i>Integration</a>
+        <a href="/poshet/pans"><i class="fa-solid fa-file-invoice"></i>Manage Payment Links</a>
+    </div>
 </nav>
 
 <!-- Sidebar -->
@@ -188,85 +202,83 @@
             });
         });
     });
-// Profile Picture Handling with Cropping and GIF Support
-const profilePic = document.getElementById("profilePic");
-const profilePicInput = document.getElementById("profilePicInput");
-const cropModal = document.getElementById("cropModal");
-const cropImage = document.getElementById("cropImage");
-const cropBtn = document.getElementById("cropBtn");
-const closeCropper = document.getElementById("closeCropper");
+    // Profile Picture Handling with Cropping and GIF Support
+    const profilePic = document.getElementById("profilePic");
+    const profilePicInput = document.getElementById("profilePicInput");
+    const cropModal = document.getElementById("cropModal");
+    const cropImage = document.getElementById("cropImage");
+    const cropBtn = document.getElementById("cropBtn");
+    const closeCropper = document.getElementById("closeCropper");
 
-let cropper;
+    let cropper;
 
-// Hide the crop modal immediately when the script is loaded to prevent flickering
-cropModal.style.display = "none";
-
-// Load saved profile picture
-const savedProfilePic = localStorage.getItem("profilePic");
-if (savedProfilePic) {
-    profilePic.src = savedProfilePic;
-}
-
-// Click profile picture to open gallery
-profilePic.addEventListener("click", function () {
-    profilePicInput.click();
-});
-
-// Handle image selection (show modal only after selecting an image)
-profilePicInput.addEventListener("change", function (event) {
-    const file = event.target.files[0];
-    if (!file) return;
-
-    const fileType = file.type;
-    const reader = new FileReader();
-
-    reader.onload = function (e) {
-        const imageData = e.target.result;
-
-        // If it's a GIF, store it directly without cropping
-        if (fileType === "image/gif") {
-            localStorage.setItem("profilePic", imageData);
-            profilePic.src = imageData;
-        } else {
-            // Show modal **only after selecting an image**
-            cropImage.src = imageData;
-            cropModal.style.display = "flex";
-
-            // Destroy previous instance of cropper if exists
-            if (cropper) cropper.destroy();
-
-            cropper = new Cropper(cropImage, {
-                aspectRatio: 1, // Square crop for profile pic
-                viewMode: 2
-            });
-        }
-    };
-
-    reader.readAsDataURL(file);
-});
-
-// Crop and save image
-cropBtn.addEventListener("click", function () {
-    const canvas = cropper.getCroppedCanvas();
-    const croppedImage = canvas.toDataURL("image/png");
-
-    // Save cropped image
-    localStorage.setItem("profilePic", croppedImage);
-    profilePic.src = croppedImage;
-
-    // Hide crop modal
+    // Hide the crop modal immediately when the script is loaded to prevent flickering
     cropModal.style.display = "none";
-});
 
-// Close the cropper without saving
-closeCropper.addEventListener("click", function () {
-    cropModal.style.display = "none";
-});
+    // Load saved profile picture
+    const savedProfilePic = localStorage.getItem("profilePic");
+    if (savedProfilePic) {
+        profilePic.src = savedProfilePic;
+    }
 
-// Ensure the crop modal is hidden on page load
-document.addEventListener("DOMContentLoaded", function () {
-    cropModal.style.display = "none";
-});
+    // Click profile picture to open gallery
+    profilePic.addEventListener("click", function() {
+        profilePicInput.click();
+    });
 
+    // Handle image selection (show modal only after selecting an image)
+    profilePicInput.addEventListener("change", function(event) {
+        const file = event.target.files[0];
+        if (!file) return;
 
+        const fileType = file.type;
+        const reader = new FileReader();
+
+        reader.onload = function(e) {
+            const imageData = e.target.result;
+
+            // If it's a GIF, store it directly without cropping
+            if (fileType === "image/gif") {
+                localStorage.setItem("profilePic", imageData);
+                profilePic.src = imageData;
+            } else {
+                // Show modal **only after selecting an image**
+                cropImage.src = imageData;
+                cropModal.style.display = "flex";
+
+                // Destroy previous instance of cropper if exists
+                if (cropper) cropper.destroy();
+
+                cropper = new Cropper(cropImage, {
+                    aspectRatio: 1, // Square crop for profile pic
+                    viewMode: 2
+                });
+            }
+        };
+
+        reader.readAsDataURL(file);
+    });
+
+    // Crop and save image
+    cropBtn.addEventListener("click", function() {
+        const canvas = cropper.getCroppedCanvas();
+        const croppedImage = canvas.toDataURL("image/png");
+
+        // Save cropped image
+        localStorage.setItem("profilePic", croppedImage);
+        profilePic.src = croppedImage;
+
+        // Hide crop modal
+        cropModal.style.display = "none";
+    });
+
+    // Close the cropper without saving
+    closeCropper.addEventListener("click", function() {
+        cropModal.style.display = "none";
+    });
+
+    // Ensure the crop modal is hidden on page load
+    document.addEventListener("DOMContentLoaded", function() {
+        cropModal.style.display = "none";
+    });
 </script>
