@@ -98,8 +98,10 @@
     <!-- Modal -->
     <div id="userModal" class="modal" style="display:none;">
         <div class="modal-content">
+            <div class="modal-header">
             <span class="close">&times;</span>
             <h2>Add User</h2>
+            </div>
             <label>Username:</label>
             <input type="text" id="username"><br>
             <label>Email:</label>
@@ -107,62 +109,109 @@
             <label>Phone Number:</label>
             <input type="text" id="phone"><br>
             <label>Branch:</label>
-            <input type="text" id="branch"><br>
-            <button id="saveUser">Save</button>
+            <div class="dropdown-wrapper">
+            <select id="branch">
+                <option value="" disabled selected>Select Branch</option>
+                <option value="ThreeG Media (Kiulap)">ThreeG Media (Kiulap)</option>
+                <option value="Macaroon">Macaroon</option>
+            </select>
+            </div>
+            <div class="modal-footer">
+            <button id="saveUser">Save</button></div>
         </div>
     </div>
 <?php require_once 'layouts/footer.php'; ?>
 
 <script>
-    function toggleActivation(button, row) {
-        const statusCell = row.querySelector('.active-status');
-        
-        if (button.classList.contains('activate')) {
-            button.classList.remove('activate');
-            button.classList.add('deactivate');
-            button.textContent = 'Deactivate';
-            statusCell.textContent = 'Yes';
-        } else {
-            button.classList.remove('deactivate');
-            button.classList.add('activate');
-            button.textContent = 'Activate';
-            statusCell.textContent = 'No';
-        }
+function toggleActivation(button, row) {
+    const statusCell = row.querySelector('.active-status');
+
+    if (button.classList.contains('activate')) {
+        button.classList.remove('activate');
+        button.classList.add('deactivate');
+        button.textContent = 'Deactivate';
+        statusCell.textContent = 'Yes';
+    } else {
+        button.classList.remove('deactivate');
+        button.classList.add('activate');
+        button.textContent = 'Activate';
+        statusCell.textContent = 'No';
     }
+}
 
-    document.getElementById('openModal').addEventListener('click', function() {
-        document.getElementById('userModal').style.display = 'block';
-    });
+// Function to update entry count in the table footer
+function updateEntryCount() {
+    const tableBody = document.getElementById('userTableBody');
+    const totalEntries = tableBody.getElementsByTagName('tr').length;
+    document.querySelector('.table-footer span').textContent = `Showing 1 to ${totalEntries} of ${totalEntries} entries`;
+}
 
-    document.querySelector('.close').addEventListener('click', function() {
+// Open modal and clear fields
+document.getElementById('openModal').addEventListener('click', function() {
+    document.getElementById('userModal').style.display = 'block';
+
+    // Clear all input fields when opening modal
+    document.getElementById('username').value = '';
+    document.getElementById('email').value = '';
+    document.getElementById('phone').value = '';
+    document.getElementById('branch').value = ''; // Reset dropdown
+});
+
+// Close modal and reset fields
+document.querySelector('.close').addEventListener('click', function() {
+    document.getElementById('userModal').style.display = 'none';
+
+    // Clear all input fields when closing modal
+    document.getElementById('username').value = '';
+    document.getElementById('email').value = '';
+    document.getElementById('phone').value = '';
+    document.getElementById('branch').value = ''; // Reset dropdown
+});
+
+// Save user and add to table
+document.getElementById('saveUser').addEventListener('click', function() {
+    const username = document.getElementById('username').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const phone = document.getElementById('phone').value.trim();
+    const branchDropdown = document.querySelector('.dropdown-wrapper select');
+    const branch = branchDropdown.options[branchDropdown.selectedIndex].text; // Get selected branch text
+
+    // Validate fields
+    if (username && email && phone && branch !== "Select Branch") {
+        const tableBody = document.getElementById('userTableBody');
+        const newRow = document.createElement('tr');
+        newRow.innerHTML = `
+            <td>${username}</td>
+            <td>${email}</td>
+            <td>${phone}</td>
+            <td>Branch Employee</td>
+            <td>${branch}</td>
+            <td class="active-status">No</td>
+            <td>
+                <button class="permissions">Permissions</button>
+                <button class="activate" onclick="toggleActivation(this, this.closest('tr'))">Activate</button>
+            </td>
+        `;
+        tableBody.appendChild(newRow);
+
+        // Update entry count
+        updateEntryCount();
+
+        // Close modal
         document.getElementById('userModal').style.display = 'none';
-    });
 
-    document.getElementById('saveUser').addEventListener('click', function() {
-        const username = document.getElementById('username').value;
-        const email = document.getElementById('email').value;
-        const phone = document.getElementById('phone').value;
-        const branch = document.getElementById('branch').value;
-        
-        if (username && email && phone && branch) {
-            const tableBody = document.getElementById('userTableBody');
-            const newRow = document.createElement('tr');
-            newRow.innerHTML = `
-                <td>${username}</td>
-                <td>${email}</td>
-                <td>${phone}</td>
-                <td>Branch Employee</td>
-                <td>${branch}</td>
-                <td class="active-status">No</td>
-                <td>
-                    <button class="permissions">Permissions</button>
-                    <button class="activate" onclick="toggleActivation(this, this.closest('tr'))">Activate</button>
-                </td>
-            `;
-            tableBody.appendChild(newRow);
-            document.getElementById('userModal').style.display = 'none';
-        } else {
-            alert('Please fill in all fields.');
-        }
-    });
+        // Clear fields after saving
+        document.getElementById('username').value = '';
+        document.getElementById('email').value = '';
+        document.getElementById('phone').value = '';
+        branchDropdown.selectedIndex = 0; // Reset dropdown
+    } else {
+        alert('Please fill in all fields correctly.');
+    }
+});
+
+// Call update function on page load
+updateEntryCount();
+
+
 </script>

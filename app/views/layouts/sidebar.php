@@ -12,7 +12,7 @@
     <a href="/poshet/finance"><i class="fa-solid fa-money-bill"></i>Finances</a>
     <a href="/poshet/set"><i class="fa-solid fa-gear"></i>Settings</a>
     <a href="/poshet/intete"><i class="fa-solid fa-link"></i>Integration</a>
-    <a href="/poshet/pans"><i class="fa-solid fa-file-invoice"></i>Manage Payment Plans</a>
+    <a href="/poshet/pans"><i class="fa-solid fa-file-invoice"></i>Manage Payment Links</a>
 </nav>
 
 <!-- Sidebar -->
@@ -38,7 +38,7 @@
         <li data-page="finances"><a href="/poshet/finance" style="text-decoration: none !important; color: inherit !important;"><i class="fa-solid fa-money-bill"></i> Finances</a></li>
         <li data-page="set"><a href="/poshet/set" style="text-decoration: none !important; color: inherit !important;"><i class="fa-solid fa-gear"></i> Settings</a></li>
         <li data-page="integration"><a href="/poshet/intete" style="text-decoration: none !important; color: inherit !important;"><i class="fa-solid fa-link"></i> Integration</a></li>
-        <li data-page="manage-payment"><a href="/poshet/pans" style="text-decoration: none !important; color: inherit !important;"><i class="fa-solid fa-file-invoice"></i> Manage Payment Plans</a></li>
+        <li data-page="manage-payment"><a href="/poshet/pans" style="text-decoration: none !important; color: inherit !important;"><i class="fa-solid fa-file-invoice"></i> Manage Payment Links</a></li>
     </ul>
 
     <div class="logout">Logout</div>
