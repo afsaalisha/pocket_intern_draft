@@ -17,8 +17,8 @@
             <label>Automatically approve 'change payment method' requests?</label> 
             <div class="dropdown-box">
                 <select class="styled-dropdown">
-                    <option selected class="urmom">Yes</option> 
-                    <option class="urmom">No</option>
+                    <option selected class="urdad">Yes</option> 
+                    <option class="urdad">No</option>
                 </select>
             </div>
         </div>
