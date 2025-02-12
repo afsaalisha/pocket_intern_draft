@@ -44,163 +44,204 @@
     <div class="logout">Logout</div>
 </div>
 
+<!-- Cropping Modal -->
+<div id="cropModal">
+    <div class="modal-content">
+        <img id="cropImage" style="max-width: 100%;">
+        <button id="cropBtn">Crop & Save</button>
+        <button id="closeCropper">Cancel</button>
+    </div>
+</div>
+
 <script>
-    function toggleMenu() {
-        document.querySelector('.mobile-nav').classList.toggle('active');
+document.addEventListener("DOMContentLoaded", function () {
+    // Menu Active State Handling
+    const menuItems = document.querySelectorAll(".menu li");
+    const currentPage = localStorage.getItem("activePage");
+
+    menuItems.forEach(item => item.classList.remove("active"));
+
+    if (currentPage) {
+        document.querySelector(`[data-page="${currentPage}"]`)?.classList.add("active");
     }
 
-    document.addEventListener("DOMContentLoaded", function() {
-        const menuItems = document.querySelectorAll(".menu li");
-        const currentPage = localStorage.getItem("activePage");
+    menuItems.forEach(item => {
+        item.addEventListener("click", function (event) {
+            event.preventDefault(); // Prevent default anchor behavior
+            const page = this.getAttribute("data-page");
+            localStorage.setItem("activePage", page);
+            menuItems.forEach(i => i.classList.remove("active"));
+            this.classList.add("active");
 
-        // Remove active class from all menu items before setting the correct one
-        menuItems.forEach(item => item.classList.remove("active"));
-
-        if (currentPage) {
-            document.querySelector(`[data-page="${currentPage}"]`)?.classList.add("active");
-        }
-
-        menuItems.forEach(item => {
-            item.addEventListener("click", function(event) {
-                event.preventDefault(); // Prevent default anchor behavior
-                const page = this.getAttribute("data-page");
-                localStorage.setItem("activePage", page);
-                menuItems.forEach(i => i.classList.remove("active"));
-                this.classList.add("active");
-
-                // Redirect to the selected page
-                const link = this.querySelector("a");
-                if (link && link.href) {
-                    window.location.href = link.href;
-                }
-            });
+            // Redirect to the selected page
+            const link = this.querySelector("a");
+            if (link && link.href) {
+                window.location.href = link.href;
+            }
         });
-
-        // Ensure the main tab stays active when accessing subtabs
-        const urlPath = window.location.pathname;
-        let matchedPage = null;
-
-        if (urlPath.includes("/poshet/stement") || urlPath.includes("/poshet/void")) {
-            matchedPage = "statement";
-        }
-
-        if (urlPath.includes("/poshet/set") || urlPath.includes("/poshet/branch-user-accounts")) {
-            matchedPage = "set";
-        }
-
-        if (matchedPage) {
-            localStorage.setItem("activePage", matchedPage);
-            document.querySelector(`[data-page="${matchedPage}"]`)?.classList.add("active");
-        }
     });
 
-    document.addEventListener("DOMContentLoaded", function() {
-        const menuItems = document.querySelectorAll(".menu li");
-        const logoutButton = document.querySelector(".logout");
-        const sidebar = document.querySelector(".sidebar");
-        const content = document.querySelector(".content");
-        const loginButton = document.createElement("div");
-        loginButton.textContent = "Login";
-        loginButton.classList.add("login");
-        loginButton.style.background = "#C1E1C1";
-        loginButton.style.padding = "10px";
-        loginButton.style.textAlign = "center";
-        loginButton.style.borderRadius = "5px";
-        loginButton.style.fontWeight = "bold";
-        loginButton.style.color = "#0E6E29";
-        loginButton.style.cursor = "pointer";
+    // Handling Subpages
+    const urlPath = window.location.pathname;
+    let matchedPage = null;
+
+    if (urlPath.includes("/poshet/stement") || urlPath.includes("/poshet/void")) {
+        matchedPage = "statement";
+    }
+    if (urlPath.includes("/poshet/set") || urlPath.includes("/poshet/branch-user-accounts")) {
+        matchedPage = "set";
+    }
+
+    if (matchedPage) {
+        localStorage.setItem("activePage", matchedPage);
+        document.querySelector(`[data-page="${matchedPage}"]`)?.classList.add("active");
+    }
+
+    // Logout Button Handling
+    const logoutButton = document.querySelector(".logout");
+    const sidebar = document.querySelector(".sidebar");
+    const content = document.querySelector(".content");
+    const loginButton = document.createElement("div");
+
+    loginButton.textContent = "Login";
+    loginButton.classList.add("login");
+    loginButton.style.background = "#C1E1C1";
+    loginButton.style.padding = "10px";
+    loginButton.style.textAlign = "center";
+    loginButton.style.borderRadius = "5px";
+    loginButton.style.fontWeight = "bold";
+    loginButton.style.color = "#0E6E29";
+    loginButton.style.cursor = "pointer";
+    loginButton.style.display = "none";
+    loginButton.style.position = "absolute";
+    loginButton.style.top = "50%";
+    loginButton.style.left = "50%";
+    loginButton.style.transform = "translate(-50%, -50%)";
+
+    document.body.appendChild(loginButton);
+
+    logoutButton.addEventListener("click", function () {
+        localStorage.removeItem("activePage");
+        sidebar.style.display = "none";
+        if (content) content.style.display = "none";
+        loginButton.style.display = "block";
+    });
+
+    loginButton.addEventListener("click", function () {
+        sidebar.style.display = "block";
+        if (content) content.style.display = "block";
         loginButton.style.display = "none";
-        loginButton.style.position = "absolute";
-        loginButton.style.top = "50%";
-        loginButton.style.left = "50%";
-        loginButton.style.transform = "translate(-50%, -50%)";
-
-        document.body.appendChild(loginButton);
-
-        const currentPage = localStorage.getItem("activePage");
-        if (currentPage) {
-            document.querySelector(`[data-page="${currentPage}"]`)?.classList.add("active");
-        }
-
-        menuItems.forEach(item => {
-            item.addEventListener("click", function() {
-                localStorage.setItem("activePage", this.getAttribute("data-page"));
-            });
-        });
-
-        logoutButton.addEventListener("click", function() {
-            localStorage.removeItem("activePage");
-            sidebar.style.display = "none";
-            if (content) content.style.display = "none";
-            loginButton.style.display = "block";
-        });
-
-        loginButton.addEventListener("click", function() {
-            sidebar.style.display = "block";
-            if (content) content.style.display = "block";
-            loginButton.style.display = "none";
-        });
     });
 
-    function toggleMenu() {
-        const mobileNav = document.querySelector('.mobile-nav');
-        const content = document.querySelector('.content');
-        mobileNav.classList.toggle('active');
-        content.classList.toggle('shifted');
+    // Menu Scroll Position Persistence
+    const menu = document.querySelector(".menu");
+    const savedScrollPosition = localStorage.getItem("menuScrollPosition");
+
+    if (savedScrollPosition) {
+        menu.scrollTop = savedScrollPosition;
     }
 
-    document.addEventListener("DOMContentLoaded", function() {
-        const menu = document.querySelector(".menu");
-        const menuItems = document.querySelectorAll(".menu li");
+    menuItems.forEach(item => {
+        item.addEventListener("click", function (event) {
+            event.preventDefault(); // Prevent default anchor behavior
 
-        // Restore scroll position
-        const savedScrollPosition = localStorage.getItem("menuScrollPosition");
-        if (savedScrollPosition) {
-            menu.scrollTop = savedScrollPosition;
-        }
+            // Save the current scroll position before redirecting
+            localStorage.setItem("menuScrollPosition", menu.scrollTop);
 
-        menuItems.forEach(item => {
-            item.addEventListener("click", function(event) {
-                event.preventDefault(); // Prevent default anchor behavior
+            const page = this.getAttribute("data-page");
+            localStorage.setItem("activePage", page);
+            menuItems.forEach(i => i.classList.remove("active"));
+            this.classList.add("active");
 
-                // Save the current scroll position before redirecting
-                localStorage.setItem("menuScrollPosition", menu.scrollTop);
-
-                const page = this.getAttribute("data-page");
-                localStorage.setItem("activePage", page);
-                menuItems.forEach(i => i.classList.remove("active"));
-                this.classList.add("active");
-
-                // Redirect to the selected page
-                const link = this.querySelector("a");
-                if (link && link.href) {
-                    window.location.href = link.href;
-                }
-            });
+            // Redirect to the selected page
+            const link = this.querySelector("a");
+            if (link && link.href) {
+                window.location.href = link.href;
+            }
         });
     });
 
-    function changeProfilePic() {
-        document.getElementById('profilePicInput').click();
-    }
+// Profile Picture Handling with Cropping and GIF Support
+const profilePic = document.getElementById("profilePic");
+const profilePicInput = document.getElementById("profilePicInput");
+const cropModal = document.getElementById("cropModal");
+const cropImage = document.getElementById("cropImage");
+const cropBtn = document.getElementById("cropBtn");
+const closeCropper = document.getElementById("closeCropper");
 
-    document.getElementById('profilePicInput').addEventListener('change', function(event) {
-        const file = event.target.files[0];
-        if (file) {
-            const reader = new FileReader();
-            reader.onload = function(e) {
-                const imageData = e.target.result;
-                document.getElementById('profilePic').src = imageData;
-                localStorage.setItem('profilePic', imageData);
-            };
-            reader.readAsDataURL(file);
-        }
-    });
+let cropper;
 
-    document.addEventListener("DOMContentLoaded", function() {
-        const savedProfilePic = localStorage.getItem('profilePic');
-        if (savedProfilePic) {
-            document.getElementById('profilePic').src = savedProfilePic;
+// Hide the crop modal immediately when the script is loaded to prevent flickering
+cropModal.style.display = "none";
+
+// Load saved profile picture
+const savedProfilePic = localStorage.getItem("profilePic");
+if (savedProfilePic) {
+    profilePic.src = savedProfilePic;
+}
+
+// Click profile picture to open gallery
+profilePic.addEventListener("click", function () {
+    profilePicInput.click();
+});
+
+// Handle image selection (show modal only after selecting an image)
+profilePicInput.addEventListener("change", function (event) {
+    const file = event.target.files[0];
+    if (!file) return;
+
+    const fileType = file.type;
+    const reader = new FileReader();
+
+    reader.onload = function (e) {
+        const imageData = e.target.result;
+
+        // If it's a GIF, store it directly without cropping
+        if (fileType === "image/gif") {
+            localStorage.setItem("profilePic", imageData);
+            profilePic.src = imageData;
+        } else {
+            // Show modal **only after selecting an image**
+            cropImage.src = imageData;
+            cropModal.style.display = "flex";
+
+            // Destroy previous instance of cropper if exists
+            if (cropper) cropper.destroy();
+
+            cropper = new Cropper(cropImage, {
+                aspectRatio: 1, // Square crop for profile pic
+                viewMode: 2
+            });
         }
-    });
+    };
+
+    reader.readAsDataURL(file);
+});
+
+// Crop and save image
+cropBtn.addEventListener("click", function () {
+    const canvas = cropper.getCroppedCanvas();
+    const croppedImage = canvas.toDataURL("image/png");
+
+    // Save cropped image
+    localStorage.setItem("profilePic", croppedImage);
+    profilePic.src = croppedImage;
+
+    // Hide crop modal
+    cropModal.style.display = "none";
+});
+
+// Close the cropper without saving
+closeCropper.addEventListener("click", function () {
+    cropModal.style.display = "none";
+});
+
+// Ensure the crop modal is hidden on page load
+document.addEventListener("DOMContentLoaded", function () {
+    cropModal.style.display = "none";
+});
+
+});
+
+
 </script>
