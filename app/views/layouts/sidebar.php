@@ -54,113 +54,140 @@
 </div>
 
 <script>
-document.addEventListener("DOMContentLoaded", function () {
-    // Menu Active State Handling
-    const menuItems = document.querySelectorAll(".menu li");
-    const currentPage = localStorage.getItem("activePage");
-
-    menuItems.forEach(item => item.classList.remove("active"));
-
-    if (currentPage) {
-        document.querySelector(`[data-page="${currentPage}"]`)?.classList.add("active");
+    function toggleMenu() {
+        document.querySelector('.mobile-nav').classList.toggle('active');
     }
 
-    menuItems.forEach(item => {
-        item.addEventListener("click", function (event) {
-            event.preventDefault(); // Prevent default anchor behavior
-            const page = this.getAttribute("data-page");
-            localStorage.setItem("activePage", page);
-            menuItems.forEach(i => i.classList.remove("active"));
-            this.classList.add("active");
+    document.addEventListener("DOMContentLoaded", function() {
+        const menuItems = document.querySelectorAll(".menu li");
+        const currentPage = localStorage.getItem("activePage");
 
-            // Redirect to the selected page
-            const link = this.querySelector("a");
-            if (link && link.href) {
-                window.location.href = link.href;
-            }
+        // Remove active class from all menu items before setting the correct one
+        menuItems.forEach(item => item.classList.remove("active"));
+
+        if (currentPage) {
+            document.querySelector(`[data-page="${currentPage}"]`)?.classList.add("active");
+        }
+
+        menuItems.forEach(item => {
+            item.addEventListener("click", function(event) {
+                event.preventDefault(); // Prevent default anchor behavior
+                const page = this.getAttribute("data-page");
+                localStorage.setItem("activePage", page);
+                menuItems.forEach(i => i.classList.remove("active"));
+                this.classList.add("active");
+
+                // Redirect to the selected page
+                const link = this.querySelector("a");
+                if (link && link.href) {
+                    window.location.href = link.href;
+                }
+            });
         });
+
+        // Ensure the main tab stays active when accessing subtabs
+        const urlPath = window.location.pathname;
+        let matchedPage = null;
+
+        if (urlPath.includes("/poshet/stement") || urlPath.includes("/poshet/void")) {
+            matchedPage = "statement";
+        }
+
+        if (urlPath.includes("/poshet/set") || urlPath.includes("/poshet/branch-user-accounts")) {
+            matchedPage = "set";
+        }
+
+        if (matchedPage) {
+            localStorage.setItem("activePage", matchedPage);
+            document.querySelector(`[data-page="${matchedPage}"]`)?.classList.add("active");
+        }
     });
 
-    // Handling Subpages
-    const urlPath = window.location.pathname;
-    let matchedPage = null;
-
-    if (urlPath.includes("/poshet/stement") || urlPath.includes("/poshet/void")) {
-        matchedPage = "statement";
-    }
-    if (urlPath.includes("/poshet/set") || urlPath.includes("/poshet/branch-user-accounts")) {
-        matchedPage = "set";
-    }
-
-    if (matchedPage) {
-        localStorage.setItem("activePage", matchedPage);
-        document.querySelector(`[data-page="${matchedPage}"]`)?.classList.add("active");
-    }
-
-    // Logout Button Handling
-    const logoutButton = document.querySelector(".logout");
-    const sidebar = document.querySelector(".sidebar");
-    const content = document.querySelector(".content");
-    const loginButton = document.createElement("div");
-
-    loginButton.textContent = "Login";
-    loginButton.classList.add("login");
-    loginButton.style.background = "#C1E1C1";
-    loginButton.style.padding = "10px";
-    loginButton.style.textAlign = "center";
-    loginButton.style.borderRadius = "5px";
-    loginButton.style.fontWeight = "bold";
-    loginButton.style.color = "#0E6E29";
-    loginButton.style.cursor = "pointer";
-    loginButton.style.display = "none";
-    loginButton.style.position = "absolute";
-    loginButton.style.top = "50%";
-    loginButton.style.left = "50%";
-    loginButton.style.transform = "translate(-50%, -50%)";
-
-    document.body.appendChild(loginButton);
-
-    logoutButton.addEventListener("click", function () {
-        localStorage.removeItem("activePage");
-        sidebar.style.display = "none";
-        if (content) content.style.display = "none";
-        loginButton.style.display = "block";
-    });
-
-    loginButton.addEventListener("click", function () {
-        sidebar.style.display = "block";
-        if (content) content.style.display = "block";
+    document.addEventListener("DOMContentLoaded", function() {
+        const menuItems = document.querySelectorAll(".menu li");
+        const logoutButton = document.querySelector(".logout");
+        const sidebar = document.querySelector(".sidebar");
+        const content = document.querySelector(".content");
+        const loginButton = document.createElement("div");
+        loginButton.textContent = "Login";
+        loginButton.classList.add("login");
+        loginButton.style.background = "#C1E1C1";
+        loginButton.style.padding = "10px";
+        loginButton.style.textAlign = "center";
+        loginButton.style.borderRadius = "5px";
+        loginButton.style.fontWeight = "bold";
+        loginButton.style.color = "#0E6E29";
+        loginButton.style.cursor = "pointer";
         loginButton.style.display = "none";
-    });
+        loginButton.style.position = "absolute";
+        loginButton.style.top = "50%";
+        loginButton.style.left = "50%";
+        loginButton.style.transform = "translate(-50%, -50%)";
 
-    // Menu Scroll Position Persistence
-    const menu = document.querySelector(".menu");
-    const savedScrollPosition = localStorage.getItem("menuScrollPosition");
+        document.body.appendChild(loginButton);
 
-    if (savedScrollPosition) {
-        menu.scrollTop = savedScrollPosition;
-    }
+        const currentPage = localStorage.getItem("activePage");
+        if (currentPage) {
+            document.querySelector(`[data-page="${currentPage}"]`)?.classList.add("active");
+        }
 
-    menuItems.forEach(item => {
-        item.addEventListener("click", function (event) {
-            event.preventDefault(); // Prevent default anchor behavior
+        menuItems.forEach(item => {
+            item.addEventListener("click", function() {
+                localStorage.setItem("activePage", this.getAttribute("data-page"));
+            });
+        });
 
-            // Save the current scroll position before redirecting
-            localStorage.setItem("menuScrollPosition", menu.scrollTop);
+        logoutButton.addEventListener("click", function() {
+            localStorage.removeItem("activePage");
+            sidebar.style.display = "none";
+            if (content) content.style.display = "none";
+            loginButton.style.display = "block";
+        });
 
-            const page = this.getAttribute("data-page");
-            localStorage.setItem("activePage", page);
-            menuItems.forEach(i => i.classList.remove("active"));
-            this.classList.add("active");
-
-            // Redirect to the selected page
-            const link = this.querySelector("a");
-            if (link && link.href) {
-                window.location.href = link.href;
-            }
+        loginButton.addEventListener("click", function() {
+            sidebar.style.display = "block";
+            if (content) content.style.display = "block";
+            loginButton.style.display = "none";
         });
     });
 
+    function toggleMenu() {
+        const mobileNav = document.querySelector('.mobile-nav');
+        const content = document.querySelector('.content');
+        mobileNav.classList.toggle('active');
+        content.classList.toggle('shifted');
+    }
+
+    document.addEventListener("DOMContentLoaded", function() {
+        const menu = document.querySelector(".menu");
+        const menuItems = document.querySelectorAll(".menu li");
+
+        // Restore scroll position
+        const savedScrollPosition = localStorage.getItem("menuScrollPosition");
+        if (savedScrollPosition) {
+            menu.scrollTop = savedScrollPosition;
+        }
+
+        menuItems.forEach(item => {
+            item.addEventListener("click", function(event) {
+                event.preventDefault(); // Prevent default anchor behavior
+
+                // Save the current scroll position before redirecting
+                localStorage.setItem("menuScrollPosition", menu.scrollTop);
+
+                const page = this.getAttribute("data-page");
+                localStorage.setItem("activePage", page);
+                menuItems.forEach(i => i.classList.remove("active"));
+                this.classList.add("active");
+
+                // Redirect to the selected page
+                const link = this.querySelector("a");
+                if (link && link.href) {
+                    window.location.href = link.href;
+                }
+            });
+        });
+    });
 // Profile Picture Handling with Cropping and GIF Support
 const profilePic = document.getElementById("profilePic");
 const profilePicInput = document.getElementById("profilePicInput");
@@ -239,8 +266,6 @@ closeCropper.addEventListener("click", function () {
 // Ensure the crop modal is hidden on page load
 document.addEventListener("DOMContentLoaded", function () {
     cropModal.style.display = "none";
-});
-
 });
 
 
