@@ -834,6 +834,10 @@ body {
 }
 
 #cropModal {
+  display: none;
+}
+
+#cropModal {
     display: none;
     position: fixed;      /* Ensure it's fixed relative to the viewport */
     top: 0;
