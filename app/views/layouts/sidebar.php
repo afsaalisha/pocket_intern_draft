@@ -7,8 +7,8 @@
 <!-- Mobile Navigation -->
 <nav class="mobile-nav">
     <div class="profile" onclick="changeProfilePic()" style="cursor: pointer;">
-        <input type="file" id="profilePicInput" accept="image/*" style="display: none;">
-        <img id="profilePic" src="/poshet/public/images/kiyoshi.jpg" alt="Profile">
+        <input type="file" class="profilePicInput" accept="image/*" style="display: none;">
+        <img class="profilePic" src="/poshet/public/images/kiyoshi.jpg" alt="Profile">
         <div>
             <div>Username</div>
             <div class="subtext">ID or something</div>
@@ -35,8 +35,8 @@
         <img src="/poshet/public/images/pocket.png" alt="Logo" width="40">
     </div>
     <div class="profile" onclick="changeProfilePic()" style="cursor: pointer;">
-        <input type="file" id="profilePicInput" accept="image/*" style="display: none;">
-        <img id="profilePic" src="/poshet/public/images/kiyoshi.jpg" alt="Profile">
+        <input type="file" class="profilePicInput" accept="image/*" style="display: none;">
+        <img class="profilePic" src="/poshet/public/images/kiyoshi.jpg" alt="Profile">
         <div>
             <div>Username</div>
             <div class="subtext">ID or something</div>
@@ -202,32 +202,35 @@
             });
         });
     });
-    // Profile Picture Handling with Cropping and GIF Support
-    const profilePic = document.getElementById("profilePic");
-    const profilePicInput = document.getElementById("profilePicInput");
-    const cropModal = document.getElementById("cropModal");
-    const cropImage = document.getElementById("cropImage");
-    const cropBtn = document.getElementById("cropBtn");
-    const closeCropper = document.getElementById("closeCropper");
+// Profile Picture Handling with Cropping and GIF Support
+const profilePics = document.querySelectorAll(".profilePic");
+const profilePicInputs = document.querySelectorAll(".profilePicInput");
+const cropModal = document.getElementById("cropModal");
+const cropImage = document.getElementById("cropImage");
+const cropBtn = document.getElementById("cropBtn");
+const closeCropper = document.getElementById("closeCropper");
 
-    let cropper;
+let cropper;
 
-    // Hide the crop modal immediately when the script is loaded to prevent flickering
-    cropModal.style.display = "none";
+// Hide the crop modal initially to prevent flickering
+cropModal.style.display = "none";
 
-    // Load saved profile picture
-    const savedProfilePic = localStorage.getItem("profilePic");
-    if (savedProfilePic) {
-        profilePic.src = savedProfilePic;
-    }
+// Load saved profile picture
+const savedProfilePic = localStorage.getItem("profilePic");
+if (savedProfilePic) {
+    profilePics.forEach(pic => pic.src = savedProfilePic);
+}
 
-    // Click profile picture to open gallery
+// Ensure profile image is clickable on both mobile and desktop
+profilePics.forEach((profilePic, index) => {
     profilePic.addEventListener("click", function() {
-        profilePicInput.click();
+        profilePicInputs[index].click();
     });
+});
 
-    // Handle image selection (show modal only after selecting an image)
-    profilePicInput.addEventListener("change", function(event) {
+// Handle image selection (show modal only after selecting an image)
+profilePicInputs.forEach((input, index) => {
+    input.addEventListener("change", function(event) {
         const file = event.target.files[0];
         if (!file) return;
 
@@ -240,11 +243,11 @@
             // If it's a GIF, store it directly without cropping
             if (fileType === "image/gif") {
                 localStorage.setItem("profilePic", imageData);
-                profilePic.src = imageData;
+                profilePics[index].src = imageData;
             } else {
                 // Show modal **only after selecting an image**
                 cropImage.src = imageData;
-                cropModal.style.display = "flex";
+                cropModal.style.display = "flex"; // Ensure modal is displayed on desktop as well
 
                 // Destroy previous instance of cropper if exists
                 if (cropper) cropper.destroy();
@@ -258,27 +261,30 @@
 
         reader.readAsDataURL(file);
     });
+});
 
-    // Crop and save image
-    cropBtn.addEventListener("click", function() {
-        const canvas = cropper.getCroppedCanvas();
-        const croppedImage = canvas.toDataURL("image/png");
+// Crop and save image
+cropBtn.addEventListener("click", function() {
+    const canvas = cropper.getCroppedCanvas();
+    const croppedImage = canvas.toDataURL("image/png");
 
-        // Save cropped image
-        localStorage.setItem("profilePic", croppedImage);
-        profilePic.src = croppedImage;
+    // Save cropped image
+    localStorage.setItem("profilePic", croppedImage);
+    profilePics.forEach(pic => pic.src = croppedImage);
 
-        // Hide crop modal
-        cropModal.style.display = "none";
-    });
+    // Hide crop modal
+    cropModal.style.display = "none";
+});
 
-    // Close the cropper without saving
-    closeCropper.addEventListener("click", function() {
-        cropModal.style.display = "none";
-    });
+// Close the cropper without saving
+closeCropper.addEventListener("click", function() {
+    cropModal.style.display = "none";
+});
 
-    // Ensure the crop modal is hidden on page load
-    document.addEventListener("DOMContentLoaded", function() {
-        cropModal.style.display = "none";
-    });
+// Ensure the crop modal is hidden on page load
+document.addEventListener("DOMContentLoaded", function() {
+    cropModal.style.display = "none";
+});
+
+
 </script>
