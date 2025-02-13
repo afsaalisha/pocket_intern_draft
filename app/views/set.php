@@ -2,9 +2,6 @@
 <?php require_once 'layouts/sidebar.php'; ?>
 
 <div class="content">
-    <div class="breadcrumb">
-        <span>Settings</span> > <span class="active">Rent To Own Settings</span>
-    </div>
     <h1 class="title">Settings</h1>
     <div class="tab-menu">
     <a href="/poshet/set" class="tab active">Rent To Own Settings</a>

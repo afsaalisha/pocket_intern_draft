@@ -2,9 +2,6 @@
 <?php require_once 'layouts/sidebar.php'; ?>
 
 <div class="content">
-    <div class="breadcrumb">
-        <span>Settings</span> > <span class="active">Branch User Accounts</span>
-    </div>
     <h1 class="title">Settings</h1>
     <div class="tab-menu">
         <a href="/poshet/set" class="tab" onclick="setActiveTab(event, 'home')">Rent To Own Settings</a>
@@ -43,8 +40,8 @@
                 <td>ThreeG Media (Kiulap)</td>
                 <td class="active-status">Yes</td>
                 <td>
-                    <button class="permissions">Permissions</button>
-                    <button class="deactivate" onclick="toggleActivation(this, this.closest('tr'))">Deactivate</button>
+                <button class="permissions" onclick="openPermissionsModal()">Permissions</button>
+                <button class="deactivate" onclick="toggleActivation(this, this.closest('tr'))">Deactivate</button>
                 </td>
             </tr>
             <tr>
@@ -55,8 +52,8 @@
                 <td>Macaroon</td>
                 <td class="active-status">No</td>
                 <td>
-                    <button class="permissions">Permissions</button>
-                    <button class="activate" onclick="toggleActivation(this, this.closest('tr'))">Activate</button>
+                <button class="permissions" onclick="openPermissionsModal()">Permissions</button>
+                <button class="activate" onclick="toggleActivation(this, this.closest('tr'))">Activate</button>
                 </td>
             </tr>
             <tr>
@@ -67,8 +64,8 @@
                 <td>Macaroon</td>
                 <td class="active-status">No</td>
                 <td>
-                    <button class="permissions">Permissions</button>
-                    <button class="activate" onclick="toggleActivation(this, this.closest('tr'))">Activate</button>
+                <button class="permissions" onclick="openPermissionsModal()">Permissions</button>
+                <button class="activate" onclick="toggleActivation(this, this.closest('tr'))">Activate</button>
                 </td>
             </tr>
             <tr>
@@ -79,8 +76,8 @@
                 <td>ThreeG Media (Kiulap)</td>
                 <td class="active-status">Yes</td>
                 <td>
-                    <button class="permissions">Permissions</button>
-                    <button class="deactivate" onclick="toggleActivation(this, this.closest('tr'))">Deactivate</button>
+                <button class="permissions" onclick="openPermissionsModal()">Permissions</button>
+                <button class="deactivate" onclick="toggleActivation(this, this.closest('tr'))">Deactivate</button>
                 </td>
             </tr>
         </tbody>
@@ -120,6 +117,37 @@
             <button id="saveUser">Save</button></div>
         </div>
     </div>
+
+
+<!-- Permissions Modal -->
+<div id="permissionsModal" class="modal" style="display:none;">
+    <div class="modal-content">
+        <div class="modal-header">
+            <span class="close" onclick="closePermissionsModal()">&times;</span>
+            <h2>Permissions</h2>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Page</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td><input type="checkbox"> Statement</td></tr>
+                <tr><td><input type="checkbox"> Terminal</td></tr>
+                <tr><td><input type="checkbox"> Settings</td></tr>
+                <tr><td><input type="checkbox"> Finance</td></tr>
+                <tr><td><input type="checkbox"> Deals</td></tr>
+                <tr><td><input type="checkbox"> Rent to Own</td></tr>
+                <tr><td><input type="checkbox"> Membership</td></tr>
+                <tr><td><input type="checkbox"> Gifts</td></tr>
+            </tbody>
+        </table>
+        <div class="modal-footer">
+            <button class="update-permission">Update permission</button>
+        </div>
+    </div>
+</div>
 <?php require_once 'layouts/footer.php'; ?>
 
 <script>
@@ -213,5 +241,11 @@ document.getElementById('saveUser').addEventListener('click', function() {
 // Call update function on page load
 updateEntryCount();
 
+function openPermissionsModal() {
+        document.getElementById("permissionsModal").style.display = "block";
+    }
+    function closePermissionsModal() {
+        document.getElementById("permissionsModal").style.display = "none";
+    }
 
 </script>
