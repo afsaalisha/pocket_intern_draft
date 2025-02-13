@@ -122,6 +122,7 @@
     document.addEventListener("DOMContentLoaded", function() {
         const menuItems = document.querySelectorAll(".menu li");
         const logoutButton = document.querySelector(".logout");
+        const logoutButton2 = document.querySelector(".logout2");
         const sidebar = document.querySelector(".sidebar");
         const content = document.querySelector(".content");
         const loginButton = document.createElement("div");
@@ -159,6 +160,14 @@
             if (content) content.style.display = "none";
             loginButton.style.display = "block";
         });
+
+        logoutButton2.addEventListener("click", function() {
+            localStorage.removeItem("activePage");
+            sidebar.style.display = "none";
+            if (content) content.style.display = "none";
+            loginButton.style.display = "block";
+        });
+
 
         loginButton.addEventListener("click", function() {
             sidebar.style.display = "block";

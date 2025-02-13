@@ -848,3 +848,6 @@ body {
     z-index: 9999;        /* Ensure it's above other elements */
 }
 
+#cropBtn,#closeCropper {
+    width: 40%;
+  };
