@@ -7,8 +7,8 @@
 
 <!-- body -->
 
-<div class="cards" style="display: flex; flex-direction: column; align-items: center; padding-left: 260px; margin-top: 100px; width: 90%; gap: 20px;">
-    <div class="card" style="width: 90%;">
+<div class="intetecards">
+    <div class="cardo">
         <h2 style="background-color: rgba(255, 127, 0, 0.1);">General Information</h2>
         <div class="row">
             <div class="column">
@@ -16,10 +16,10 @@
             </div>
         </div>
     </div>
-    <div class="card" style="width: 90%;">
+    <div class="cardo">
         <h2 style="background-color: rgba(255, 127, 0, 0.1);">Terminals Information</h2>
-        <div class="row">
-            <div class="column">
+        <div>
+            <div>
                 <table>
                     <thead>
                         <tr>

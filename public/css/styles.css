@@ -1036,4 +1036,77 @@ body {
 
     /* intete section */
 
+    .intetecards {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-left: 260px;
+      margin-top: 100px;
+      width: 90%;
+      gap: 20px;
+    }
+    
+    .cardo {
+      background-color: #FCFDFF;
+      border-radius: 15px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      width: 90%;
+    }
+    
+    .cardo h2 {
+      background-color: rgba(255, 127, 0, 0.1);
+      padding: 10px;
+      border-radius: 8px;
+      font-size: 20px;
+      text-align: left;
+    }
+    
+    .terminal-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+      font-size: 16px;
+    }
+    
+    .terminal-table th, 
+    .terminal-table td {
+      border: 1px solid #888;
+      padding: 10px;
+      text-align: left;
+    }
+    
+    .terminal-table th {
+      background-color: transparent;
+      font-weight: bold;
+    }
+
+    .terminal-table tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+    
+    .terminal-table tr:hover {
+      background-color: #f1f1f1;
+      cursor: pointer;
+    }
+    
+    @media (max-width: 768px) {
+      .intetecards {
+        padding-left: 20px;
+        width: 100%;
+      }
+    
+      .cardo {
+        width: 100%;
+      }
+    
+      .terminal-table th, 
+      .terminal-table td {
+        padding: 8px;
+      }
+    }
+    
+    .terminal-table-container {
+      overflow-x: auto;
+    }
     
