@@ -1061,7 +1061,11 @@ body {
       font-size: 20px;
       text-align: left;
     }
-    
+
+    .intetecolumn {
+      padding-left: 10px;
+    }
+
     .terminal-table {
       width: 100%;
       border-collapse: collapse;
@@ -1072,6 +1076,7 @@ body {
     .terminal-table th, 
     .terminal-table td {
       border: 1px solid #888;
+      background-color: transparent;
       padding: 10px;
       text-align: left;
     }
@@ -1089,6 +1094,10 @@ body {
       background-color: #f1f1f1;
       cursor: pointer;
     }
+
+    .apath {
+      padding: 0%;
+    }
     
     @media (max-width: 768px) {
       .intetecards {
@@ -1102,11 +1111,13 @@ body {
     
       .terminal-table th, 
       .terminal-table td {
-        padding: 8px;
+        padding: 0;
       }
     }
     
     .terminal-table-container {
       overflow-x: auto;
     }
+
+
     
