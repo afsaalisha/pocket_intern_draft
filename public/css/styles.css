@@ -416,7 +416,6 @@ body {
   
   table th, table td {
     padding: 12px;
-    text-align: left;
     border-bottom: 1px solid #ddd;
     font-size: 16px;
   }
@@ -426,6 +425,11 @@ body {
     color: white;
     text-align: center;
   }
+  
+  table td {
+    text-align: left !important;
+  }
+  
   
   table tbody tr:hover {
     background-color: #f9f9f9;
@@ -994,3 +998,38 @@ body {
     width: 90%; /* Make modal fit smaller screens */
   }
 }
+
+    .truncate {
+        max-width: 350px; /* Adjust width as needed */
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+    a {
+      text-decoration: none;
+      color: #333;
+    }
+
+    .Details {
+      display: inline-block;
+      width: 120px;
+      padding: 10px;
+      text-align: center;
+      font-size: 14px;
+      font-weight: bold;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin: 2px;
+    }
+
+    .Details:hover {
+        background-color: #D9D9D9; /* Slightly darker on hover */
+    }
+
+    .Details:active {
+        background-color: #BFBFBF; /* Even darker on click */
+    }
