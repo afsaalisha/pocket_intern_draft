@@ -27,6 +27,8 @@
         <a href="/poshet/intete"><i class="fa-solid fa-link"></i>Integration</a>
         <a href="/poshet/pans"><i class="fa-solid fa-file-invoice"></i>Manage Payment Links</a>
     </div>
+    <div class="logout2">Logout</div>
+
 </nav>
 
 <!-- Sidebar -->
@@ -120,6 +122,7 @@
     document.addEventListener("DOMContentLoaded", function() {
         const menuItems = document.querySelectorAll(".menu li");
         const logoutButton = document.querySelector(".logout");
+        const logoutButton2 = document.querySelector(".logout2");
         const sidebar = document.querySelector(".sidebar");
         const content = document.querySelector(".content");
         const loginButton = document.createElement("div");
@@ -157,6 +160,14 @@
             if (content) content.style.display = "none";
             loginButton.style.display = "block";
         });
+
+        logoutButton2.addEventListener("click", function() {
+            localStorage.removeItem("activePage");
+            sidebar.style.display = "none";
+            if (content) content.style.display = "none";
+            loginButton.style.display = "block";
+        });
+
 
         loginButton.addEventListener("click", function() {
             sidebar.style.display = "block";
@@ -285,6 +296,36 @@ closeCropper.addEventListener("click", function() {
 document.addEventListener("DOMContentLoaded", function() {
     cropModal.style.display = "none";
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+    const navLinks = document.querySelectorAll(".mobile-nav a");
+
+    // Check localStorage for any previously selected link
+    const selectedLink = localStorage.getItem('selectedLink');
+
+    // If there's a selected link, add the 'selected' class to it
+    if (selectedLink) {
+        const link = document.querySelector(`.mobile-nav a[href="${selectedLink}"]`);
+        if (link) {
+            link.classList.add("selected");
+        }
+    }
+
+    navLinks.forEach(link => {
+        link.addEventListener("click", function () {
+            // Remove 'selected' class from all links
+            navLinks.forEach(nav => nav.classList.remove("selected"));
+            
+            // Add 'selected' class to the clicked link
+            this.classList.add("selected");
+
+            // Save the href of the selected link to localStorage
+            localStorage.setItem('selectedLink', this.getAttribute('href'));
+        });
+    });
+});
+
+
 
 
 </script>

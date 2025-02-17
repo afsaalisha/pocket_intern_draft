@@ -1,53 +1,83 @@
+/* Logout button in the sidebar */
+.logout2 {
+  background: #F7C1C1;
+  padding: 10px;
+  text-align: center;
+  border-radius: 5px;
+  font-weight: bold;
+  color: #9E0E29;
+  cursor: pointer;
+  position: sticky;
+  bottom: 10px;
+  margin-top: auto; /* Ensures the button stays at the bottom */
+  width: 80%;
+  margin-left: 15px;
+}
+
+
 /* Burger menu */
 .burger-menu {
-    display: none;
-    font-size: 24px;
-    cursor: pointer;
-    padding: 10px;
-  }
+  display: none;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 10px;
+  background-color: transparent;
+  color: #555555;
+  position: fixed;
+  z-index: 9999; /* Make sure it stays on top */
+}
   
   .mobile-nav {
     display: none;
     flex-direction: column;
     position: absolute;
-    background: transparent;
+    background: #fff;
     color: #555555;
-    top: 50px;
+    top: 0;
     left: 0;
+    height: 100vh;
     padding: 10px 0;
-    transition: left 0.3s ease;
-    width: 100%;
-  }
+    width: 250px;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box; /* Ensures padding doesn’t add extra width */
+}
   
-  .mobile-nav a {
-    color: #555555;
-    background: transparent;
-    padding: 15px;
-    text-align: center;
-    font-weight: bold;
-    text-decoration: none;
-    display: block;
-  }
+.mobile-nav a {
+  color: #555555;
+  padding: 18px 20px; /* Increased padding for larger clickable area */
+  text-align: left;
+  font-weight: bold;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 8px; /* Adds space between items */
+}
+
+.mobile-nav a:last-child {
+  margin-bottom: 0; /* Ensures no extra space after the last item */
+}
+
+
+.mobile-nav a.selected {
+    color: #FF7F00 !important;
+    background: #FCF1E6 !important;
+    border-radius: 5px; /* Optional: Improves aesthetics */
+    width: calc(100% - 20px); /* Keeps it within the sidebar width */
+    margin: 0 auto; /* Ensures it stays centered */
+}
+
   
-  .mobile-nav.active {
-    display: flex;
-    left: 0;
-    width: 50%;
-    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
-    margin-left: auto;
-    margin-right: 0;
-    align-items: right;
-    gap: 10px;
-    padding: auto;
-    color: #555555;
-    font-weight: bold;
-    cursor: pointer;
-  }
+.mobile-nav.active {
+  display: flex;
+  transform: translateX(0);
+}
 
 .mobile-nav.active a {
   display: flex;
   align-items: center;
-  justify-content: flex-start;
   gap: 10px;
   width: 100%;
 }
@@ -55,10 +85,12 @@
 .mobile-nav.active i {
   font-size: 18px;
   min-width: 30px;
+  
 }
 
   .content  {
     transition: margin-left 0.3s ease;
+    margin-top: 70px;
   }
 
   .content.shifted {
@@ -81,17 +113,29 @@
     }
 
     .profile {
-      width: 100%;
-      margin: 0 10px;
-      font-size: small;
+      width: 80%;
+      margin: 0 auto;
+      gap: 10px;
+      margin-bottom: 20px; /* Increases space below profile */
+      margin-top: 40px;
+
     }
   
     .sidebar {
       display: none;
     }
+
+    .mobile-nav {
+      display: flex;
+      transform: translateX(-100%);
+  }
   
+  .mobile-nav.active {
+    transform: translateX(0);
+  }
+
     .content {
-      margin-top: 20px;
+      margin-top: 40px;
       margin-left: auto;
       overflow-y: scroll;
       height: calc(100vh - 30px);
@@ -156,6 +200,8 @@
       width: 90%;
       margin-bottom: 10px;
     }
+
+    
   
     .breadcrumb {
       margin-left: auto;
@@ -226,32 +272,6 @@
     color: #555555;
   }
 
-  /* Settings container and rows */
-  .settings-container {
-    margin-top: 20px;
-    margin-left: 0;
-    padding: 0 10px;
-  }
-
-  .settings-row {
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    padding: 12px;
-    border-radius: 20px; /* Curved edges */
-    width: 90%; /* 90% width for the row */
-    margin-bottom: 15px;
-    margin-left: auto; /* Center the row */
-    margin-right: auto; /* Center the row */
-    color: #333; /* Default font color */
-  }
-
-  .settings-row label {
-    margin-bottom: 8px;
-    font-size: 14px;
-    color: #333; /* Default font color */
-  }
-
   /* Full-width dropdown box styling for mobile */
   .dropdown-box {
     width: 100%; /* Ensure the dropdown box is the same width as its container */
@@ -282,28 +302,13 @@
     border: none; /* Remove border */
   }
 
-  /* Breadcrumb styling for mobile */
-  .breadcrumb {
-    margin-left: 0;
-    font-size: 14px;
-    margin-bottom: 10px;
-    color: #333; /* Default font color */
-  }
-
-  .breadcrumb .active {
-    font-weight: bold;
-    color: #FF7F00;
-  }
-
   /* Compact and curved layout for settings row */
   .settings-row {
     flex-direction: column;
     padding: 12px;
     gap: 10px;
     border-radius: 15px; /* Curved box */
-    width: 90%; /* 90% width for settings row */
-    margin-left: auto; /* Center the row */
-    margin-right: auto; /* Center the row */
+    width: 80%; /* 90% width for settings row */
   }
 
   /* Make labels smaller and more compact for mobile */
@@ -311,3 +316,11 @@
     font-size: 14px;
     margin-bottom: 10px;
   }
+
+  *:focus {
+    outline: none;
+  }
+  
+  * {
+  -webkit-tap-highlight-color: transparent;
+}
