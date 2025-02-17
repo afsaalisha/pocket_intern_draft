@@ -69,10 +69,10 @@
             <span class="close">&times;</span>
             <h2>Add User</h2>
         </div>
-        <label>Username:</label>
-        <input type="text" id="username"><br>
-        <label>Email:</label>
-        <input type="email" id="email"><br>
+        <label>Email Address 1</label>
+        <input type="text" id="sum"><br>
+        <label>Email Address 2</label>
+        <input type="email" id="ting"><br>
         <label>Phone Number:</label>
         <input type="text" id="phone"><br>
         <label>Branch:</label>
