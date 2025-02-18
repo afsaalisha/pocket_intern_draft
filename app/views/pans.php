@@ -1,7 +1,7 @@
 <?php require_once 'layouts/header.php'; ?>
 <?php require_once 'layouts/sidebar.php'; ?>
 
-<div class="container">
+<div class="content">
     <h1 class="title">Manage Payment Links</h1>
     <span class="pepep">Payment Links</span>
     <p class="description">Here you can manage your payment links, view details, and add new links easily.</p>

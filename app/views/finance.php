@@ -1,7 +1,65 @@
 <?php require_once 'layouts/header.php'; ?>
 <?php require_once 'layouts/sidebar.php'; ?>
 
-<div class="content skroll">
+<div class="content">
+    <h1 class="title">Manage Payment Links</h1>
+    <span class="pepep">Report Emails</span>
+    <span class="add-tehe" id="openModal"><i class="fa-solid fa-plus"></i> Add User</span>
+
+    <div class="table-controls">
+        <label class="grah">Show 
+            <select>
+                <option>10</option>
+                <option>25</option>
+                <option>50</option>
+            </select> Entries
+        </label>
+        <input type="text" placeholder="Search..." class="search"> 
+    </div>
+    <table>
+    <thead>
+        <tr>
+            <th>No.</th>
+            <th>Email</th>
+            <th>Branch</th>
+            <th>Send Finance Email</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+        <tbody>
+            <tr>
+                <td>001</td>
+                <td>Coffee</td>
+                <td><a href="https://bit.ly/DigitalFuture24" target="_blank" class="truncate">https://bit.ly/DigitalFuture24</a></td>
+                <td><a href="https://pay.pocket.com.bn/payments/setCustomAmount/..." target="_blank" class="truncate">https://pay.pocket.com.bn/payments/setCustomAmount/...</a></td>
+                <td><button class="Details">Details</button></td>
+            </tr>
+            <tr>
+                <td>501</td>
+                <td>Shopify API</td>
+                <td><a href="https://docs.google.com/document/d/1zfoote8..." target="_blank" class="truncate">https://docs.google.com/document/d/1zfoote8...</a></td>
+                <td><a href="https://pay.pocket.com.bn/payments/setCustomAmount/..." target="_blank" class="truncate">https://pay.pocket.com.bn/payments/setCustomAmount/...</a></td>
+                <td><button class="Details">Details</button></td>
+            </tr>
+            <tr>
+                <td>001</td>
+                <td>Coffee</td>
+                <td><a href="https://en.wikipedia.org/wiki/Rose" target="_blank" class="truncate">https://en.wikipedia.org/wiki/Rose</a></td>
+                <td><a href="https://pocket-payv2.threeg.asia/payments/setCustomAmount/..." target="_blank" class="truncate">https://pocket-payv2.threeg.asia/payments/setCustomAmount/...</a></td>
+                <td><button class="Details">Details</button></td>
+            </tr>
+            <tr>
+                <td>001</td>
+                <td>Coffee</td>
+                <td><a href="https://google.com" target="_blank" class="truncate">https://google.com</a></td>
+                <td><a href="https://pocket-payv2.threeg.asia/payments/setCustomAmount/..." target="_blank" class="truncate">https://pocket-payv2.threeg.asia/payments/setCustomAmount/...</a></td>
+                <td><button class="Details">Details</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<!-- <div class="content skroll">
     <h1 class="title">Finances</h1>
 </div>
 
@@ -61,9 +119,9 @@
 </div>
 </div>
 
-<!-- continue here 18-2-2025 -->
+continue here 18-2-2025 -->
 <!-- Modal -->
-<div id="userModal" class="modal" style="display:none;">
+<!-- <div id="userModal" class="modal" style="display:none;">
     <div class="modal-content">
         <div class="modal-header">
             <span class="close">&times;</span>
@@ -90,7 +148,7 @@
 </div>
 
 
-<!-- Permissions Modal -->
+Permissions Modal -->
 <div id="permissionsModal" class="modal" style="display:none;">
     <div class="modal-content">
         <div class="modal-header">
@@ -135,6 +193,6 @@
         </div>
     </div>
 </div>
-<?php require_once 'layouts/footer.php'; ?>
+<?php require_once 'layouts/footer.php'; ?> 
 
 <!-- scripts here -->
