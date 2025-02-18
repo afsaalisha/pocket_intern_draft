@@ -1180,6 +1180,14 @@ body {
       width: 80%;
     }
 
+    .gomen {
+      margin-left: 250px;
+      padding: 20px;
+      flex-grow: 1;
+      position: fixed;
+      width: 79%;
+    }
+
     /* Toggle Switch Container */
 .switch {
     position: relative;
@@ -1228,6 +1236,80 @@ body {
 
 .switch input:checked + .slider::before {
     transform: translateX(24px);
+}
+
+/* terminaks */
+
+.terminal-management {
+  background: #f9f9f9;
+  padding: 20px;
+  border-radius: 8px;
+  margin-left: 40px;
+  margin-right: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: calc(100% - 60px);
+}
+
+.terminal-form {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 15px;
+}
+.field-group {
+  display: flex;
+  flex-direction: column;
+}
+.input-box, .dropdown-menu {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+  background: #fff;
+  transition: all 0.3s ease-in-out;
+}
+.input-box:focus, .dropdown-menu:focus {
+  border-color: #ff7f00;
+  box-shadow: 0 0 5px rgba(255, 127, 0, 0.5);
+  outline: none;
+}
+.create-btn, .qr-btn, .assign-btn {
+  background: #ff7f00;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 10px;
+  font-size: 14px;
+  transition: background 0.3s ease-in-out, transform 0.2s;
+}
+.create-btn:hover, .qr-btn:hover, .assign-btn:hover {
+  background: #e67300;
+  transform: scale(1.05);
+}
+.terminal-details {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin: 20px 20px 20px 40px;
+  width: calc(100% - 60px);
+}
+
+.action-buttons {
+  display: flex;
+  justify-content: flex-start;
+  gap: 10px;
+  margin-top: 15px;
+}
+@media (max-width: 600px) {
+  .terminal-form {
+    grid-template-columns: 1fr;
+  }
+  .terminal-management, .terminal-details {
+    width: calc(100% - 40px);
+    margin-right: 20px;
+  }
 }
 
 /* Temporary! Open to changes for Figma Draft! */
