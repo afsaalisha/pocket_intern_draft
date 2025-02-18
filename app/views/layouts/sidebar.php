@@ -213,119 +213,117 @@
             });
         });
     });
-// Profile Picture Handling with Cropping and GIF Support
-const profilePics = document.querySelectorAll(".profilePic");
-const profilePicInputs = document.querySelectorAll(".profilePicInput");
-const cropModal = document.getElementById("cropModal");
-const cropImage = document.getElementById("cropImage");
-const cropBtn = document.getElementById("cropBtn");
-const closeCropper = document.getElementById("closeCropper");
+    // Profile Picture Handling with Cropping and GIF Support
+    const profilePics = document.querySelectorAll(".profilePic");
+    const profilePicInputs = document.querySelectorAll(".profilePicInput");
+    const cropModal = document.getElementById("cropModal");
+    const cropImage = document.getElementById("cropImage");
+    const cropBtn = document.getElementById("cropBtn");
+    const closeCropper = document.getElementById("closeCropper");
 
-let cropper;
+    let cropper;
 
-// Hide the crop modal initially to prevent flickering
-cropModal.style.display = "none";
-
-// Load saved profile picture
-const savedProfilePic = localStorage.getItem("profilePic");
-if (savedProfilePic) {
-    profilePics.forEach(pic => pic.src = savedProfilePic);
-}
-
-// Ensure profile image is clickable on both mobile and desktop
-profilePics.forEach((profilePic, index) => {
-    profilePic.addEventListener("click", function() {
-        profilePicInputs[index].click();
-    });
-});
-
-// Handle image selection (show modal only after selecting an image)
-profilePicInputs.forEach((input, index) => {
-    input.addEventListener("change", function(event) {
-        const file = event.target.files[0];
-        if (!file) return;
-
-        const fileType = file.type;
-        const reader = new FileReader();
-
-        reader.onload = function(e) {
-            const imageData = e.target.result;
-
-            // If it's a GIF, store it directly without cropping
-            if (fileType === "image/gif") {
-                localStorage.setItem("profilePic", imageData);
-                profilePics[index].src = imageData;
-            } else {
-                // Show modal **only after selecting an image**
-                cropImage.src = imageData;
-                cropModal.style.display = "flex"; // Ensure modal is displayed on desktop as well
-
-                // Destroy previous instance of cropper if exists
-                if (cropper) cropper.destroy();
-
-                cropper = new Cropper(cropImage, {
-                    aspectRatio: 1, // Square crop for profile pic
-                    viewMode: 2
-                });
-            }
-        };
-
-        reader.readAsDataURL(file);
-    });
-});
-
-// Crop and save image
-cropBtn.addEventListener("click", function() {
-    const canvas = cropper.getCroppedCanvas();
-    const croppedImage = canvas.toDataURL("image/png");
-
-    // Save cropped image
-    localStorage.setItem("profilePic", croppedImage);
-    profilePics.forEach(pic => pic.src = croppedImage);
-
-    // Hide crop modal
+    // Hide the crop modal initially to prevent flickering
     cropModal.style.display = "none";
-});
 
-// Close the cropper without saving
-closeCropper.addEventListener("click", function() {
-    cropModal.style.display = "none";
-});
-
-// Ensure the crop modal is hidden on page load
-document.addEventListener("DOMContentLoaded", function() {
-    cropModal.style.display = "none";
-});
-
-document.addEventListener("DOMContentLoaded", function () {
-    const navLinks = document.querySelectorAll(".mobile-nav a");
-
-    // Check localStorage for any previously selected link
-    const selectedLink = localStorage.getItem('selectedLink');
-
-    // If there's a selected link, add the 'selected' class to it
-    if (selectedLink) {
-        const link = document.querySelector(`.mobile-nav a[href="${selectedLink}"]`);
-        if (link) {
-            link.classList.add("selected");
-        }
+    // Load saved profile picture
+    const savedProfilePic = localStorage.getItem("profilePic");
+    if (savedProfilePic) {
+        profilePics.forEach(pic => pic.src = savedProfilePic);
     }
 
-    navLinks.forEach(link => {
-        link.addEventListener("click", function () {
-            // Remove 'selected' class from all links
-            navLinks.forEach(nav => nav.classList.remove("selected"));
-            
-            // Add 'selected' class to the clicked link
-            this.classList.add("selected");
-
-            // Save the href of the selected link to localStorage
-            localStorage.setItem('selectedLink', this.getAttribute('href'));
+    // Ensure profile image is clickable on both mobile and desktop
+    profilePics.forEach((profilePic, index) => {
+        profilePic.addEventListener("click", function() {
+            profilePicInputs[index].click();
         });
     });
-});
 
+    // Handle image selection (show modal only after selecting an image)
+    profilePicInputs.forEach((input, index) => {
+        input.addEventListener("change", function(event) {
+            const file = event.target.files[0];
+            if (!file) return;
 
+            const fileType = file.type;
+            const reader = new FileReader();
 
+            reader.onload = function(e) {
+                const imageData = e.target.result;
 
+                // If it's a GIF, store it directly without cropping
+                if (fileType === "image/gif") {
+                    localStorage.setItem("profilePic", imageData);
+                    profilePics[index].src = imageData;
+                } else {
+                    // Show modal **only after selecting an image**
+                    cropImage.src = imageData;
+                    cropModal.style.display = "flex"; // Ensure modal is displayed on desktop as well
+
+                    // Destroy previous instance of cropper if exists
+                    if (cropper) cropper.destroy();
+
+                    cropper = new Cropper(cropImage, {
+                        aspectRatio: 1, // Square crop for profile pic
+                        viewMode: 2
+                    });
+                }
+            };
+
+            reader.readAsDataURL(file);
+        });
+    });
+
+    // Crop and save image
+    cropBtn.addEventListener("click", function() {
+        const canvas = cropper.getCroppedCanvas();
+        const croppedImage = canvas.toDataURL("image/png");
+
+        // Save cropped image
+        localStorage.setItem("profilePic", croppedImage);
+        profilePics.forEach(pic => pic.src = croppedImage);
+
+        // Hide crop modal
+        cropModal.style.display = "none";
+    });
+
+    // Close the cropper without saving
+    closeCropper.addEventListener("click", function() {
+        cropModal.style.display = "none";
+    });
+
+    // Ensure the crop modal is hidden on page load
+    document.addEventListener("DOMContentLoaded", function() {
+        cropModal.style.display = "none";
+    });
+
+    document.addEventListener("DOMContentLoaded", function() {
+        const navLinks = document.querySelectorAll(".mobile-nav a");
+
+        // Check localStorage for any previously selected link
+        const selectedLink = localStorage.getItem('selectedLink');
+
+        // If there's a selected link, add the 'selected' class to it
+        if (selectedLink) {
+            const link = document.querySelector(`.mobile-nav a[href="${selectedLink}"]`);
+            if (link) {
+                link.classList.add("selected");
+            }
+        }
+
+        navLinks.forEach(link => {
+            link.addEventListener("click", function() {
+                // Remove 'selected' class from all links
+                navLinks.forEach(nav => nav.classList.remove("selected"));
+
+                // Add 'selected' class to the clicked link
+                this.classList.add("selected");
+
+                // Save the href of the selected link to localStorage
+                localStorage.setItem('selectedLink', this.getAttribute('href'));
+            });
+        });
+    });
+
+    // continue after here
 </script>

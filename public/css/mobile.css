@@ -73,6 +73,7 @@
 .mobile-nav.active {
   display: flex;
   transform: translateX(0);
+  height: auto;
 }
 
 .mobile-nav.active a {
@@ -104,6 +105,9 @@
       background-color: transparent;
       color: #555555;
       position: fixed;
+      top: 10px;
+      left: 10px;
+      z-index: 1000;
     }
     
     .logo { 
@@ -128,11 +132,11 @@
     .mobile-nav {
       display: flex;
       transform: translateX(-100%);
-  }
+    }
   
-  .mobile-nav.active {
-    transform: translateX(0);
-  }
+    .mobile-nav.active {
+      transform: translateX(0);
+    }
 
     .content {
       margin-top: 40px;
@@ -245,7 +249,7 @@
       margin-top: 10px;
     }
   
-  }
+  
 
   .calendar-container {
     display: flex;
@@ -323,4 +327,38 @@
   
   * {
   -webkit-tap-highlight-color: transparent;
+  }
+
+  /* intete section */
+
+  .gonten {
+    margin-top: 40px;
+    margin-left: auto;
+    overflow-y: scroll;
+    height: calc(100vh - 30px);
+    width: 100%;
+  }
+
+  .intetecards {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 90%;
+  }
+
+  .cardo {
+    width: 90%;
+  }
+
+  .terminal-table th, 
+  .terminal-table td {
+    padding: 0;
+  }
+
+  .terminal-table-container {
+  overflow-x: auto;
+  }
+
 }
+
+
