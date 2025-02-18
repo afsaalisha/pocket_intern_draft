@@ -1229,4 +1229,60 @@ body {
 .switch input:checked + .slider::before {
     transform: translateX(24px);
 }
+
+/* Temporary! Open to changes for Figma Draft! */
+/* Finans Toast Notification */
+.finans-toast {
+  visibility: hidden;
+  min-width: 320px;
+  background: white;
+  color: #2e7d32; /* Dark green text */
+  text-align: left;
+  padding: 16px 20px;
+  position: fixed;
+  z-index: 1000;
+  bottom: 30px;
+  right: 30px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 600;
+  box-shadow: 0 4px 6px rgba(0, 128, 0, 0.2); /* Green shadow */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+
+/* Show the toast */
+.finans-toast.show {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Success header */
+.finans-toast .toast-header {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+/* Close button */
+.finans-toast .close-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  color: #2e7d32;
+}
+
+/* Smooth fade-out */
+.finans-toast.hide {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+
+
     
