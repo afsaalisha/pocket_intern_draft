@@ -156,6 +156,7 @@ body {
 .skroll {
   overflow-y: auto;
   max-height: calc(100vh - 20px); /* Adjust height to fit viewport */
+  max-width: calc(100vw - 250px); /* Adjust width to fit viewport */
 }
 
 .skroll::-webkit-scrollbar {
@@ -1366,5 +1367,23 @@ body {
   transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
 }
 
+.addinans {
+  width: 15%;
+  position: fixed;
+  right: -15px;
+  top: 10%;
+  background-color: #ff7f00;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-left: auto;
+  width: 9%;
+  font-display: center;
+  margin-right: 40px;
+}
 
     
