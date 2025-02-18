@@ -148,7 +148,7 @@ continue here 18-2-2025 -->
 </div>
 
 
-<!-- Permissions Modal -->
+Permissions Modal -->
 <div id="permissionsModal" class="modal" style="display:none;">
     <div class="modal-content">
         <div class="modal-header">
@@ -193,6 +193,6 @@ continue here 18-2-2025 -->
         </div>
     </div>
 </div>
-<?php require_once 'layouts/footer.php'; ?> -->
+<?php require_once 'layouts/footer.php'; ?> 
 
 <!-- scripts here -->
