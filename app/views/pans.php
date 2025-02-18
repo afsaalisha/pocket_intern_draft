@@ -5,7 +5,7 @@
     <h1 class="title">Manage Payment Links</h1>
     <span class="pepep">Payment Links</span>
     <p class="description">Here you can manage your payment links, view details, and add new links easily.</p>
-    <span class="add-button" id="openModal"><i class="fa-solid fa-plus"></i> Add New Link</span>
+    <a href="/poshet/pupu" class="add-button"><i class="fa-solid fa-plus"></i> Add New Link</a>
 
     <table>
         <thead>
