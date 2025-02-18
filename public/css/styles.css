@@ -999,6 +999,14 @@ body {
   }
 }
 
+    .container {
+      justify-content: flex-end;
+      margin-left: 250px;
+      flex: 1;
+      padding: 20px;
+      position: fixed;
+    }
+
     .truncate {
         max-width: 350px; /* Adjust width as needed */
         white-space: nowrap;
@@ -1033,10 +1041,49 @@ body {
     .Details:active {
         background-color: #BFBFBF; /* Even darker on click */
     }
+    
+    .description {
+      margin-top: 10px;
+      margin-left: 40px;
+      font-size: 16px;
+      color: #333;
+    }
 
+    .pepep {
+      margin-left: 40px;
+      font-size: 20px;
+      color: #333;
+    }
+    
+    .add-button {
+      width: 15%;
+      position: absolute;
+      right: -20px;
+      top: 20%;
+      background-color: #ff7f00;
+      color: white;
+      font-size: 18px;
+      font-weight: bold;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-left: auto;
+      width: 12%;
+      font-display: center;
+      margin-right: 40px;
+  }
+
+  .add-button:hover {
+      background: #FFA74D;
+  }
+
+  .add-button:active {
+      background: #CC5E00;
+  }
     /* intete section */
 
-    .intetecards {
+    /* .intetecards {
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -1117,7 +1164,7 @@ body {
     
     .terminal-table-container {
       overflow-x: auto;
-    }
+    } */
 
     /* finance section */
 
