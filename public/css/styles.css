@@ -999,14 +999,6 @@ body {
   }
 }
 
-    .container {
-      justify-content: flex-end;
-      margin-left: 250px;
-      flex: 1;
-      padding: 20px;
-      position: fixed;
-    }
-
     .truncate {
         max-width: 350px; /* Adjust width as needed */
         white-space: nowrap;
@@ -1081,6 +1073,33 @@ body {
   .add-button:active {
       background: #CC5E00;
   }
+
+  .add-tehe {
+    width: 15%;
+    position: absolute;
+    right: -20px;
+    top: 15%;
+    background-color: #ff7f00;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: auto;
+    width: 9%;
+    font-display: center;
+    margin-right: 40px;
+}
+
+.add-tehe:hover {
+    background: #FFA74D;
+}
+
+.add-tehe:active {
+    background: #CC5E00;
+}
     /* intete section */
 
     /* .intetecards {
