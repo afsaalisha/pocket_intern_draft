@@ -1,8 +1,8 @@
 <?php require_once 'layouts/header.php'; ?>
 <?php require_once 'layouts/sidebar.php'; ?>
 
-<div class="content">
-    <h1 class="title">Manage Payment Links</h1>
+<div class="content goku">
+    <h1 class="title">Finances</h1>
     <span class="pepep">Report Emails</span>
     <span class="add-tehe" id="openModal"><i class="fa-solid fa-plus"></i> Add User</span>
 
@@ -18,42 +18,40 @@
     </div>
     <table>
     <thead>
-        <tr>
-            <th>No.</th>
-            <th>Email</th>
-            <th>Branch</th>
-            <th>Send Finance Email</th>
-            <th>Actions</th>
-        </tr>
-    </thead>
+            <tr>
+                <th>No.</th>
+                <th>Email</th>
+                <th>Branch</th>
+                <th>Send Finance Email</th>
+            </tr>
+        </thead>
         <tbody>
             <tr>
-                <td>001</td>
-                <td>Coffee</td>
-                <td><a href="https://bit.ly/DigitalFuture24" target="_blank" class="truncate">https://bit.ly/DigitalFuture24</a></td>
-                <td><a href="https://pay.pocket.com.bn/payments/setCustomAmount/..." target="_blank" class="truncate">https://pay.pocket.com.bn/payments/setCustomAmount/...</a></td>
-                <td><button class="Details">Details</button></td>
+                <td>1</td>
+                <td>testmail@mail.com</td>
+                <td>ThreeG Media (Kiulap)</td>
+                <td>            <label class="switch">
+                <input type="checkbox">
+                <span class="slider"></span>
+                </label></td>
             </tr>
             <tr>
-                <td>501</td>
-                <td>Shopify API</td>
-                <td><a href="https://docs.google.com/document/d/1zfoote8..." target="_blank" class="truncate">https://docs.google.com/document/d/1zfoote8...</a></td>
-                <td><a href="https://pay.pocket.com.bn/payments/setCustomAmount/..." target="_blank" class="truncate">https://pay.pocket.com.bn/payments/setCustomAmount/...</a></td>
-                <td><button class="Details">Details</button></td>
+                <td>2</td>
+                <td>user8@testing.com</td>
+                <td>Macaroon</td>
+                <td><label class="switch">
+                <input type="checkbox">
+                <span class="slider"></span>
+                </label></td>
             </tr>
             <tr>
-                <td>001</td>
-                <td>Coffee</td>
-                <td><a href="https://en.wikipedia.org/wiki/Rose" target="_blank" class="truncate">https://en.wikipedia.org/wiki/Rose</a></td>
-                <td><a href="https://pocket-payv2.threeg.asia/payments/setCustomAmount/..." target="_blank" class="truncate">https://pocket-payv2.threeg.asia/payments/setCustomAmount/...</a></td>
-                <td><button class="Details">Details</button></td>
-            </tr>
-            <tr>
-                <td>001</td>
-                <td>Coffee</td>
-                <td><a href="https://google.com" target="_blank" class="truncate">https://google.com</a></td>
-                <td><a href="https://pocket-payv2.threeg.asia/payments/setCustomAmount/..." target="_blank" class="truncate">https://pocket-payv2.threeg.asia/payments/setCustomAmount/...</a></td>
-                <td><button class="Details">Details</button></td>
+                <td>3</td>
+                <td>user9@testing.com</td>
+                <td>Macaroon</td>
+                <td>            <label class="switch">
+                <input type="checkbox">
+                <span class="slider"></span>
+                </label></td>
             </tr>
         </tbody>
     </table>
