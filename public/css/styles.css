@@ -154,9 +154,11 @@ body {
 
 /* Statement Scroll */
 .skroll {
-  overflow-y: auto;
+  overflow-y: auto; /* Enables vertical scrolling */
+  overflow-x: hidden; /* Hides horizontal scrolling */
   max-height: calc(100vh - 20px); /* Adjust height to fit viewport */
   max-width: calc(100vw - 250px); /* Adjust width to fit viewport */
+  white-space: nowrap; /* Prevents text from wrapping and causing horizontal scroll */
 }
 
 .skroll::-webkit-scrollbar {
@@ -1368,10 +1370,10 @@ body {
     }
 
     .addinans {
-      width: 15%;
-      position: fixed;
-      right: -15px;
-      top: 10%;
+      width: 8%; /* Adjust width if necessary */
+      position: absolute; /* Change to absolute so it stays inside its parent */
+      right: 20px; /* Ensure it aligns properly */
+      top: 80px; /* Position it at the top of the container */
       background-color: #ff7f00;
       color: white;
       font-size: 18px;
@@ -1380,12 +1382,10 @@ body {
       border: none;
       border-radius: 10px;
       cursor: pointer;
-      margin-left: auto;
-      width: 9%;
       font-display: center;
-      margin-right: 40px;
     }
-
     
+
+
 
         
