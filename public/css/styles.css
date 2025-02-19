@@ -156,8 +156,7 @@ body {
 .skroll {
   overflow-y: auto; 
   overflow-x: hidden; 
-  max-height: calc(100vh - 20px); 
-  max-width: 100vh; 
+  max-height: calc(100vh - 20px);
   white-space: nowrap; 
 }
 
