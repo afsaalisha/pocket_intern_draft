@@ -152,14 +152,21 @@ body {
   position: fixed;
 }
 
-/* Statement Scroll */
+/* Statement Scroll Updated */
 .skroll {
-  overflow-y: auto; /* Enables vertical scrolling */
-  overflow-x: hidden; /* Hides horizontal scrolling */
-  max-height: calc(100vh - 20px); /* Adjust height to fit viewport */
-  max-width: calc(100vw - 250px); /* Adjust width to fit viewport */
-  white-space: nowrap; /* Prevents text from wrapping and causing horizontal scroll */
+  overflow-y: auto; 
+  overflow-x: hidden; 
+  max-height: calc(100vh - 20px); 
+  max-width: calc(100vw - 250px); 
+  white-space: nowrap; 
 }
+
+/* Statement Scroll Old */
+/* .skroll {
+  overflow-y: auto;
+  max-height: calc(100vh - 20px); 
+  max-width: calc(100vw - 250px);
+} */
 
 .skroll::-webkit-scrollbar {
   width: 8px; /* Adjust width of the scrollbar */
@@ -1307,6 +1314,14 @@ body {
       cursor: pointer;
       font-display: center;
     }
+
+    .addinans:hover {
+      background: #FFA74D;
+    }
+
+    .addinans:active {
+      background: #CC5E00;
+    }
    
     .tengah {
       text-align: center !important;
@@ -1437,6 +1452,7 @@ body {
       gap: 10px;
       margin-top: 15px;
     }
+    
     @media (max-width: 600px) {
       .terminal-form {
         grid-template-columns: 1fr;
