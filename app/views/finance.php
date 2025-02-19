@@ -85,7 +85,7 @@
             <span class="close">&times;</span>
             <h2>Add User</h2>
         </div>
-        <label>Email Address 1</label>
+        <label>Email Address</label>
         <input type="text" id="eMail"><br>
         <label>Branch:</label>
         <div class="dropdown-wrapper">
@@ -186,7 +186,7 @@
         toast.className = 'finans-toast show';
         toast.innerHTML = `
         <div>
-            <div class="toast-header">SUCCESS TOAST</div>
+            <div class="toast-header">DONE</div>
             <div class="toast-body">${message}</div>
         </div>
         <button class="close-btn">&times;</button>
