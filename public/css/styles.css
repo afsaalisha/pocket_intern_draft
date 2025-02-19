@@ -122,6 +122,11 @@ body {
   background: transparent !important;
 }
 
+.menu::-webkit-scrollbar {
+  width: 5px; /* Adjust width of the scrollbar */
+  padding-right: 30px; /* Prevent scrollbar overlap */
+}
+
 /* Logout button styling */
 .logout {
   background: #F7C1C1;
