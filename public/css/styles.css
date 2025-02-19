@@ -157,7 +157,7 @@ body {
   overflow-y: auto; 
   overflow-x: hidden; 
   max-height: calc(100vh - 20px); 
-  max-width: calc(100vw - 250px); 
+  max-width: 100vh; 
   white-space: nowrap; 
 }
 
@@ -1462,12 +1462,6 @@ body {
         margin-right: 20px;
       }
     }
-
-    
-    
-
-
-
         
 /* Smooth fade-out */
 .finans-toast.hide {
@@ -1559,10 +1553,10 @@ body {
 }
 
 @media (max-width: 768px) {
-  body {
+  /* body {
     padding-left: 0;
     justify-content: center;
-  }
+  } */
   .payment-container {
     width: 95%;
   }
