@@ -17,51 +17,53 @@
         <span class="addinans" id="finansModal"><i class="fa-solid fa-plus"></i> Add User</span>
         <input type="text" placeholder="Search..." class="search">
     </div>
-    <table>
-        <thead>
-            <tr>
-                <th>No.</th>
-                <th>Email</th>
-                <th>Branch</th>
-                <th class="tengah">Send Finance Email</th>
-            </tr>
-        </thead>
-        <tbody id="userMeja">
-            <tr>
-                <td>1</td>
-                <td>testmail@mail.com</td>
-                <td>ThreeG Media (Kiulap)</td>
-                <td>
-                    <label class="switch">
-                        <input type="checkbox">
-                        <span class="slider"></span>
-                    </label>
-                </td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>user8@testing.com</td>
-                <td>Macaroon</td>
-                <td>
-                    <label class="switch">
-                        <input type="checkbox">
-                        <span class="slider"></span>
-                    </label>
-                </td>
-            </tr>
-            <tr>
-                <td>3</td>
-                <td>user9@testing.com</td>
-                <td>Macaroon</td>
-                <td>
-                    <label class="switch">
-                        <input type="checkbox">
-                        <span class="slider"></span>
-                    </label>
-                </td>
-            </tr>
-        </tbody>
-    </table>
+    <div class="finans-table-container">
+        <table class="finans-table">
+            <thead>
+                <tr>
+                    <th>No.</th>
+                    <th>Email</th>
+                    <th>Branch</th>
+                    <th class="tengah">Send Finance Email</th>
+                </tr>
+            </thead>
+            <tbody id="userMeja">
+                <tr>
+                    <td>1</td>
+                    <td>testmail@mail.com</td>
+                    <td>ThreeG Media (Kiulap)</td>
+                    <td class="tengah">
+                        <label class="switch">
+                            <input type="checkbox">
+                            <span class="slider"></span>
+                        </label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>user8@testing.com</td>
+                    <td>Macaroon</td>
+                    <td class="tengah">
+                        <label class="switch">
+                            <input type="checkbox">
+                            <span class="slider"></span>
+                        </label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>user9@testing.com</td>
+                    <td>Macaroon</td>
+                    <td class="tengah">
+                        <label class="switch">
+                            <input type="checkbox">
+                            <span class="slider"></span>
+                        </label>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
     <!-- <div class="table-footer">
         <span id="entryCount">Showing entries...</span> -->
     <div class="table-footer">
@@ -218,21 +220,24 @@
     });
 
     // Function to fix the "Add User" button in place
-function fixAddButton() {
-    const button = document.querySelector(".add-tehe"); // Select the correct button
+    function fixAddButton() {
+        const button = document.querySelector(".add-tehe"); // Select the correct button
 
-    if (button) {
-        button.style.position = "fixed"; // Ensure it remains fixed
-        button.style.top = "10%"; // Keep it at 15% from the top
-        button.style.right = "-12px"; // Keep it at the right position
-        button.style.zIndex = "1000"; // Ensure it stays above other elements
+        if (button) {
+            button.style.position = "fixed"; // Ensure it remains fixed
+            button.style.top = "10%"; // Keep it at 15% from the top
+            button.style.right = "-12px"; // Keep it at the right position
+            button.style.zIndex = "1000"; // Ensure it stays above other elements
+        }
     }
-}
 
-// Call fixAddButton initially
-fixAddButton();
+    // Call fixAddButton initially
+    fixAddButton();
 
-// Observe DOM changes to ensure button remains in place
-const observer = new MutationObserver(() => fixAddButton());
-observer.observe(document.body, { childList: true, subtree: true });
+    // Observe DOM changes to ensure button remains in place
+    const observer = new MutationObserver(() => fixAddButton());
+    observer.observe(document.body, {
+        childList: true,
+        subtree: true
+    });
 </script>

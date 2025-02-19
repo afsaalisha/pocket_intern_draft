@@ -1311,6 +1311,66 @@ body {
     .tengah {
       text-align: center !important;
     }
+
+    .finans-table {
+      max-width: 100%;
+      width: 100%;
+      table-layout: fixed; /* Ensures table stays within the container */
+      border-collapse: collapse;
+      background: #fcfdff;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      margin-right: 10px;
+      margin-left: 30px;
+      overflow: hidden;
+    }
+
+    .finans-table-container {
+      overflow-x: auto; /* Enables horizontal scrolling if needed */
+      max-width: 100%;
+      padding: 10px;
+      display: flex;
+      justify-content: center; /* Keeps the table centered */
+      width: 100%;
+    }
+    
+    .finans-table th, .finans-table td {
+        padding: 12px;
+        border-bottom: 1px solid #ddd;
+        font-size: 16px;
+        word-wrap: break-word; /* Prevents text overflow */
+        white-space: nowrap; /* Keeps content readable */
+    }
+    
+    .finans-table th {
+        background-color: rgb(255, 127, 0, 0.8);
+        color: #fcfdff;
+        text-align: left;
+    }
+    
+    .finans-table th:first-child {
+        border-top-left-radius: 8px;
+    }
+    
+    .finans-table th:last-child {
+        border-top-right-radius: 8px;
+    }
+    
+    /* Center "Send Finance Email" */
+    .finans-table th.finance-email, 
+    .finans-table td.finance-email {
+        text-align: center;
+    }
+    
+    /* Keep rows aligned left */
+    .finans-table td {
+        text-align: left;
+    }
+    
+    .finans-table tbody tr:hover {
+        background-color: #f4f8ff;
+    }
+  
     
 
     /* terminaks */
