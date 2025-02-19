@@ -216,4 +216,23 @@
             }
         }
     });
+
+    // Function to fix the "Add User" button in place
+function fixAddButton() {
+    const button = document.querySelector(".add-tehe"); // Select the correct button
+
+    if (button) {
+        button.style.position = "fixed"; // Ensure it remains fixed
+        button.style.top = "10%"; // Keep it at 15% from the top
+        button.style.right = "-12px"; // Keep it at the right position
+        button.style.zIndex = "1000"; // Ensure it stays above other elements
+    }
+}
+
+// Call fixAddButton initially
+fixAddButton();
+
+// Observe DOM changes to ensure button remains in place
+const observer = new MutationObserver(() => fixAddButton());
+observer.observe(document.body, { childList: true, subtree: true });
 </script>
