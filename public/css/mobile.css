@@ -92,7 +92,6 @@
   .content  {
     transition: margin-left 0.3s ease;
     margin-top: 70px;
-    height: auto;
   }
 
   .content.shifted {
@@ -140,6 +139,7 @@
     }
 
     .content {
+      /* padding-left: 60px; */
       margin-top: 40px;
       margin-left: auto;
       overflow-y: scroll;
@@ -336,8 +336,7 @@
     margin-top: 40px;
     margin-left: auto;
     overflow-y: scroll;
-    /* height: calc(100vh - 30px); */
-    height: auto;
+    height: calc(100vh - 30px);
     width: 100%;
   }
 
@@ -350,13 +349,11 @@
 
   .cardo {
     width: 90%;
-    max-width: 300px; /* Ensures good fit */
   }
 
   .terminal-table th, 
   .terminal-table td {
-    font-size: 12px; /* Further reduces text size for small screens */
-    padding: 3px;
+    padding: 0;
   }
 
   .terminal-table-container {
