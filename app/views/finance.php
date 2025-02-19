@@ -23,7 +23,7 @@
                 <th>No.</th>
                 <th>Email</th>
                 <th>Branch</th>
-                <th>Send Finance Email</th>
+                <th class="tengah">Send Finance Email</th>
             </tr>
         </thead>
         <tbody id="userMeja">
@@ -62,8 +62,10 @@
             </tr>
         </tbody>
     </table>
+    <!-- <div class="table-footer">
+        <span id="entryCount">Showing entries...</span> -->
     <div class="table-footer">
-        <span>Showing 1 to 4 of 4 entries</span>
+        <span>Showing 1 to 3 of 3 entries</span>
         <div class="pagination">
             <button>Previous</button>
             <span>1</span>
@@ -109,6 +111,12 @@
         const totalEntries = tableBody.getElementsByTagName('tr').length;
         document.querySelector('.table-footer span').textContent = `Showing 1 to ${totalEntries} of ${totalEntries} entries`;
     }
+
+    // function updateEntryCount() {
+    //     const tableBody = document.getElementById('userMeja');
+    //     const totalEntries = tableBody.getElementsByTagName('tr').length;
+    //     document.getElementById('entryCount').textContent = `Showing 1 to ${totalEntries} of ${totalEntries} entries`;
+    // }
 
     // Open modal and clear fields
     document.getElementById('finansModal').addEventListener('click', function() {
