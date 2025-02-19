@@ -1048,7 +1048,6 @@ body {
     }
     
     .add-button {
-      width: 15%;
       position: absolute;
       right: -20px;
       top: 20%;
@@ -1061,9 +1060,9 @@ body {
       border-radius: 5px;
       cursor: pointer;
       margin-left: auto;
-      width: 12%;
+      width: 9.5%;
       font-display: center;
-      margin-right: 40px;
+      margin-right: 38px;
   }
 
   .add-button:hover {
@@ -1075,8 +1074,6 @@ body {
   }
 
   .add-tehe {
-    width: 15%;
-    position: absolute;
     right: -20px;
     top: 15%;
     background-color: #ff7f00;
@@ -1088,7 +1085,7 @@ body {
     border-radius: 5px;
     cursor: pointer;
     margin-left: auto;
-    width: 9%;
+    width: 7%;
     font-display: center;
     margin-right: 40px;
 }
@@ -1366,5 +1363,95 @@ body {
   transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
 }
 
+.payment-container {
+  border-radius: 12px;
+  width: 100%;
+  max-width: 620px;
+  margin: 20px;
+  margin-left: 40px;
+}
 
-    
+.gahlabel {
+  font-weight: 600;
+  display: block;
+  margin-top: 20px;
+  color: #333;
+}
+
+.terminal-dropdown {
+  width: 100%;
+  padding: 14px;
+  margin-top: 8px;
+  border: 1px solid #FF7F00;
+  border-radius: 8px;
+  font-size: 16px;
+  background-color: white;
+}
+
+.redirect-input-container {
+  display: flex;
+  align-items: center;
+}
+
+.https-input {
+  width: 80px;
+  padding: 14px;
+  background-color: #FF7F00;
+  color: white;
+  border: 1px solid #FF7F00;
+  border-radius: 8px 0 0 8px;
+  font-size: 16px;
+  text-align: center;
+}
+
+.redirect-input {
+  width: calc(100% - 90px); /* 90px includes the width of the https part */
+  padding: 14px;
+  border: 1px solid #FF7F00;
+  border-radius: 0 8px 8px 0;
+  font-size: 16px;
+  background-color: white;
+}
+
+.button-group {
+  margin-top: 28px;
+  display: flex;
+  gap: 14px;
+}
+
+.btn {
+  flex: 1;
+  padding: 14px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 16px;
+  transition: all 0.3s ease-in-out;
+}
+
+.btn-generate {
+  background-color: #FF7F00;
+  color: white;
+}
+
+.btn-back {
+  background-color: #444;
+  color: white;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+  opacity: 0.9;
+}
+
+@media (max-width: 768px) {
+  body {
+    padding-left: 0;
+    justify-content: center;
+  }
+  .payment-container {
+    width: 95%;
+  }
+}
+  
