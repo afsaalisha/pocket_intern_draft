@@ -1238,6 +1238,141 @@ body {
         transform: translateX(24px);
     }
 
+    /* Temporary! Open to changes for Figma Draft! */
+    /* Finans Toast Notification */
+    .finans-toast {
+      visibility: hidden;
+      min-width: 320px;
+      background: white;
+      color: #2e7d32; /* Dark green text */
+      text-align: left;
+      padding: 16px 20px;
+      position: fixed;
+      z-index: 1000;
+      bottom: 30px;
+      right: 30px;
+      border-radius: 12px;
+      font-size: 14px;
+      font-weight: 600;
+      box-shadow: 0 4px 6px rgba(0, 128, 0, 0.2); /* Green shadow */
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      opacity: 0;
+      transform: translateY(10px);
+      transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+    }
+
+    /* Show the toast */
+    .finans-toast.show {
+      visibility: visible;
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Success header */
+    .finans-toast .toast-header {
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    /* Close button */
+    .finans-toast .close-btn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 18px;
+      color: #2e7d32;
+    }
+
+    /* Smooth fade-out */
+    .finans-toast.hide {
+      opacity: 0;
+      transform: translateY(10px);
+      transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+    }
+
+    .addinans {
+      width: 8%; /* Adjust width if necessary */
+      position: absolute; /* Change to absolute so it stays inside its parent */
+      right: 20px; /* Ensure it aligns properly */
+      top: 80px; /* Position it at the top of the container */
+      background-color: #ff7f00;
+      color: white;
+      font-size: 18px;
+      font-weight: bold;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      font-display: center;
+    }
+   
+    .tengah {
+      text-align: center !important;
+    }
+
+    .finans-table {
+      max-width: 100%;
+      width: 100%;
+      table-layout: fixed; /* Ensures table stays within the container */
+      border-collapse: collapse;
+      background: #fcfdff;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      margin-right: 10px;
+      margin-left: 30px;
+      overflow: hidden;
+    }
+
+    .finans-table-container {
+      overflow-x: auto; /* Enables horizontal scrolling if needed */
+      max-width: 100%;
+      padding: 10px;
+      display: flex;
+      justify-content: center; /* Keeps the table centered */
+      width: 100%;
+    }
+    
+    .finans-table th, .finans-table td {
+        padding: 12px;
+        border-bottom: 1px solid #ddd;
+        font-size: 16px;
+        word-wrap: break-word; /* Prevents text overflow */
+        white-space: nowrap; /* Keeps content readable */
+    }
+    
+    .finans-table th {
+        background-color: rgb(255, 127, 0, 0.8);
+        color: #fcfdff;
+        text-align: left;
+    }
+    
+    .finans-table th:first-child {
+        border-top-left-radius: 8px;
+    }
+    
+    .finans-table th:last-child {
+        border-top-right-radius: 8px;
+    }
+    
+    /* Center "Send Finance Email" */
+    .finans-table th.finance-email, 
+    .finans-table td.finance-email {
+        text-align: center;
+    }
+    
+    /* Keep rows aligned left */
+    .finans-table td {
+        text-align: left;
+    }
+    
+    .finans-table tbody tr:hover {
+        background-color: #f4f8ff;
+    }
+  
+    
+
     /* terminaks */
 
     .terminal-management {
@@ -1312,75 +1447,7 @@ body {
       }
     }
 
-    /* Temporary! Open to changes for Figma Draft! */
-    /* Finans Toast Notification */
-    .finans-toast {
-      visibility: hidden;
-      min-width: 320px;
-      background: white;
-      color: #2e7d32; /* Dark green text */
-      text-align: left;
-      padding: 16px 20px;
-      position: fixed;
-      z-index: 1000;
-      bottom: 30px;
-      right: 30px;
-      border-radius: 12px;
-      font-size: 14px;
-      font-weight: 600;
-      box-shadow: 0 4px 6px rgba(0, 128, 0, 0.2); /* Green shadow */
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      opacity: 0;
-      transform: translateY(10px);
-      transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
-    }
-
-    /* Show the toast */
-    .finans-toast.show {
-      visibility: visible;
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* Success header */
-    .finans-toast .toast-header {
-      font-size: 16px;
-      font-weight: bold;
-    }
-
-    /* Close button */
-    .finans-toast .close-btn {
-      background: none;
-      border: none;
-      cursor: pointer;
-      font-size: 18px;
-      color: #2e7d32;
-    }
-
-    /* Smooth fade-out */
-    .finans-toast.hide {
-      opacity: 0;
-      transform: translateY(10px);
-      transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
-    }
-
-    .addinans {
-      width: 8%; /* Adjust width if necessary */
-      position: absolute; /* Change to absolute so it stays inside its parent */
-      right: 20px; /* Ensure it aligns properly */
-      top: 80px; /* Position it at the top of the container */
-      background-color: #ff7f00;
-      color: white;
-      font-size: 18px;
-      font-weight: bold;
-      padding: 12px 20px;
-      border: none;
-      border-radius: 10px;
-      cursor: pointer;
-      font-display: center;
-    }
+    
     
 
 
