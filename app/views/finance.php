@@ -4,7 +4,7 @@
 <div class="content goku">
     <h1 class="title">Finances</h1>
     <span class="pepep">Report Emails</span>
-    <span class="add-tehe" id="finansModal"><i class="fa-solid fa-plus"></i> Add User</span>
+    <span class="addinans" id="finansModal"><i class="fa-solid fa-plus"></i> Add User</span>
 
     <div class="table-controls">
         <label class="grah">Show
@@ -168,18 +168,6 @@
             alert('Please fill in all fields correctly.');
         }
     });
-
-
-    // Call update function on page load
-    updateEntryCount();
-
-    function openPermissionsModal() {
-        document.getElementById("permissionsModal").style.display = "block";
-    }
-
-    function closePermissionsModal() {
-        document.getElementById("permissionsModal").style.display = "none";
-    }
 
     // Function to show a success toast
     function showFinansToast(message) {
