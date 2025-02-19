@@ -1,10 +1,10 @@
 <?php require_once 'layouts/header.php'; ?>
 <?php require_once 'layouts/sidebar.php'; ?>
 
-<div class="content goku">
+<div class="content goku skroll">
     <h1 class="title">Finances</h1>
     <span class="pepep">Report Emails</span>
-    <span class="addinans" id="finansModal"><i class="fa-solid fa-plus"></i> Add User</span>
+    <!-- <span class="addinans" id="finansModal"><i class="fa-solid fa-plus"></i> Add User</span> -->
 
     <div class="table-controls">
         <label class="grah">Show
@@ -14,6 +14,7 @@
                 <option>50</option>
             </select> Entries
         </label>
+        <span class="addinans" id="finansModal"><i class="fa-solid fa-plus"></i> Add User</span>
         <input type="text" placeholder="Search..." class="search">
     </div>
     <table>
