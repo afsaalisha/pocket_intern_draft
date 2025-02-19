@@ -1,7 +1,7 @@
 <?php require_once 'layouts/header.php'; ?>
 <?php require_once 'layouts/sidebar.php'; ?>
 
-<div class="content goku skroll">
+<div class="content goku">
     <h1 class="title">Finances</h1>
     <span class="pepep">Report Emails</span>
     <span class="addinans" id="finansModal"><i class="fa-solid fa-plus"></i> Add User</span>
