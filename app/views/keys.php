@@ -7,7 +7,7 @@
     <p class="kiz-description">Manage the API keys and salt for web payment integration usage</p>
 
     <div class="kiz-api-header">
-        <a href="/poshet/managekeys"><button class="kiz-btn kiz-btn-primary">Generate New Keys</button></a>
+        <a href="/poshet/managekeys"><button class="kiz-btn">Generate New Keys</button></a>
     </div>
 
     <table class="kiz-api-table">
