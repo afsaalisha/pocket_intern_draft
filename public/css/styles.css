@@ -410,6 +410,9 @@ body {
   .search {
     margin-right: -40px;
     width: 20%;
+    border-radius: 8px;
+    border: 1px solid #888;
+    background-color: #f4f6fc;
   }
   
   .table-controls select,
@@ -1806,8 +1809,8 @@ body {
 }
 
 .kiz-api-table th {
-  background: #ff8c42;
-  color: white;
+  background: #ff7f00;
+  color: #f4f6fc;
   text-align: left;
   padding: 12px;
 }
@@ -1822,19 +1825,19 @@ body {
   display: flex;
   align-items: center;
   gap: 5px;
-  background: #ff8c42;
-  color: white;
+  background: #d8e3ee;
+  color: #333;
   padding: 8px 12px;
   border: none;
   border-radius: 6px;
   font-size: 14px;
-  font-weight: bold;
+  font-weight: light;
   cursor: pointer;
   transition: background 0.3s ease;
 }
 
 .kiz-btn-view:hover {
-  background: #e67635;
+  background: #ff7f00;
 }
 
 .kiz-form {
