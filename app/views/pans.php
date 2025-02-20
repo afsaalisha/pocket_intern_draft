@@ -93,35 +93,15 @@ document.querySelectorAll('.Details').forEach(button => {
         const terminalName = row.cells[1].innerText;
         const redirectLink = row.cells[2].querySelector('a').href;
         const paymentLink = row.cells[3].querySelector('a').href;
-        const dateCreated = new Date().toLocaleDateString(); // More readable format
 
-        // Fill in details
-        document.getElementById("detailTerminalId").innerText = terminalId;
-        document.getElementById("detailTerminalName").innerText = terminalName;
-        document.getElementById("detailRedirectLink").href = redirectLink;
-        document.getElementById("detailRedirectLink").innerText = redirectLink;
-        document.getElementById("detailPaymentLink").value = paymentLink;
-        document.getElementById("detailDateCreated").innerText = dateCreated;
+        // Construct URL with parameters
+        const url = `http://localhost/poshet/detete?terminalId=${encodeURIComponent(terminalId)}&terminalName=${encodeURIComponent(terminalName)}&redirectLink=${encodeURIComponent(redirectLink)}&paymentLink=${encodeURIComponent(paymentLink)}`;
 
-        // Show details, hide table
-        document.getElementById("tableView").style.display = "none";
-        document.getElementById("detailsView").style.display = "block";
+        // Redirect to detete page
+        window.location.href = url;
     });
 });
 
-// Back button to return to table
-document.getElementById("backButton").addEventListener("click", function() {
-    document.getElementById("detailsView").style.display = "none";
-    document.getElementById("tableView").style.display = "block";
-});
 
-// Copy payment link to clipboard
-function copyToClipboard() {
-    const input = document.getElementById("detailPaymentLink");
-    navigator.clipboard.writeText(input.value).then(() => {
-        alert("Copied: " + input.value);
-    }).catch(err => {
-        console.error("Failed to copy: ", err);
-    });
-}
+
 </script>
