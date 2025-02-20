@@ -13,38 +13,43 @@ if (isset($_GET['id'])) {
     $merchant_id = $_GET['id'];
     // Fetch real values from the database here based on `$merchant_id`
 }
-
 ?>
 
-
 <div class="content skroll">
-    <h2>Merchant Salt & Key</h2>
+    <h2 class="title">Merchant Salt & Key</h2>
     <p class="kiz-description"><?= htmlspecialchars($merchant_name) ?></p>
 
-    <label>Merchant Salt:</label>
-    <div class="kiz-input-group">
-        <input type="text" value="<?= htmlspecialchars($merchant_salt) ?>" readonly>
-        <button onclick="copyToClipboard('salt')">📋</button>
+    <label class="kunci-label">Merchant Salt:</label>
+    <div class="kunci-input-group">
+        <input type="text" class="kunci-kotak" id="salt" value="<?= htmlspecialchars($merchant_salt) ?>" readonly>
+        <button onclick="copyToClipboard('salt')" class="kunci-btn-copy">
+            <i class="fa fa-copy"></i>
+        </button>
     </div>
 
-    <label>Merchant API Key:</label>
-    <div class="kiz-input-group">
-        <input type="text" value="<?= htmlspecialchars($merchant_api_key) ?>" readonly>
-        <button onclick="copyToClipboard('api')">📋</button>
+    <label class="kunci-label">Merchant API Key:</label>
+    <div class="kunci-input-group">
+        <input type="text" class="kunci-kotak" id="api" value="<?= htmlspecialchars($merchant_api_key) ?>" readonly>
+        <button onclick="copyToClipboard('api')" class="kunci-btn-copy">
+            <i class="fa fa-copy"></i>
+        </button>
     </div>
 
-    <a href="/poshet/keys" class="kiz-btn-secondary">Back</a>
+    <div class="kunci">
+        <a href="/poshet/keys" class="kiz-btn-secondary">Back</a>
+    </div>
+
 </div>
 
 <?php require_once 'layouts/footer.php'; ?>
 
 <!-- scripts go below here -->
-
 <script>
     function copyToClipboard(type) {
-        let inputField = type === 'salt' ? document.querySelector('.kiz-input-group input') : document.querySelectorAll('.kiz-input-group input')[1];
+        let inputField = document.getElementById(type);
         inputField.select();
+        inputField.setSelectionRange(0, 99999); // For mobile compatibility
         document.execCommand('copy');
-        alert('Copied to clipboard!');
+        alert(type.charAt(0).toUpperCase() + type.slice(1) + " copied to clipboard!");
     }
 </script>
