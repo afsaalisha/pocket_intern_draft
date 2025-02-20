@@ -30,7 +30,23 @@
                     <div class="change-date">08 February 2025, 10:15am</div>
                 </div>
             </div>
+            <div class="change-notification change-unread" onclick="showDetails(this, 'IO-250207446741', 'Yuki Tanaka (245678)', '08 February 2025', 'Approved')">
+                <img class="change-icon" src="/poshet/public/images/pocket.png" alt="Profile">
+                <div class="change-text">
+                    <div class="change-bold">New Installment Order!</div>
+                    <div>Customer ref. 987654321</div>
+                    <div class="change-date">08 February 2025, 10:15am</div>
+                </div>
+            </div><div class="change-notification change-unread" onclick="showDetails(this, 'IO-250207446741', 'Yuki Tanaka (245678)', '08 February 2025', 'Approved')">
+                <img class="change-icon" src="/poshet/public/images/pocket.png" alt="Profile">
+                <div class="change-text">
+                    <div class="change-bold">New Installment Order!</div>
+                    <div>Customer ref. 987654321</div>
+                    <div class="change-date">08 February 2025, 10:15am</div>
+                </div>
+            </div>
         </div>
+        
 
         <!-- Notification Details (Always Same Size) -->
         <div class="change-card" id="change-card">
@@ -44,144 +60,158 @@
 
 <style>
     /* Layout */
-    .change-container {
-        display: flex;
-        width: 100%;
-        align-items: stretch;
-        margin: 20px 0;
-    }
+/* Layout */
+.change-container {
+    display: flex;
+    width: 100%;
+    align-items: stretch;
+    margin: 20px 0;
+    min-height: 420px; /* Increased height for a balanced look */
+    margin-left: 40px;
+}
 
-    /* Notifications List */
-    .change-notifications {
-        width: 300px;
-        background: rgb(247, 247, 247);
-        border-radius: 10px 0 0 10px;
-        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-        overflow: hidden;
-        margin: 0; /* Removes extra space */
-        margin-left: 40px;
-    }
+/* Notifications List */
+.change-notifications {
+    width: 300px;
+    background: #fff;
+    border-radius: 10px 0 0 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    margin: 0;
+}
 
-    .change-header {
-        background: #ff7f00;
-        color: white;
-        text-align: center;
-        padding: 12px;
-        font-size: 14px;
-        font-weight: bold;
-        cursor: pointer;
-        border-bottom: 2px solid #ff6600;
-        transition: background 0.3s;
-    }
+/* Header */
+.change-header {
+    background: #ff7f00;
+    color: white;
+    text-align: center;
+    padding: 12px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    border-bottom: 2px solid #ff6600;
+    transition: background 0.3s;
+}
 
-    .change-header:hover {
-        background: #e66c00;
-    }
+.change-header:hover {
+    background: #e66c00;
+}
 
-    .change-notification {
-        display: flex;
-        align-items: center;
-        padding: 12px;
-        border-bottom: 1px solid #eee;
-        background:rgb(247, 247, 247);
-        cursor: pointer;
-        transition: background 0.3s ease-in-out, border 0.3s ease-in-out;
-        position: relative;
-    }
+/* Individual Notifications */
+.change-notification {
+    display: flex;
+    align-items: center;
+    padding: 12px;
+    border-bottom: 1px solid #eee;
+    background: rgb(245, 245, 245);
+    cursor: pointer;
+    transition: background 0.3s ease-in-out, border 0.3s ease-in-out;
+    position: relative;
+}
 
-    .change-notification:hover {
-        background: #e0e0e0;
-    }
+.change-notification:hover {
+    background: #e0e0e0;
+}
 
-    .change-notification.active {
-        background: #fff;
-        border-left: none;
-    }
+/* Active Notification */
+.change-notification.active {
+    background: #fff;
+    border-left: none;
+}
 
-    .change-notification.change-unread::after {
-        content: '•';
-        color: orange;
-        font-size: 24px;
-        position: absolute;
-        top: 10px;
-        right: 15px;
-    }
+/* Unread Notification Indicator */
+.change-notification.change-unread::after {
+    content: '•';
+    color: orange;
+    font-size: 24px;
+    position: absolute;
+    top: 10px;
+    right: 15px;
+}
 
-    .change-icon {
-        width: 45px;
-        height: 45px;
-        border-radius: 50%;
-        margin-right: 15px;
-        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-    }
+/* Notification Image */
+.change-icon {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    margin-right: 15px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
 
-    .change-text {
-        flex: 1;
-        font-size: 14px;
-    }
+/* Notification Text */
+.change-text {
+    flex: 1;
+    font-size: 14px;
+}
 
-    .change-bold {
-        font-weight: bold;
-        color: #333;
-        margin-bottom: 2px;
-    }
+.change-bold {
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 2px;
+}
 
-    .change-date {
-        font-size: 12px;
-        color: #777;
-        margin-top: 5px;
-    }
+.change-date {
+    font-size: 12px;
+    color: #777;
+    margin-top: 5px;
+}
 
-    /* Fixed Size for Notification Details */
-    .change-card {
-        flex: 1;
-        background: #fff;
-        padding: 30px;
-        border-radius: 0 10px 10px 0;
-        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        justify-content: center;
-        min-height: 300px;
-        min-width: 500px;
-        flex-shrink: 0;
-        margin: 0; /* Ensures no spacing */
-    }
+/* Fixed Size for Notification Details */
+.change-card {
+    flex: 1;
+    background: #fff;
+    padding: 40px; /* Slightly more padding */
+    border-radius: 0 10px 10px 0;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    min-height: 300px; /* Increased height */
+    min-width: 440px;
+    flex-shrink: 0;
+    margin: 0;
+}
 
-    .change-card img {
-        width: 80px;
-        height: 80px;
-        margin-bottom: 20px;
-    }
+/* Card Image */
+.change-card img {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 20px;
+}
 
-    .changecard-title {
-        font-size: 22px;
-        font-weight: bold;
-        margin-bottom: 15px;
-        color: #333;
-    }
+/* Card Title */
+.changecard-title {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #333;
+}
 
-    .change-card p {
-        font-size: 14px;
-        margin: 5px 0;
-    }
+/* Card Text */
+.change-card p {
+    font-size: 14px;
+    margin: 5px 0;
+}
 
-    .change-card-btn {
-        margin-top: 15px;
-        padding: 10px 15px;
-        background: #ff7f00;
-        color: white;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        transition: background 0.3s;
-    }
+/* View Order Button */
+.change-card-btn {
+    margin-top: 15px;
+    padding: 10px 15px;
+    background: #ff7f00;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+    display: none; /* Initially hidden until a notification is clicked */
+}
 
-    .change-card-btn:hover {
-        background: #e66c00;
-    }
+.change-card-btn:hover {
+    background: #e66c00;
+}
+
 </style>
 
 <script>
