@@ -100,6 +100,33 @@
     function viewOrder() {
         alert("Viewing order details...");
     }
+
+    function updateTabCounts() {
+    const installmentCount = document.querySelectorAll('.change-notifications .change-notification').length;
+    const changePaymentCount = document.querySelectorAll('.change-payment-notifications .change-notification').length;
+    
+    document.querySelector(".tab-menu a[href='/poshet/home']").innerHTML = `Installment (${installmentCount})`;
+    document.querySelector(".tab-menu a[href='/poshet/change']").innerHTML = `Change Payment (${changePaymentCount})`;
+}
+
+// Ensure tab switching updates the count dynamically
+document.querySelectorAll(".tab-menu a").forEach(tab => {
+    tab.addEventListener("click", () => {
+        setTimeout(updateTabCounts, 100); // Small delay to ensure new elements are counted
+    });
+});
+
+// Run on page load
+document.addEventListener("DOMContentLoaded", () => {
+    updateTabCounts();
+});
+
+// Call this function whenever a new notification is added dynamically
+function addNotification(parentSelector, notificationHTML) {
+    document.querySelector(parentSelector).insertAdjacentHTML("beforeend", notificationHTML);
+    updateTabCounts();
+}
+
 </script>
 
 <?php require_once 'layouts/footer.php'; ?>
