@@ -1659,4 +1659,85 @@ body {
   text-decoration: underline;
 }
 
-  
+
+/* keys section */
+
+.kiz-content {
+    margin-left: 220px;
+    flex: 1;
+    padding: 20px;
+    /* position: fixed; */
+}
+
+.kiz-subtitle {
+  font-size: 16px;
+  font-weight: bold;
+  color: #666;
+  margin-left: 40px;
+}
+
+.kiz-description {
+  font-size: 14px;
+  color: #888;
+  margin-bottom: 20px;
+  margin-left: 40px;
+}
+
+.kiz-api-header {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 15px;
+}
+
+.kiz-btn-primary {
+  background-color: #ff8c42;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* Table styling */
+.kiz-api-table {
+  width: 100%;
+  max-width: 96%; /* Adjust width for better alignment */
+  border-collapse: collapse;
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.kiz-api-table th {
+  background: #ff8c42;
+  color: white;
+  text-align: left;
+  padding: 12px;
+}
+
+.kiz-api-table td {
+  padding: 12px;
+  border-bottom: 1px solid #ddd;
+}
+
+/* View button */
+.kiz-btn-view {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background: #ff8c42;
+  color: white;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.kiz-btn-view:hover {
+  background: #e67635;
+}
