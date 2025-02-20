@@ -1700,45 +1700,6 @@ body {
   margin-bottom: 15px;
 }
 
-/* .kiz-btn {
-  background-color: #ff7f00;
-  color: #f4f6fc;
-  padding: 10px 15px;
-  border: none;
-  border-radius: 10px;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-.kiz-btn-primary {
-  background-color: #ff7f00;
-  color: #f4f6fc;
-  padding: 10px 15px;
-  border: none;
-  border-radius: 10px;
-  font-weight: bold;
-  cursor: pointer;
-  width: 100px;
-}
-
-.kiz-btn-secondary {
-  background-color: #a0a4b1;
-  color: #f4f6fc;
-  padding: 10px 15px;
-  border: none;
-  border-radius: 10px;
-  font-weight: bold;
-  cursor: pointer;
-  width: 100px;
-}
-
-.botons {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  align-items: center;
-} */
-
 .kiz-btn {
   background-color: #ff7f00;
   color: #f4f6fc;
@@ -1761,15 +1722,28 @@ body {
   cursor: pointer;
 }
 
+.kunci-btn-copy {
+  background: #ff7f00;
+  color: #f4f6fc;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
 /* Hover Effect */
 .kiz-btn:hover, 
-.kiz-btn-primary:hover {
+.kiz-btn-primary:hover,
+.kiz-btn-copy:hover {
   background-color: #e67200; /* Darker orange */
 }
 
 /* Click (Active) Effect */
 .kiz-btn:active, 
-.kiz-btn-primary:active {
+.kiz-btn-primary:active,
+.kiz-btn-copy:active {
   background-color: #cc5e00; /* Even darker orange */
   transform: scale(0.95);
 }
@@ -1872,6 +1846,36 @@ body {
   outline: none;
 }
 
+.kunci-label {
+  font-size: 14px;
+  color: #888;
+  margin-bottom: 20px;
+  margin-left: 40px;
+}
+
+.kunci-input-group {
+  font-size: 14px;
+  color: #888;
+  margin-bottom: 20px;
+  margin-left: 40px;
+  margin-top: 10px;
+  width: 500px;
+}
+
+.kunci-kotak {
+  padding: 8px;
+  border-radius: 10px;
+  border: 1px solid #ff7f00;
+  width: 80%;
+}
+
+.kunci {
+  margin-left: 40px;
+  padding-top: 10px;
+  flex-grow: 1;
+  position: fixed;
+  width: 80%;
+}
 
 
 /* dashi section */
