@@ -10,50 +10,10 @@
 
     <div class="change-container">
         <!-- Notifications List -->
-        <div class="change-notifications">
+        <div class="change-notifications" id="change-notifications">
             <div class="change-header" onclick="markAllAsRead()">Mark All As Read</div>
 
-            <div class="change-notification change-unread" onclick="showDetails(this, 'IO-250207446740', 'Nisa Alias (879554)', '07 February 2025', 'Pending')">
-                <img class="change-icon" src="/poshet/public/images/pocket.png" alt="Profile">
-                <div class="change-text">
-                    <div class="change-bold">New Installment Order!</div>
-                    <div>Customer ref. 12345567687</div>
-                    <div class="change-date">07 February 2025, 09:25am</div>
-                </div>
-            </div>
-
-            <div class="change-notification change-unread" onclick="showDetails(this, 'IO-250207446741', 'Yuki Tanaka (245678)', '08 February 2025', 'Approved')">
-                <img class="change-icon" src="/poshet/public/images/pocket.png" alt="Profile">
-                <div class="change-text">
-                    <div class="change-bold">New Installment Order!</div>
-                    <div>Customer ref. 987654321</div>
-                    <div class="change-date">08 February 2025, 10:15am</div>
-                </div>
-            </div>
-            <div class="change-notification change-unread" onclick="showDetails(this, 'IO-250207446741', 'Yuki Tanaka (245678)', '08 February 2025', 'Approved')">
-                <img class="change-icon" src="/poshet/public/images/pocket.png" alt="Profile">
-                <div class="change-text">
-                    <div class="change-bold">New Installment Order!</div>
-                    <div>Customer ref. 987654321</div>
-                    <div class="change-date">08 February 2025, 10:15am</div>
-                </div>
-            </div>
-            <div class="change-notification change-unread" onclick="showDetails(this, 'IO-250207446741', 'Yuki Tanaka (245678)', '08 February 2025', 'Approved')">
-                <img class="change-icon" src="/poshet/public/images/pocket.png" alt="Profile">
-                <div class="change-text">
-                    <div class="change-bold">New Installment Order!</div>
-                    <div>Customer ref. 987654321</div>
-                    <div class="change-date">08 February 2025, 10:15am</div>
-                </div>
-            </div>
-            <div class="change-notification change-unread" onclick="showDetails(this, 'IO-250207446741', 'Yuki Tanaka (245678)', '08 February 2025', 'Approved')">
-                <img class="change-icon" src="/poshet/public/images/pocket.png" alt="Profile">
-                <div class="change-text">
-                    <div class="change-bold">New Installment Order!</div>
-                    <div>Customer ref. 987654321</div>
-                    <div class="change-date">08 February 2025, 10:15am</div>
-                </div>
-            </div>
+            <!-- Existing notifications (this part will be dynamically updated) -->
         </div>
 
         <!-- Notification Details (Always Same Size) -->
@@ -102,31 +62,93 @@
     }
 
     function updateTabCounts() {
-    const installmentCount = document.querySelectorAll('.change-notifications .change-notification').length;
-    const changePaymentCount = document.querySelectorAll('.change-payment-notifications .change-notification').length;
-    
-    document.querySelector(".tab-menu a[href='/poshet/home']").innerHTML = `Installment (${installmentCount})`;
-    document.querySelector(".tab-menu a[href='/poshet/change']").innerHTML = `Change Payment (${changePaymentCount})`;
-}
+        const installmentCount = document.querySelectorAll('.change-notifications .change-notification').length;
+        const changePaymentCount = document.querySelectorAll('.change-payment-notifications .change-notification').length;
+        
+        document.querySelector(".tab-menu a[href='/poshet/home']").innerHTML = `Installment (${installmentCount})`;
+        document.querySelector(".tab-menu a[href='/poshet/change']").innerHTML = `Change Payment (${changePaymentCount})`;
+    }
 
-// Ensure tab switching updates the count dynamically
-document.querySelectorAll(".tab-menu a").forEach(tab => {
-    tab.addEventListener("click", () => {
-        setTimeout(updateTabCounts, 100); // Small delay to ensure new elements are counted
+    // Ensure tab switching updates the count dynamically
+    document.querySelectorAll(".tab-menu a").forEach(tab => {
+        tab.addEventListener("click", () => {
+            setTimeout(updateTabCounts, 100); // Small delay to ensure new elements are counted
+        });
     });
-});
 
-// Run on page load
-document.addEventListener("DOMContentLoaded", () => {
-    updateTabCounts();
-});
+    // Run on page load
+    document.addEventListener("DOMContentLoaded", () => {
+        updateTabCounts();
+    });
 
-// Call this function whenever a new notification is added dynamically
-function addNotification(parentSelector, notificationHTML) {
-    document.querySelector(parentSelector).insertAdjacentHTML("beforeend", notificationHTML);
-    updateTabCounts();
-}
+    // Call this function whenever a new notification is added dynamically
+    function addNotification(parentSelector, notificationHTML) {
+        document.querySelector(parentSelector).insertAdjacentHTML("beforeend", notificationHTML);
+        updateTabCounts();
+    }
 
+    // Generate random customer data
+    function generateRandomCustomer() {
+        const customers = [
+            { name: 'Yuki Tanaka', ref: '245678' },
+            { name: 'Alicia Sato', ref: '342567' },
+            { name: 'John Smith', ref: '657890' },
+            { name: 'Jane Doe', ref: '123456' },
+            { name: 'Ahmad Bin Ali', ref: '987654' },
+            { name: 'Siti Binti Ahmad', ref: '456789' },
+            { name: 'Mohd Aziz', ref: '234567' },
+            { name: 'Nurul Huda', ref: '876543' },
+            { name: 'Kumar Raj', ref: '567890' },
+            { name: 'Adachi Kiyoshi', ref: '143223'},
+            { name: 'Kim Jong Un', ref: '420420'},
+            { name: 'Donald Trump', ref: '696969'},
+            { name: 'Joe Biden', ref: '420069'},
+            { name: 'Vladimir Putin', ref: '123321'},
+            { name: 'Xi Jinping', ref: '888888'},
+            { name: 'Angela Merkel', ref: '999999'},
+            { name: 'Emmanuel Macron', ref: '777777'},
+            { name: 'Boris Johnson', ref: '666666'},
+            { name: 'Justin Trudeau', ref: '555555'},
+            { name: 'Scott Morrison', ref: '444444'},
+            { name: 'Joko Widodo', ref: '333333'},
+            { name: 'Narendra Modi', ref: '222222'},
+            { name: 'Shinzo Abe', ref: '111111'},
+            { name: 'Malcolm Turnbull', ref: '000000'}
+            
+        ];
+
+        const statuses = ['Pending', 'Approved', 'Denied'];
+
+        const randomCustomer = customers[Math.floor(Math.random() * customers.length)];
+        const randomStatus = statuses[Math.floor(Math.random() * statuses.length)];
+        const randomDate = new Date();
+        randomDate.setDate(randomDate.getDate() - Math.floor(Math.random() * 5)); // Random date within the last 5 days
+
+        const refNo = randomCustomer.ref;
+        const customerName = randomCustomer.name;
+        const orderDate = randomDate.toLocaleDateString() + ', ' + randomDate.toLocaleTimeString().slice(0, 5);
+        const status = randomStatus;
+
+        return { refNo, customerName, orderDate, status };
+    }
+
+    // Function to add a random notification every 30 minutes
+    setInterval(function () {
+        const { refNo, customerName, orderDate, status } = generateRandomCustomer();
+
+        const notificationHTML = `
+            <div class="change-notification change-unread" onclick="showDetails(this, '${refNo}', '${customerName}', '${orderDate}', '${status}')">
+                <img class="change-icon" src="/poshet/public/images/pocket.png" alt="Profile">
+                <div class="change-text">
+                    <div class="change-bold">New Installment Order!</div>
+                    <div>Customer ref. ${refNo}</div>
+                    <div class="change-date">${orderDate}</div>
+                </div>
+            </div>
+        `;
+
+        addNotification('#change-notifications', notificationHTML);
+    }, 7200000); // Adds a new notification every 30 minutes (1800000 ms)
 </script>
 
 <?php require_once 'layouts/footer.php'; ?>
