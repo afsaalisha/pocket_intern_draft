@@ -7,7 +7,7 @@
     <p class="kiz-description">Manage the API keys and salt for web payment integration usage</p>
 
     <div class="kiz-api-header">
-        <button class="kiz-btn kiz-btn-primary">Generate New Keys</button>
+        <a href="/poshet/managekeys"><button class="kiz-btn kiz-btn-primary">Generate New Keys</button></a>
     </div>
 
     <table class="kiz-api-table">
@@ -38,7 +38,7 @@
                         <td>{$key[1]}</td>
                         <td>{$key[2]}</td>
                         <td>
-                            <button class='kiz-btn-view'><i class='fa fa-eye'></i> View</button>
+                            <a href=\"/poshet/liatkey\"><button class='kiz-btn-view'><i class='fa fa-eye'></i> View</button></a>
                         </td>
                     </tr>";
             }
