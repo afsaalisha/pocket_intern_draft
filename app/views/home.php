@@ -14,7 +14,7 @@
             <div class="change-header" onclick="markAllAsRead()">Mark All As Read</div>
 
             <div class="change-notification change-unread" onclick="showDetails(this, 'IO-250207446740', 'Nisa Alias (879554)', '07 February 2025', 'Pending')">
-                <img class="change-icon" src="/poshet/public/images/kiyoshi.jpg" alt="Profile">
+                <img class="change-icon" src="/poshet/public/images/pocket.png" alt="Profile">
                 <div class="change-text">
                     <div class="change-bold">New Installment Order!</div>
                     <div>Customer ref. 12345567687</div>
@@ -23,7 +23,7 @@
             </div>
 
             <div class="change-notification change-unread" onclick="showDetails(this, 'IO-250207446741', 'Yuki Tanaka (245678)', '08 February 2025', 'Approved')">
-                <img class="change-icon" src="/poshet/public/images/kiyoshi.jpg" alt="Profile">
+                <img class="change-icon" src="/poshet/public/images/pocket.png" alt="Profile">
                 <div class="change-text">
                     <div class="change-bold">New Installment Order!</div>
                     <div>Customer ref. 987654321</div>
@@ -31,7 +31,7 @@
                 </div>
             </div>
             <div class="change-notification change-unread" onclick="showDetails(this, 'IO-250207446741', 'Yuki Tanaka (245678)', '08 February 2025', 'Approved')">
-                <img class="change-icon" src="/poshet/public/images/kiyoshi.jpg" alt="Profile">
+                <img class="change-icon" src="/poshet/public/images/pocket.png" alt="Profile">
                 <div class="change-text">
                     <div class="change-bold">New Installment Order!</div>
                     <div>Customer ref. 987654321</div>
@@ -39,7 +39,7 @@
                 </div>
             </div>
             <div class="change-notification change-unread" onclick="showDetails(this, 'IO-250207446741', 'Yuki Tanaka (245678)', '08 February 2025', 'Approved')">
-                <img class="change-icon" src="/poshet/public/images/kiyoshi.jpg" alt="Profile">
+                <img class="change-icon" src="/poshet/public/images/pocket.png" alt="Profile">
                 <div class="change-text">
                     <div class="change-bold">New Installment Order!</div>
                     <div>Customer ref. 987654321</div>
@@ -47,23 +47,7 @@
                 </div>
             </div>
             <div class="change-notification change-unread" onclick="showDetails(this, 'IO-250207446741', 'Yuki Tanaka (245678)', '08 February 2025', 'Approved')">
-                <img class="change-icon" src="/poshet/public/images/kiyoshi.jpg" alt="Profile">
-                <div class="change-text">
-                    <div class="change-bold">New Installment Order!</div>
-                    <div>Customer ref. 987654321</div>
-                    <div class="change-date">08 February 2025, 10:15am</div>
-                </div>
-            </div>
-            <div class="change-notification change-unread" onclick="showDetails(this, 'IO-250207446741', 'Yuki Tanaka (245678)', '08 February 2025', 'Approved')">
-                <img class="change-icon" src="/poshet/public/images/kiyoshi.jpg" alt="Profile">
-                <div class="change-text">
-                    <div class="change-bold">New Installment Order!</div>
-                    <div>Customer ref. 987654321</div>
-                    <div class="change-date">08 February 2025, 10:15am</div>
-                </div>
-            </div>
-            <div class="change-notification change-unread" onclick="showDetails(this, 'IO-250207446741', 'Yuki Tanaka (245678)', '08 February 2025', 'Approved')">
-                <img class="change-icon" src="/poshet/public/images/kiyoshi.jpg" alt="Profile">
+                <img class="change-icon" src="/poshet/public/images/pocket.png" alt="Profile">
                 <div class="change-text">
                     <div class="change-bold">New Installment Order!</div>
                     <div>Customer ref. 987654321</div>
@@ -74,7 +58,7 @@
 
         <!-- Notification Details (Always Same Size) -->
         <div class="change-card" id="change-card">
-            <img src="/poshet/public/images/kiyoshi.jpg" alt="Notification Icon" class="change-icon">
+            <img src="/poshet/public/images/pocket.png" alt="Notification Icon" class="change-icon">
             <div class="changecard-title">Welcome!</div>
             <p id="order-info">Select a notification to see details.</p>
             <button class="change-card-btn" style="display: none;" id="view-order-btn" onclick="viewOrder()">View Order</button>

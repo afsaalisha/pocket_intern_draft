@@ -1745,7 +1745,7 @@ body {
 /* Layout */
 .change-container {
   display: flex;
-  width: 95%;
+  width: 100%;
   align-items: stretch;
   margin: 20px 0;
   margin-left: 40px;
@@ -1758,7 +1758,7 @@ body {
   border-radius: 10px 0 0 10px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
   overflow-y: auto; /* Enable vertical scrolling */
-  max-height: 420px; /* Set fixed height to prevent expansion */
+  max-height: 570px; /* Set fixed height to prevent expansion */
   scrollbar-width: thin;
   scrollbar-color: transparent transparent;
 }
@@ -1784,7 +1784,7 @@ body {
   align-items: center;
   padding: 12px;
   border-bottom: 1px solid #eee;
-  background: rgb(245, 245, 245);
+  background: rgb(246, 246, 246);
   cursor: pointer;
   transition: background 0.3s ease-in-out, border 0.3s ease-in-out;
   position: relative;
@@ -1845,8 +1845,8 @@ body {
   align-items: center;
   text-align: center;
   justify-content: center;
-  min-height: 350px; /* Increased height */
-  min-width: 500px;
+  min-height: 500px; /* Increased height */
+  min-width: 750px;
   flex-shrink: 0;
   margin: 0; /* Ensures no spacing */
 }
