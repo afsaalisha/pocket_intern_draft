@@ -95,17 +95,13 @@
   </div>
 </div>
 
-<!-- Assign Phone Section (Hidden by Default) -->
 <div id="teame-assignPhoneSection" style="display: none;">
   <h3>Assign New Phone</h3>
   <label for="teame-newPhoneInput">Phone Number:</label>
-  <input type="text" id="teame-newPhoneInput" placeholder="Enter phone number" class="tetris-input-box">
+  <input type="text" id="teame-newPhoneInput" class="tetris-input-box" value="+673 " maxlength="12">
   <button id="teame-addPhone">Add</button>
   <button id="teame-backToDetails">Back</button>
 </div>
-
-
-
 
 <script>
 document.addEventListener("DOMContentLoaded", function() {
@@ -214,8 +210,49 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 });
 
+document.getElementById("teame-generateQR").addEventListener("click", function () {
+  let videoUrl = "https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&mute=1";
+  let videoPopup = window.open(videoUrl, "_blank", "width=800,height=450");
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    const phoneInput = document.getElementById("teame-newPhoneInput");
+    const addPhoneButton = document.getElementById("teame-addPhone");
+
+    function ensurePrefix() {
+      if (!phoneInput.value.startsWith("+673 ")) {
+        phoneInput.value = "+673 ";
+      }
+    }
+
+    // Ensure "+673 " is always present and restrict input
+    phoneInput.addEventListener("input", function () {
+      let digits = phoneInput.value.replace("+673 ", ""); // Remove prefix to get numbers only
+
+      // Restrict to 7 digits max
+      if (digits.length > 7) {
+        digits = digits.slice(0, 7);
+      }
+
+      // Set formatted value
+      phoneInput.value = "+673 " + digits;
+    });
+
+    // Prevent removing "+673 "
+    phoneInput.addEventListener("keydown", function (e) {
+      if (phoneInput.selectionStart < 5 && (e.key === "Backspace" || e.key === "Delete")) {
+        e.preventDefault();
+      }
+    });
+
+    // When clicking "Add", validate and reset for next entry
+    addPhoneButton.addEventListener("click", function () {
+      let digits = phoneInput.value.replace("+673 ", ""); // Get only the digits
 
 
+    // Ensure "+673 " is there when opening the section
+    document.getElementById("teame-assignPhoneSection").addEventListener("transitionstart", ensurePrefix);
+  })});
 </script>
 
 <?php require_once 'layouts/footer.php'; ?>
