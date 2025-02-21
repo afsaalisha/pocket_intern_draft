@@ -100,21 +100,7 @@
             { name: 'Nurul Huda', ref: '876543' },
             { name: 'Kumar Raj', ref: '567890' },
             { name: 'Adachi Kiyoshi', ref: '143223'},
-            { name: 'Kim Jong Un', ref: '420420'},
-            { name: 'Donald Trump', ref: '696969'},
-            { name: 'Joe Biden', ref: '420069'},
-            { name: 'Vladimir Putin', ref: '123321'},
-            { name: 'Xi Jinping', ref: '888888'},
-            { name: 'Angela Merkel', ref: '999999'},
-            { name: 'Emmanuel Macron', ref: '777777'},
-            { name: 'Boris Johnson', ref: '666666'},
-            { name: 'Justin Trudeau', ref: '555555'},
-            { name: 'Scott Morrison', ref: '444444'},
-            { name: 'Joko Widodo', ref: '333333'},
-            { name: 'Narendra Modi', ref: '222222'},
-            { name: 'Shinzo Abe', ref: '111111'},
-            { name: 'Malcolm Turnbull', ref: '000000'}
-            
+            { name: 'Joe Biden', ref: '123456'}
         ];
 
         const statuses = ['Pending', 'Approved', 'Denied'];
@@ -148,7 +134,7 @@
         `;
 
         addNotification('#change-notifications', notificationHTML);
-    }, 7200000); // Adds a new notification every 30 minutes (1800000 ms)
+    }, 1000); // Adds a new notification every 1 second (1000 ms)
 </script>
 
 <?php require_once 'layouts/footer.php'; ?>

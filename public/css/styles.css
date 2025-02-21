@@ -187,6 +187,10 @@ body {
   display: none; /* Remove the scrollbar arrow */
 }
 
+.skroll > *:last-child {
+  margin-bottom: 20px;
+}
+
 .title {
   font-size: 30px;
   font-weight: bold;
@@ -1152,35 +1156,6 @@ body {
       padding-left: 10px;
     }
 
-    .terminal-table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 10px;
-      font-size: 16px;
-    }
-    
-    .terminal-table th, 
-    .terminal-table td {
-      border: 1px solid #888;
-      background-color: transparent;
-      padding: 10px;
-      text-align: left;
-    }
-    
-    .terminal-table th {
-      background-color: transparent;
-      font-weight: bold;
-    }
-
-    .terminal-table tr:nth-child(even) {
-      background-color: #f9f9f9;
-    }
-    
-    .terminal-table tr:hover {
-      background-color: #f1f1f1;
-      cursor: pointer;
-    }
-
     .apath {
       padding: 0%;
     }
@@ -1396,78 +1371,167 @@ body {
     
   /* terminaks section */
 
-    .terminal-management {
-      background: #f9f9f9;
-      padding: 20px;
-      border-radius: 8px;
-      margin-left: 40px;
-      margin-right: 20px;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-      width: calc(100% - 60px);
+  .tetris-management {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    margin: 20px 40px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+    width: calc(100% - 80px);
+  }
+  
+  .tetris-form {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+  }
+  
+  .tetris-field-group {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .tetris-input-box, .tetris-dropdown-menu {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+    background: #fff;
+    transition: border-color 0.3s, box-shadow 0.3s;
+  }
+  
+  .tetris-input-box:focus, .tetris-dropdown-menu:focus {
+    border-color: #ff7f00;
+    box-shadow: 0 0 6px rgba(255, 127, 0, 0.5);
+    outline: none;
+  }
+  
+  .tetris-create-btn {
+    background: #ff7f00;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: bold;
+    transition: background 0.3s, transform 0.2s;
+    margin-top: 10px;
+  }
+  
+  .tetris-create-btn:hover {
+    background: #FFA74D;
+    transform: scale(1.05);
+  }
+  
+  .tetris-create-btn:active {
+    background: #CC5E00;
+    transform: scale(0.98);
+  }
+  
+  .tetris-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .tetris-th, .tetris-td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+  }
+  
+  .tetris-thead {
+    position: sticky;
+    top: 0;
+    background: white;
+    z-index: 10;
+  }
+  
+  
+  @media (max-width: 768px) {
+    .tetris-form {
+      grid-template-columns: 1fr;
     }
+  
+    .tetris-management {
+      margin: 20px;
+      width: calc(100% - 40px);
+    }
+  }
+  
+/* General Styles */
+.teame-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #f5f5f5;
+  color: #000;
+}
 
-    .terminal-form {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 15px;
-    }
-    .field-group {
-      display: flex;
-      flex-direction: column;
-    }
-    .input-box, .dropdown-menu {
-      padding: 10px;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      font-size: 14px;
-      background: #fff;
-      transition: all 0.3s ease-in-out;
-    }
-    .input-box:focus, .dropdown-menu:focus {
-      border-color: #ff7f00;
-      box-shadow: 0 0 5px rgba(255, 127, 0, 0.5);
-      outline: none;
-    }
-    .create-btn, .qr-btn, .assign-btn {
-      background: #ff7f00;
-      color: white;
-      padding: 12px;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      margin-top: 10px;
-      font-size: 14px;
-      transition: background 0.3s ease-in-out, transform 0.2s;
-    }
-    .create-btn:hover, .qr-btn:hover, .assign-btn:hover {
-      background: #e67300;
-      transform: scale(1.05);
-    }
-    .terminal-details {
-      background: #fff;
-      padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-      margin: 20px 20px 20px 40px;
-      width: calc(100% - 60px);
-    }
+/* Details & Assign Phone Sections */
+#teame-detailsSection, #teame-assignPhoneSection {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  max-width: 400px;
+  width: 100%;
+  margin: auto;
+}
 
-    .action-buttons {
-      display: flex;
-      justify-content: flex-start;
-      gap: 10px;
-      margin-top: 15px;
-    }
-    
-    @media (max-width: 600px) {
-      .terminal-form {
-        grid-template-columns: 1fr;
-      }
-      .terminal-management, .terminal-details {
-        width: calc(100% - 40px);
-        margin-right: 20px;
-      }
-    }
+/* Headings */
+#teame-detailsSection h3, 
+#teame-assignPhoneSection h3 {
+  font-size: 1.5rem;
+  color: #333;
+}
+
+/* Phone Number List */
+#teame-phoneNumberList {
+  list-style-type: none;
+  padding: 0;
+}
+
+#teame-phoneNumberList li {
+  background: #eee;
+  padding: 10px;
+  border-radius: 5px;
+  margin: 5px 0;
+}
+
+/* Input & Buttons */
+#teame-newPhoneInput {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.teame-button {
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  margin: 10px 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.teame-button:hover {
+  background: #0056b3;
+}
+
+/* Hide the sections initially */
+#teame-detailsSection, #teame-assignPhoneSection {
+  display: none;
+}
+
         
 /* Smooth fade-out */
 .finans-toast.hide {
