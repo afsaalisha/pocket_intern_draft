@@ -2111,7 +2111,7 @@ body {
   width: 100%;
   align-items: stretch;
   margin: 20px 0;
-  margin-left: 40px;
+  /* margin-left: 40px; */
 }
 
 /* Notifications List */

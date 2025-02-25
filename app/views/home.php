@@ -2,7 +2,7 @@
 <?php require_once 'layouts/sidebar.php'; ?>
 
 <div class="content">
-    <h1 class="title">Dashboard</h1>
+    <h1 class="stuh-title">Dashboard</h1>
     <div class="tab-menu">
         <a href="/poshet/home" class="tab active">Installment (4)</a>
         <a href="/poshet/change" class="tab">Change Payment (0)</a>
