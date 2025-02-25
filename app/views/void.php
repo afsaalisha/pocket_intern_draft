@@ -16,7 +16,7 @@
                 <tr>
                     <th>Merchant ID</th>
                     <th>Pin</th>
-                    <th>Action</th>
+                    <th class="tengah">Action</th>
                 </tr>
                 <?php
                 // Dummy data from scripts and database
@@ -39,22 +39,54 @@
         </div>
         <div class="void-table">
             <table>
-                <tr>
-                    <th>Header 2</th>
+            <tr>
+                    <th>Merchant ID</th>
+                    <th>Pin</th>
+                    <th class="tengah">Action</th>
                 </tr>
-                <tr>
-                    <td>Data 2</td>
-                </tr>
+                <?php
+                // Dummy data from scripts and database
+                $data = [
+                    ['Data 2.1', 'Data 2.2', '<i class="fa fa-edit"></i>']
+                ];
+                foreach ($data as $row) {
+                    echo '<tr>';
+                    foreach ($row as $index => $cell) {
+                        if ($index == 2) {
+                            echo '<td><button class="void-edit-button">' . $cell . '</button></td>';
+                        } else {
+                            echo '<td>' . $cell . '</td>';
+                        }
+                    }
+                    echo '</tr>';
+                }
+                ?>
             </table>
         </div>
         <div class="void-table">
             <table>
-                <tr>
-                    <th>Header 3</th>
+            <tr>
+                    <th>Merchant ID</th>
+                    <th>Pin</th>
+                    <th class="tengah">Action</th>
                 </tr>
-                <tr>
-                    <td>Data 3</td>
-                </tr>
+                <?php
+                // Dummy data from scripts and database
+                $data = [
+                    ['Data 3.1', 'Data 3.2', '<i class="fa fa-edit"></i>']
+                ];
+                foreach ($data as $row) {
+                    echo '<tr>';
+                    foreach ($row as $index => $cell) {
+                        if ($index == 2) {
+                            echo '<td><button class="void-edit-button">' . $cell . '</button></td>';
+                        } else {
+                            echo '<td>' . $cell . '</td>';
+                        }
+                    }
+                    echo '</tr>';
+                }
+                ?>
             </table>
         </div>
     </div>

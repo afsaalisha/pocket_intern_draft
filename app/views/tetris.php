@@ -5,7 +5,7 @@
   <h1 class="title">Terminal</h1>
 
   <div class="tetris-management">
-    <h3>Tetris Terminal Slot Management</h3>
+    <h3>Terminal Slot Management</h3>
     <div class="tetris-form">
       <div class="tetris-field-group">
         <label for="tetris-terminalNo">Terminal No.</label>

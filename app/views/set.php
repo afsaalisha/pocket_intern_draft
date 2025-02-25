@@ -2,7 +2,7 @@
 <?php require_once 'layouts/sidebar.php'; ?>
 
 <div class="content">
-    <h1 class="title">Settings</h1>
+    <h1 class="stuh-title">Settings</h1>
     <div class="tab-menu">
     <a href="/poshet/set" class="tab active">Rent To Own Settings</a>
     <a href="/poshet/user" class="tab">Branch User Accounts</a>
