@@ -1,7 +1,6 @@
 <?php require_once 'layouts/header.php'; ?>
 <?php require_once 'layouts/sidebar.php'; ?>
 <?php
-session_start();
 
 // Dummy data (replace with database fetch logic)
 $merchant_name = "Coffee Street Cafe - 001";
@@ -15,7 +14,7 @@ if (isset($_GET['id'])) {
 }
 ?>
 
-<div class="content skroll">
+<div class="gonten skroll">
     <h2 class="title">Merchant Salt & Key</h2>
     <p class="kiz-description"><?= htmlspecialchars($merchant_name) ?></p>
 
