@@ -387,6 +387,57 @@ body {
   }
 
 /* end of cards */
+
+/* void section */
+
+  .void-table-con {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; 
+    /* overflow: visible; */
+    border-radius: 10px;
+    overflow: hidden; 
+  }
+
+  .void-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 10px; 
+    background-color: #f2f6fc;
+  }
+
+  .void-edit-button {
+   background-color: #f2f6fc;
+   padding: 5px 10px;
+   color: #555;
+   border: none;
+   border-radius: 10px; 
+  }
+
+  .void-table th {
+    background-color: #ff7f00;
+  }
+
+  .void-table-con .void-table:not(:last-child) {
+    margin-bottom: 20px; 
+  }
+
+  /* Round specific table corners */
+  .void-table tr:first-child th:first-child {
+    border-top-left-radius: 10px;
+  }
+  .void-table tr:first-child th:last-child {
+    border-top-right-radius: 10px;
+  }
+  .void-table tr:last-child td:first-child {
+    border-bottom-left-radius: 10px;
+  }
+  .void-table tr:last-child td:last-child {
+    border-bottom-right-radius: 10px;
+  }
+
+
+/* end of void */
   
   .settings-container {
     margin-top: 20px;
@@ -421,16 +472,16 @@ body {
     appearance: none;
     text-align: center;
     border: none;
-}
+  }
 
-.urdad {
-  background-color: #E0E5F0;
-  padding: 10px;
-  border-radius: 30px;
-  color: #333;
-  font-weight: bold;
-  cursor: pointer;
-}
+  .urdad {
+    background-color: #E0E5F0;
+    padding: 10px;
+    border-radius: 30px;
+    color: #333;
+    font-weight: bold;
+    cursor: pointer;
+  }
   
   .header-container {
     display: flex;
