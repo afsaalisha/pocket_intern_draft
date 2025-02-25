@@ -2,7 +2,7 @@
 <?php require_once 'layouts/sidebar.php'; ?>
 
 <div class="content skroll">
-    <h1 class="title">Statement</h1>
+    <h1 class="stuh-title">Statement</h1>
     <div class="tab-menu">
         <a href="/poshet/stement" class="tab active" onclick="setActiveTab(event, 'stement')">Statement</a>
         <a href="/poshet/void" class="tab" onclick="setActiveTab(event, 'void')">Void</a>
@@ -48,32 +48,64 @@
             <button type="button" id="go-button">Go</button>
         </div>
     </div>
+
+
+    <!-- Transaction Table Slot -->
+    <div class="stemen-table-con">
+        <table class="stemen-table">
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Time</th>
+                    <th>Merchant</th>
+                    <th>Branch</th>
+                    <th>Reference</th>
+                    <th>Voucher Reference</th>
+                    <th>Amount ($)</th>
+                    <th>Source</th>
+                    <th>Order ID</th>
+                    <th>Phone No</th>
+                    <th>Email</th>
+                    <th>Remark</th>
+                    <th>Transaction Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>2025-02-25</td>
+                    <td>09:58:36</td>
+                    <td>Coffee Street Cafe</td>
+                    <td>Coffee</td>
+                    <td>C25025519278</td>
+                    <td>-</td>
+                    <td>1.00</td>
+                    <td>qr</td>
+                    <td>0</td>
+                    <td>8000008</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>Success</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </div>
 
 <?php require_once 'layouts/footer.php'; ?>
 
-
 <script>
     function updateClock() {
         const now = new Date();
-
-        // Format day, month, and year
         const weekday = now.toLocaleDateString('en-GB', {
             weekday: 'short'
-        }); // Get the short day name (Tue)
-        const day = now.getDate().toString().padStart(2, '0'); // Get the day (11)
+        });
+        const day = now.getDate().toString().padStart(2, '0');
         const month = now.toLocaleDateString('en-GB', {
             month: 'short'
-        }); // Get the short month name (Feb)
-        const year = now.getFullYear().toString().slice(-2); // Get the last two digits of the year (25)
-
-        // Combine into the desired format
-        const formattedDate = `${weekday}, ${day} ${month} ${year}`;
-
-        // Update the clock with the formatted date, highlighting the weekday
+        });
+        const year = now.getFullYear().toString().slice(-2);
         document.getElementById('real-time-clock').innerHTML = `<b class="highlight">${weekday}</b>, ${day} ${month} ${year}`;
     }
-
     setInterval(updateClock, 1000);
     updateClock();
 </script>

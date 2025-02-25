@@ -43,7 +43,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <a href="/poshet/keys" class="kiz-btn-primary kiz-warning">Back to Manage Keys</a>
 </div>
 
-
 <?php require_once 'layouts/footer.php'; ?>
 
 <!-- scripts go below here -->
