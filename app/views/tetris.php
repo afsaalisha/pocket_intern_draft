@@ -19,13 +19,13 @@
         <label for="tetris-terminalBank">Terminal Bank</label>
         <select id="tetris-terminalBank" class="tetris-dropdown-menu">
           <option value="BIBD">BIBD - 0000010034340</option>
-          <option value="BAIDURI">BAIDURI - 0200740441749</option>
+          <option value="BADURI">BADURI - 0200740441749</option>
         </select>
       </div>
       <div class="tetris-field-group">
         <label for="tetris-branch">Branch</label>
         <select id="tetris-branch" class="tetris-dropdown-menu">
-          <option value="threeg">ThreeG Media (Kiulap)</option>
+          <option value="threeg">ThreeG Media (Kulai)</option>
           <option value="macaroon">Macaroon</option>
         </select>
       </div>
@@ -49,29 +49,29 @@
         <tr>
           <td>001</td>
           <td>Coffee</td>
-          <td>BAIDURI (0200740441749)</td>
-          <td>ThreeG Media (Kiulap)</td>
+          <td>BADURI (0200740441749)</td>
+          <td>ThreeG Media (Kulai)</td>
           <td><button class="Details">Details</button></td>
         </tr>
         <tr>
           <td>224</td>
           <td>diff_name</td>
           <td>BIBD (00001010034340)</td> 
-          <td>ThreeG Media (Kiulap)</td>
+          <td>ThreeG Media (Kulai)</td>
           <td><button class="Details">Details</button></td>
         </tr>
         <tr>
           <td>300</td>
           <td>POS API</td>
           <td>BIBD (00001010034340)</td>
-          <td>ThreeG Media (Kiulap)</td>
+          <td>ThreeG Media (Kulai)</td>
           <td><button class="Details">Details</button></td>
         </tr>
         <tr>
           <td>400</td>
           <td>Event</td>
           <td>BIBD (00001010034340)</td>
-          <td>ThreeG Media (Kiulap)</td>
+          <td>ThreeG Media (Kulai)</td>
           <td><button class="Details">Details</button></td>
         </tr>
       </tbody>
@@ -211,7 +211,7 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 document.getElementById("teame-generateQR").addEventListener("click", function () {
-  let videoUrl = "https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&mute=1";
+  let videoUrl = "https://www.youtube.com/embed/rrngM9DmDfk?autoplay=1&mute=1";
   let videoPopup = window.open(videoUrl, "_blank", "width=800,height=450");
 });
 
@@ -253,6 +253,67 @@ document.addEventListener("DOMContentLoaded", function () {
     // Ensure "+673 " is there when opening the section
     document.getElementById("teame-assignPhoneSection").addEventListener("transitionstart", ensurePrefix);
   })});
+
+  document.addEventListener("DOMContentLoaded", function () {
+  const title = document.querySelector(".title");
+  const content = document.querySelector(".content");
+  const detailsSection = document.getElementById("teame-detailsSection");
+  const assignPhoneSection = document.getElementById("teame-assignPhoneSection");
+
+  function moveTitleOutside() {
+    if (!document.querySelector(".title-container")) {
+      let titleContainer = document.createElement("div");
+      titleContainer.classList.add("title-container");
+      titleContainer.appendChild(title);
+      content.parentNode.insertBefore(titleContainer, content);
+    }
+  }
+
+  function returnTitleInside() {
+    if (document.querySelector(".title-container")) {
+      content.insertBefore(title, content.firstChild);
+      document.querySelector(".title-container").remove();
+    }
+  }
+
+  document.getElementById("terminalTableBody").addEventListener("click", function (event) {
+    if (event.target.classList.contains("Details")) {
+      moveTitleOutside();
+      detailsSection.style.display = "block";
+    }
+  });
+
+  document.getElementById("teame-closeDetails").addEventListener("click", function () {
+    returnTitleInside();
+    detailsSection.style.display = "none";
+  });
+
+  document.getElementById("teame-assignPhone").addEventListener("click", function () {
+    moveTitleOutside();
+    detailsSection.style.display = "none";
+    assignPhoneSection.style.display = "block";
+  });
+
+  document.getElementById("teame-backToDetails").addEventListener("click", function () {
+    assignPhoneSection.style.display = "none";
+    detailsSection.style.display = "block";
+  });
+
+  document.getElementById("teame-addPhone").addEventListener("click", function () {
+    let newPhone = document.getElementById("teame-newPhoneInput").value.trim();
+    if (newPhone !== "") {
+      let phoneList = document.getElementById("teame-phoneNumberList");
+      let newLi = document.createElement("li");
+      newLi.textContent = newPhone;
+      phoneList.appendChild(newLi);
+
+      document.getElementById("teame-newPhoneInput").value = "";
+      assignPhoneSection.style.display = "none";
+      detailsSection.style.display = "block";
+    }
+  });
+});
+
 </script>
 
 <?php require_once 'layouts/footer.php'; ?>
