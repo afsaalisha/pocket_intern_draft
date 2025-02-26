@@ -1,10 +1,6 @@
-<?php
-session_start();
-?>
 <?php require_once 'layouts/header.php'; ?>
 <?php require_once 'layouts/sidebar.php'; ?>
-
-<div class="content skroll">
+<div class="gonten skroll">
     <h2 class="title">Generate New Keys</h2>
     <p class="kiz-description">You may create a new key pair for each terminal you have.</p>
 
