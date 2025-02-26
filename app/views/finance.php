@@ -111,7 +111,7 @@
     function updateEntryCount() {
         const tableBody = document.getElementById('userMeja');
         const totalEntries = tableBody.getElementsByTagName('tr').length;
-        document.querySelector('.table-footer span').textContent = `Showing 1 to ${totalEntries} of ${totalEntries} entries`;
+        document.querySelector('.finans-table-footer span').textContent = `Showing 1 to ${totalEntries} of ${totalEntries} entries`;
     }
 
     // function updateEntryCount() {

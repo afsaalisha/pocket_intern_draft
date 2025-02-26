@@ -93,6 +93,12 @@
         </div>
     </div>
 
+    <div id="voidToast" class="void-toast">
+        <span class="toast-header">Success</span>
+        <span>Void Pin updated successfully!</span>
+        <button class="close-btn" onclick="closeVoidToast()">&times;</button>
+    </div>
+
     <?php require_once 'layouts/footer.php'; ?>
 
     <!-- scripts below here -->
@@ -104,32 +110,8 @@
             const voidCancelButton = document.querySelector(".void-cancel-btn");
             const voidConfirmButton = document.querySelector(".void-confirm-btn");
             const voidPinInput = document.getElementById("voidPinInput");
+            const voidToast = document.getElementById("voidToast");
 
-            // Tried to make it so that the table is populated with data from the database
-
-            // const voidHistoryData = [
-            //     ["C230905474409", "Customer Refund", "2023-09-05 10:21:46", "0", "test", "admin@threegmedia.com", "Coffee Street Cafe"]
-            // ];
-            // const refundHistoryData = [];
-
-            // function populateTable(tableId, data) {
-            //     const table = document.getElementById(tableId);
-            //     data.forEach(row => {
-            //         const tr = document.createElement("tr");
-            //         row.forEach(cell => {
-            //             const td = document.createElement("td");
-            //             td.textContent = cell;
-            //             tr.appendChild(td);
-            //         });
-            //         table.appendChild(tr);
-            //     });
-            // }
-
-            // populateTable("voidHistoryTable", voidHistoryData);
-            // populateTable("refundHistoryTable", refundHistoryData);
-
-
-            // Identify the specific table cell that contains "Data 1.2"
             let voidPinCell = null;
             document.querySelectorAll("table td").forEach(cell => {
                 if (cell.textContent.trim() === "test123") {
@@ -137,37 +119,71 @@
                 }
             });
 
-            // Open the modal when an edit button is clicked
             document.querySelectorAll(".void-edit-button").forEach(button => {
                 button.addEventListener("click", function() {
                     voidModal.style.display = "block";
+                    voidPinInput.focus(); // Focus input when modal opens
                 });
             });
 
             function closeVoidModal() {
                 voidModal.style.display = "none";
+                voidPinInput.value = ""; // Clear input on close
             }
 
-            voidCloseButton.addEventListener("click", closeVoidModal);
-            voidCancelButton.addEventListener("click", closeVoidModal);
+            function showVoidToast() {
+                voidToast.classList.add("show");
+                setTimeout(() => {
+                    voidToast.classList.add("hide");
+                    setTimeout(() => {
+                        voidToast.classList.remove("show", "hide");
+                    }, 500);
+                }, 3000);
+            }
 
+            function closeVoidToast() {
+                voidToast.classList.add("hide");
+                setTimeout(() => {
+                    voidToast.classList.remove("show", "hide");
+                }, 500);
+            }
+
+            // Confirm with Enter key
+            voidPinInput.addEventListener("keypress", function(event) {
+                if (event.key === "Enter") {
+                    voidConfirmButton.click(); // Trigger confirm button
+                }
+            });
+
+            // Close modal with Escape key
+            window.addEventListener("keydown", function(event) {
+                if (event.key === "Escape") {
+                    closeVoidModal();
+                }
+            });
+
+            // Close modal when clicking outside of it
             window.addEventListener("click", function(event) {
                 if (event.target === voidModal) {
                     closeVoidModal();
                 }
             });
 
-            // Confirm and update the PIN in the table
+            // Confirm button functionality
             voidConfirmButton.addEventListener("click", function() {
                 const newVoidPin = voidPinInput.value.trim();
 
                 if (newVoidPin !== "" && voidPinCell) {
-                    voidPinCell.textContent = newVoidPin; // Update the table cell
-                    alert("Void Pin updated successfully!");
+                    voidPinCell.textContent = newVoidPin;
+                    showVoidToast();
                     closeVoidModal();
                 } else {
                     alert("Please enter a valid Void Pin.");
                 }
             });
+
+            // Close modal when clicking cancel or close button
+            voidCloseButton.addEventListener("click", closeVoidModal);
+            voidCancelButton.addEventListener("click", closeVoidModal);
         });
     </script>
