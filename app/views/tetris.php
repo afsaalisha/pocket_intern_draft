@@ -34,7 +34,7 @@
   </div>
 
   <!-- Table View Container -->
-  <div id="tetris-tableView">
+  <div id="tetris-tableView" class="tetris-table">
     <table>
       <thead>
         <tr>
@@ -56,7 +56,7 @@
         <tr>
           <td>224</td>
           <td>diff_name</td>
-          <td>BIBD (00001010034340)</td> 
+          <td>BIBD (00001010034340)</td>
           <td>ThreeG Media (Kiulap)</td>
           <td><button class="Details">Details</button></td>
         </tr>
@@ -79,20 +79,20 @@
   </div>
 </div>
 
-  <!-- Hidden Details Section -->
-  <div id="teame-detailsSection" style="display: none;">
-    <h3>Terminal Details</h3>
-    <p><strong>Terminal ID:</strong> <span id="teame-detailTerminalId"></span></p>
-    <p><strong>Terminal Name:</strong> <span id="teame-detailTerminalName"></span></p>
-    <h4>Phone Number List</h4>
-    <ul id="teame-phoneNumberList">
-      <li>+673 1234567</li>
-      <li>+673 7654321</li>
-    </ul>
-    <button id="teame-generateQR">Generate QR</button>
-    <button id="teame-assignPhone">Assign New Phone</button>
-    <button id="teame-closeDetails">Close</button>
-  </div>
+<!-- Hidden Details Section -->
+<div id="teame-detailsSection" style="display: none;">
+  <h3>Terminal Details</h3>
+  <p><strong>Terminal ID:</strong> <span id="teame-detailTerminalId"></span></p>
+  <p><strong>Terminal Name:</strong> <span id="teame-detailTerminalName"></span></p>
+  <h4>Phone Number List</h4>
+  <ul id="teame-phoneNumberList">
+    <li>+673 1234567</li>
+    <li>+673 7654321</li>
+  </ul>
+  <button id="teame-generateQR">Generate QR</button>
+  <button id="teame-assignPhone">Assign New Phone</button>
+  <button id="teame-closeDetails">Close</button>
+</div>
 </div>
 
 <div id="teame-assignPhoneSection" style="display: none;">
@@ -104,44 +104,44 @@
 </div>
 
 <script>
-document.addEventListener("DOMContentLoaded", function() {
-  document.getElementById("terminalTableBody").addEventListener("click", function(event) {
-    if (event.target.classList.contains("Details")) {
-      let row = event.target.closest("tr");
-      document.getElementById("teame-detailTerminalId").textContent = row.cells[0].textContent;
-      document.getElementById("teame-detailTerminalName").textContent = row.cells[1].textContent;
+  document.addEventListener("DOMContentLoaded", function() {
+    document.getElementById("terminalTableBody").addEventListener("click", function(event) {
+      if (event.target.classList.contains("Details")) {
+        let row = event.target.closest("tr");
+        document.getElementById("teame-detailTerminalId").textContent = row.cells[0].textContent;
+        document.getElementById("teame-detailTerminalName").textContent = row.cells[1].textContent;
 
-      // Hide everything inside .content except the title
-      document.querySelectorAll(".content > *:not(.title)").forEach(el => el.style.display = "none");
+        // Hide everything inside .content except the title
+        document.querySelectorAll(".content > *:not(.title)").forEach(el => el.style.display = "none");
 
-      // Show details section
-      document.getElementById("teame-detailsSection").style.display = "block";
-    }
-  });
+        // Show details section
+        document.getElementById("teame-detailsSection").style.display = "block";
+      }
+    });
 
-  document.getElementById("teame-closeDetails").addEventListener("click", function() {
-    // Show everything inside .content except the details section
-    document.querySelectorAll(".content > *:not(.title)").forEach(el => el.style.display = "block");
+    document.getElementById("teame-closeDetails").addEventListener("click", function() {
+      // Show everything inside .content except the details section
+      document.querySelectorAll(".content > *:not(.title)").forEach(el => el.style.display = "block");
 
-    // Hide details section
-    document.getElementById("teame-detailsSection").style.display = "none";
-  });
+      // Hide details section
+      document.getElementById("teame-detailsSection").style.display = "none";
+    });
 
-  document.getElementById("addTerminal").addEventListener("click", function() {
-    let terminalNo = document.getElementById("tetris-terminalNo").value.trim();
-    let terminalName = document.getElementById("tetris-terminalName").value.trim();
-    let terminalBank = document.getElementById("tetris-terminalBank").options[document.getElementById("tetris-terminalBank").selectedIndex].text;
-    let branch = document.getElementById("tetris-branch").options[document.getElementById("tetris-branch").selectedIndex].text;
+    document.getElementById("addTerminal").addEventListener("click", function() {
+      let terminalNo = document.getElementById("tetris-terminalNo").value.trim();
+      let terminalName = document.getElementById("tetris-terminalName").value.trim();
+      let terminalBank = document.getElementById("tetris-terminalBank").options[document.getElementById("tetris-terminalBank").selectedIndex].text;
+      let branch = document.getElementById("tetris-branch").options[document.getElementById("tetris-branch").selectedIndex].text;
 
-    if (terminalNo === "" || terminalName === "") {
-      alert("Please fill in all fields.");
-      return;
-    }
+      if (terminalNo === "" || terminalName === "") {
+        alert("Please fill in all fields.");
+        return;
+      }
 
-    let tableBody = document.getElementById("terminalTableBody");
-    let newRow = document.createElement("tr");
+      let tableBody = document.getElementById("terminalTableBody");
+      let newRow = document.createElement("tr");
 
-    newRow.innerHTML = `
+      newRow.innerHTML = `
       <td>${terminalNo}</td>
       <td>${terminalName}</td>
       <td>${terminalBank}</td>
@@ -149,73 +149,73 @@ document.addEventListener("DOMContentLoaded", function() {
       <td><button class="Details">Details</button></td>
     `;
 
-    tableBody.appendChild(newRow);
+      tableBody.appendChild(newRow);
 
-    // Clear input fields after adding
-    document.getElementById("tetris-terminalNo").value = "";
-    document.getElementById("tetris-terminalName").value = "";
-    document.getElementById("tetris-terminalBank").selectedIndex = 0;
-    document.getElementById("tetris-branch").selectedIndex = 0;
-  });
-});
-
-document.addEventListener("DOMContentLoaded", function() {
-  const detailsSection = document.getElementById("teame-detailsSection");
-  const assignPhoneSection = document.getElementById("teame-assignPhoneSection");
-
-  document.getElementById("terminalTableBody").addEventListener("click", function(event) {
-    if (event.target.classList.contains("Details")) {
-      let row = event.target.closest("tr");
-      document.getElementById("teame-detailTerminalId").textContent = row.cells[0].textContent;
-      document.getElementById("teame-detailTerminalName").textContent = row.cells[1].textContent;
-
-      // Hide everything except title and show details section
-      document.querySelectorAll(".content > *:not(.title)").forEach(el => el.style.display = "none");
-      detailsSection.style.display = "block";
-    }
+      // Clear input fields after adding
+      document.getElementById("tetris-terminalNo").value = "";
+      document.getElementById("tetris-terminalName").value = "";
+      document.getElementById("tetris-terminalBank").selectedIndex = 0;
+      document.getElementById("tetris-branch").selectedIndex = 0;
+    });
   });
 
-  document.getElementById("teame-closeDetails").addEventListener("click", function() {
-    document.querySelectorAll(".content > *:not(.title)").forEach(el => el.style.display = "block");
-    detailsSection.style.display = "none";
-  });
+  document.addEventListener("DOMContentLoaded", function() {
+    const detailsSection = document.getElementById("teame-detailsSection");
+    const assignPhoneSection = document.getElementById("teame-assignPhoneSection");
 
-  document.getElementById("teame-assignPhone").addEventListener("click", function() {
-    // Hide details and show assign phone page
-    detailsSection.style.display = "none";
-    assignPhoneSection.style.display = "block";
-  });
+    document.getElementById("terminalTableBody").addEventListener("click", function(event) {
+      if (event.target.classList.contains("Details")) {
+        let row = event.target.closest("tr");
+        document.getElementById("teame-detailTerminalId").textContent = row.cells[0].textContent;
+        document.getElementById("teame-detailTerminalName").textContent = row.cells[1].textContent;
 
-  document.getElementById("teame-backToDetails").addEventListener("click", function() {
-    // Hide assign phone page and show details page
-    assignPhoneSection.style.display = "none";
-    detailsSection.style.display = "block";
-  });
+        // Hide everything except title and show details section
+        document.querySelectorAll(".content > *:not(.title)").forEach(el => el.style.display = "none");
+        detailsSection.style.display = "block";
+      }
+    });
 
-  document.getElementById("teame-addPhone").addEventListener("click", function() {
-    let newPhone = document.getElementById("teame-newPhoneInput").value.trim();
-    if (newPhone !== "") {
-      let phoneList = document.getElementById("teame-phoneNumberList");
-      let newLi = document.createElement("li");
-      newLi.textContent = newPhone;
-      phoneList.appendChild(newLi);
-      
-      // Clear input field
-      document.getElementById("teame-newPhoneInput").value = "";
+    document.getElementById("teame-closeDetails").addEventListener("click", function() {
+      document.querySelectorAll(".content > *:not(.title)").forEach(el => el.style.display = "block");
+      detailsSection.style.display = "none";
+    });
 
-      // Go back to details section after adding phone
+    document.getElementById("teame-assignPhone").addEventListener("click", function() {
+      // Hide details and show assign phone page
+      detailsSection.style.display = "none";
+      assignPhoneSection.style.display = "block";
+    });
+
+    document.getElementById("teame-backToDetails").addEventListener("click", function() {
+      // Hide assign phone page and show details page
       assignPhoneSection.style.display = "none";
       detailsSection.style.display = "block";
-    }
+    });
+
+    document.getElementById("teame-addPhone").addEventListener("click", function() {
+      let newPhone = document.getElementById("teame-newPhoneInput").value.trim();
+      if (newPhone !== "") {
+        let phoneList = document.getElementById("teame-phoneNumberList");
+        let newLi = document.createElement("li");
+        newLi.textContent = newPhone;
+        phoneList.appendChild(newLi);
+
+        // Clear input field
+        document.getElementById("teame-newPhoneInput").value = "";
+
+        // Go back to details section after adding phone
+        assignPhoneSection.style.display = "none";
+        detailsSection.style.display = "block";
+      }
+    });
   });
-});
 
-document.getElementById("teame-generateQR").addEventListener("click", function () {
-  let videoUrl = "https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&mute=1";
-  let videoPopup = window.open(videoUrl, "_blank", "width=800,height=450");
-});
+  document.getElementById("teame-generateQR").addEventListener("click", function() {
+    let videoUrl = "https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&mute=1";
+    let videoPopup = window.open(videoUrl, "_blank", "width=800,height=450");
+  });
 
-document.addEventListener("DOMContentLoaded", function () {
+  document.addEventListener("DOMContentLoaded", function() {
     const phoneInput = document.getElementById("teame-newPhoneInput");
     const addPhoneButton = document.getElementById("teame-addPhone");
 
@@ -226,7 +226,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // Ensure "+673 " is always present and restrict input
-    phoneInput.addEventListener("input", function () {
+    phoneInput.addEventListener("input", function() {
       let digits = phoneInput.value.replace("+673 ", ""); // Remove prefix to get numbers only
 
       // Restrict to 7 digits max
@@ -239,20 +239,21 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     // Prevent removing "+673 "
-    phoneInput.addEventListener("keydown", function (e) {
+    phoneInput.addEventListener("keydown", function(e) {
       if (phoneInput.selectionStart < 5 && (e.key === "Backspace" || e.key === "Delete")) {
         e.preventDefault();
       }
     });
 
     // When clicking "Add", validate and reset for next entry
-    addPhoneButton.addEventListener("click", function () {
+    addPhoneButton.addEventListener("click", function() {
       let digits = phoneInput.value.replace("+673 ", ""); // Get only the digits
 
 
-    // Ensure "+673 " is there when opening the section
-    document.getElementById("teame-assignPhoneSection").addEventListener("transitionstart", ensurePrefix);
-  })});
+      // Ensure "+673 " is there when opening the section
+      document.getElementById("teame-assignPhoneSection").addEventListener("transitionstart", ensurePrefix);
+    })
+  });
 </script>
 
 <?php require_once 'layouts/footer.php'; ?>

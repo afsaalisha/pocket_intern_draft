@@ -390,58 +390,168 @@ body {
 
 /* void section */
 
+  .vuh-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+  }
+
   .void-table-con {
     display: flex;
     flex-direction: column;
     gap: 20px; 
-    /* overflow: visible; */
-    border-radius: 10px;
-    overflow: hidden; 
   }
 
   .void-table {
     width: 100%;
     border-collapse: separate;
-    border-spacing: 0 10px; 
-    background-color: #f2f6fc;
+    border-spacing: 0; 
+    overflow: hidden;
+    border-radius: 8px;
+    border: 1px solid #ff7f00;
   }
 
   .void-edit-button {
-   background-color: #ffc68e;
+   background-color: transparent;
    padding: 5px 10px;
    color: #555;
-   border: none;
+   border: 1px solid #888;
    border-radius: 10px; 
   }
 
+  .void-edit-button:hover {
+    background-color: #dde2ef;
+  }
+
+  .void-edit-button:active {
+    background-color: #bfc7e0;
+  }
+
+  .void-table {
+    border-collapse: separate; 
+    border-spacing: 0;
+    overflow: hidden;
+    border-radius: 8px; 
+  }
+
   .void-table th {
-    background-color: #ff7f00;
+      background-color: rgba(255, 127, 0, 0.5); 
+      color: #333;
+      padding: 10px;
+  }
+
+  /* Ensuring the header row has rounded corners */
+  .void-table thead tr:first-child th:first-child {
+      border-top-left-radius: 8px;
+  }
+
+  .void-table thead tr:first-child th:last-child {
+      border-top-right-radius: 8px;
   }
 
   .void-table-con .void-table:not(:last-child) {
-    margin-bottom: 20px; 
+      margin-bottom: 20px;
   }
 
-  /* Round specific table corners */
-  .void-table tr:first-child th:first-child {
-    border-top-left-radius: 10px;
-  }
-  .void-table tr:first-child th:last-child {
-    border-top-right-radius: 10px;
-  }
-  .void-table tr:last-child td:first-child {
-    border-bottom-left-radius: 10px;
-  }
-  .void-table tr:last-child td:last-child {
-    border-bottom-right-radius: 10px;
-  }
+
+  .void-modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 3, 36, 0.5);
+}
+
+.void-modal-content {
+    background-color: #f2f6fc;
+    padding: 30px; 
+    border-radius: 10px;
+    width: 400px; 
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.void-close {
+    position: absolute;
+    top: 5px; 
+    right: 10px; 
+    font-size: 30px; 
+    cursor: pointer;
+}
+
+.void-modal-buttons {
+    margin-top: 20px;
+}
+
+.void-cancel-btn, .void-confirm-btn {
+    padding: 10px 20px; 
+    margin: 5px;
+    border: none;
+    cursor: pointer;
+    border-radius: 10px; 
+}
+
+.void-cancel-btn {
+  background-color: #6c757d;
+  color: #fcfdff;
+  transition: background-color 0.3s ease, transform 0.2s ease; 
+}
+
+.void-cancel-btn:hover {
+  background-color: #5a6268; 
+  transform: scale(1.05); 
+}
+
+.void-cancel-btn:active {
+  background-color: #4e555b; 
+  transform: scale(1); 
+}
+
+.void-confirm-btn {
+  background-color: #ff7f00; 
+  color: #fcfdff;
+  transition: background-color 0.3s ease, transform 0.2s ease; 
+}
+
+.void-confirm-btn:hover {
+  background-color: #e56a00;
+  transform: scale(1.05); 
+}
+
+.void-confirm-btn:active {
+  background-color: #cc5d00; 
+  transform: scale(1); 
+}
+
+#voidPinInput {
+    padding: 10px; 
+    margin: 10px 5px;
+    border: none; 
+    border-radius: 5px;
+    width: 55%; 
+    border: 1px solid #d3e4ff;
+}
+
+.sideskroll {
+  overflow-y: auto; 
+  overflow-x: auto; 
+  max-height: calc(100vh - 20px);
+  white-space: nowrap; 
+}
 
 
 /* end of void */
   
   .settings-container {
     margin-top: 20px;
-    margin-left: 40px;
+    /* margin-left: 40px; */
   }
   
   .settings-row {
@@ -451,7 +561,7 @@ body {
     background-color: #E0E5F0;
     padding: 5px;
     border-radius: 30px 30px 0px 30px;
-    width: 165%;
+    width: 100%;
   }
   
   .settings-row label {
@@ -520,15 +630,16 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 20px 40px;
+    margin: 20px 0;
   }
   
   .search {
-    margin-right: -40px;
+    /* margin-right: -40px; */
     width: 20%;
     border-radius: 8px;
     border: 1px solid #888;
     background-color: #f4f6fc;
+    padding: 5px 10px;
   }
   
   .table-controls select,
@@ -539,9 +650,20 @@ body {
   
   
   table {
-    width: calc(103.5% - 80px);
+    /* width: calc(103.5% - 80px); */
+    width: 100%;
     border-collapse: collapse;
-    background: white;
+    background: #fcfdff;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 0px;
+    /* margin: 0 40px; */
+  }
+
+  .tetris-table {
+    /* width: calc(103.5% - 80px); */
+    width: 100%;
+    border-collapse: collapse;
+    background: #fcfdff;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 0px;
     margin: 0 40px;
@@ -637,7 +759,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 20px 40px;
+  margin: 20px 0;
 }
 
 .pagination {
@@ -650,7 +772,7 @@ body {
 
 .pagination button {
   background-color: #ff7f00;
-  color: white;
+  color: #fcfdff;
   border: none;
   padding: 5px 10px;
   border-radius: 5px;
@@ -673,7 +795,7 @@ body {
 }
   
 .babanana {
-    margin-right: -40px;
+    /* margin-right: -40px; */
     width: 30%;
 }
 
@@ -1287,6 +1409,58 @@ body {
       flex-grow: 1;
       position: fixed;
       width: 79%;
+    }
+
+    .finans-pepep {
+      margin-left: 40px;
+      font-size: 20px;
+      color: #333;
+    }
+
+    .finans-table-controls {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 20px 40px;
+    }
+
+    .finans-table-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 20px 40px;
+    }
+
+    .finans-pagination {
+      display: flex;
+      gap: 10px;
+      width: 15%;
+      justify-content: space-between;
+      margin-right: -35px;
+    }
+    
+    .finans-pagination button {
+      background-color: #ff7f00;
+      color: #fcfdff;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      flex-grow: 1;
+    
+    }
+    
+    .finans-pagination button:hover {
+      background-color: #FFA74D;
+    }
+    
+    .finans-pagination button:active {
+      background-color: #CC5E00;
+    }
+    
+    .finans-pagination span {
+      font-weight: bold;
+      margin: 0 10px;
     }
 
     /* Toggle Switch Container */
@@ -1980,9 +2154,17 @@ body {
 
 
 /* Table styling */
+
+.kiz-table-con {
+    width: 97%;
+    overflow-x: auto; 
+    margin-top: 20px; 
+    padding: 10px;
+    margin-left: 25px;
+}
+
 .kiz-api-table {
   width: 100%;
-  max-width: 96%; /* Adjust width for better alignment */
   border-collapse: collapse;
   background: white;
   border-radius: 12px;

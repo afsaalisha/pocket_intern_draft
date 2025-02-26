@@ -3,10 +3,10 @@
 
 <div class="content goku skroll">
     <h1 class="title">Finances</h1>
-    <span class="pepep">Report Emails</span>
+    <span class="finans-pepep">Report Emails</span>
     <!-- <span class="addinans" id="finansModal"><i class="fa-solid fa-plus"></i> Add User</span> -->
 
-    <div class="table-controls">
+    <div class="finans-table-controls">
         <label class="grah">Show
             <select>
                 <option>10</option>
@@ -66,9 +66,9 @@
     </div>
     <!-- <div class="table-footer">
         <span id="entryCount">Showing entries...</span> -->
-    <div class="table-footer">
+    <div class="finans-table-footer">
         <span>Showing 1 to 3 of 3 entries</span>
-        <div class="pagination">
+        <div class="finans-pagination">
             <button>Previous</button>
             <span>1</span>
             <button class="babanana">Next</button>

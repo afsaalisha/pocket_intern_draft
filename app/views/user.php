@@ -2,7 +2,7 @@
 <?php require_once 'layouts/sidebar.php'; ?>
 
 <div class="content">
-    <h1 class="title">Settings</h1>
+    <h1 class=" stuh-title">Settings</h1>
     <div class="tab-menu">
         <a href="/poshet/set" class="tab" onclick="setActiveTab(event, 'home')">Rent To Own Settings</a>
         <a href="/poshet/user" class="tab active" onclick="setActiveTab(event, 'user')">Branch User Accounts</a>
@@ -10,14 +10,14 @@
     </div>
 
     <div class="table-controls">
-        <label class="grah">Show 
+        <label class="grah">Show
             <select>
                 <option>10</option>
                 <option>25</option>
                 <option>50</option>
             </select> Entries
         </label>
-        <input type="text" placeholder="Search..." class="search"> 
+        <input type="text" placeholder="Search..." class="search">
     </div>
     <table>
         <thead>
@@ -40,8 +40,8 @@
                 <td>ThreeG Media (Kiulap)</td>
                 <td class="active-status">Yes</td>
                 <td>
-                <button class="permissions" onclick="openPermissionsModal()">Permissions</button>
-                <button class="deactivate" onclick="toggleActivation(this, this.closest('tr'))">Deactivate</button>
+                    <button class="permissions" onclick="openPermissionsModal()">Permissions</button>
+                    <button class="deactivate" onclick="toggleActivation(this, this.closest('tr'))">Deactivate</button>
                 </td>
             </tr>
             <tr>
@@ -52,8 +52,8 @@
                 <td>Macaroon</td>
                 <td class="active-status">No</td>
                 <td>
-                <button class="permissions" onclick="openPermissionsModal()">Permissions</button>
-                <button class="activate" onclick="toggleActivation(this, this.closest('tr'))">Activate</button>
+                    <button class="permissions" onclick="openPermissionsModal()">Permissions</button>
+                    <button class="activate" onclick="toggleActivation(this, this.closest('tr'))">Activate</button>
                 </td>
             </tr>
             <tr>
@@ -64,8 +64,8 @@
                 <td>Macaroon</td>
                 <td class="active-status">No</td>
                 <td>
-                <button class="permissions" onclick="openPermissionsModal()">Permissions</button>
-                <button class="activate" onclick="toggleActivation(this, this.closest('tr'))">Activate</button>
+                    <button class="permissions" onclick="openPermissionsModal()">Permissions</button>
+                    <button class="activate" onclick="toggleActivation(this, this.closest('tr'))">Activate</button>
                 </td>
             </tr>
             <tr>
@@ -76,8 +76,8 @@
                 <td>ThreeG Media (Kiulap)</td>
                 <td class="active-status">Yes</td>
                 <td>
-                <button class="permissions" onclick="openPermissionsModal()">Permissions</button>
-                <button class="deactivate" onclick="toggleActivation(this, this.closest('tr'))">Deactivate</button>
+                    <button class="permissions" onclick="openPermissionsModal()">Permissions</button>
+                    <button class="deactivate" onclick="toggleActivation(this, this.closest('tr'))">Deactivate</button>
                 </td>
             </tr>
         </tbody>
@@ -92,31 +92,32 @@
     </div>
 </div>
 
-    <!-- Modal -->
-    <div id="userModal" class="modal" style="display:none;">
-        <div class="modal-content">
-            <div class="modal-header">
+<!-- Modal -->
+<div id="userModal" class="modal" style="display:none;">
+    <div class="modal-content">
+        <div class="modal-header">
             <span class="close">&times;</span>
             <h2>Add User</h2>
-            </div>
-            <label>Username:</label>
-            <input type="text" id="username"><br>
-            <label>Email:</label>
-            <input type="email" id="email"><br>
-            <label>Phone Number:</label>
-            <input type="text" id="phone"><br>
-            <label>Branch:</label>
-            <div class="dropdown-wrapper">
+        </div>
+        <label>Username:</label>
+        <input type="text" id="username"><br>
+        <label>Email:</label>
+        <input type="email" id="email"><br>
+        <label>Phone Number:</label>
+        <input type="text" id="phone"><br>
+        <label>Branch:</label>
+        <div class="dropdown-wrapper">
             <select id="branch">
                 <option value="" disabled selected>Select Branch</option>
                 <option value="ThreeG Media (Kiulap)">ThreeG Media (Kiulap)</option>
                 <option value="Macaroon">Macaroon</option>
             </select>
-            </div>
-            <div class="modal-footer">
-            <button id="saveUser">Save</button></div>
+        </div>
+        <div class="modal-footer">
+            <button id="saveUser">Save</button>
         </div>
     </div>
+</div>
 
 
 <!-- Permissions Modal -->
@@ -133,14 +134,30 @@
                 </tr>
             </thead>
             <tbody>
-                <tr><td><input type="checkbox"> Statement</td></tr>
-                <tr><td><input type="checkbox"> Terminal</td></tr>
-                <tr><td><input type="checkbox"> Settings</td></tr>
-                <tr><td><input type="checkbox"> Finance</td></tr>
-                <tr><td><input type="checkbox"> Deals</td></tr>
-                <tr><td><input type="checkbox"> Rent to Own</td></tr>
-                <tr><td><input type="checkbox"> Membership</td></tr>
-                <tr><td><input type="checkbox"> Gifts</td></tr>
+                <tr>
+                    <td><input type="checkbox"> Statement</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox"> Terminal</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox"> Settings</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox"> Finance</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox"> Deals</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox"> Rent to Own</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox"> Membership</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox"> Gifts</td>
+                </tr>
             </tbody>
         </table>
         <div class="modal-footer">
@@ -151,64 +168,64 @@
 <?php require_once 'layouts/footer.php'; ?>
 
 <script>
-function toggleActivation(button, row) {
-    const statusCell = row.querySelector('.active-status');
+    function toggleActivation(button, row) {
+        const statusCell = row.querySelector('.active-status');
 
-    if (button.classList.contains('activate')) {
-        button.classList.remove('activate');
-        button.classList.add('deactivate');
-        button.textContent = 'Deactivate';
-        statusCell.textContent = 'Yes';
-    } else {
-        button.classList.remove('deactivate');
-        button.classList.add('activate');
-        button.textContent = 'Activate';
-        statusCell.textContent = 'No';
+        if (button.classList.contains('activate')) {
+            button.classList.remove('activate');
+            button.classList.add('deactivate');
+            button.textContent = 'Deactivate';
+            statusCell.textContent = 'Yes';
+        } else {
+            button.classList.remove('deactivate');
+            button.classList.add('activate');
+            button.textContent = 'Activate';
+            statusCell.textContent = 'No';
+        }
     }
-}
 
-// Function to update entry count in the table footer
-function updateEntryCount() {
-    const tableBody = document.getElementById('userTableBody');
-    const totalEntries = tableBody.getElementsByTagName('tr').length;
-    document.querySelector('.table-footer span').textContent = `Showing 1 to ${totalEntries} of ${totalEntries} entries`;
-}
-
-// Open modal and clear fields
-document.getElementById('openModal').addEventListener('click', function() {
-    document.getElementById('userModal').style.display = 'block';
-
-    // Clear all input fields when opening modal
-    document.getElementById('username').value = '';
-    document.getElementById('email').value = '';
-    document.getElementById('phone').value = '';
-    document.getElementById('branch').value = ''; // Reset dropdown
-});
-
-// Close modal and reset fields
-document.querySelector('.close').addEventListener('click', function() {
-    document.getElementById('userModal').style.display = 'none';
-
-    // Clear all input fields when closing modal
-    document.getElementById('username').value = '';
-    document.getElementById('email').value = '';
-    document.getElementById('phone').value = '';
-    document.getElementById('branch').value = ''; // Reset dropdown
-});
-
-// Save user and add to table
-document.getElementById('saveUser').addEventListener('click', function() {
-    const username = document.getElementById('username').value.trim();
-    const email = document.getElementById('email').value.trim();
-    const phone = document.getElementById('phone').value.trim();
-    const branchDropdown = document.querySelector('.dropdown-wrapper select');
-    const branch = branchDropdown.options[branchDropdown.selectedIndex].text; // Get selected branch text
-
-    // Validate fields
-    if (username && email && phone && branch !== "Select Branch") {
+    // Function to update entry count in the table footer
+    function updateEntryCount() {
         const tableBody = document.getElementById('userTableBody');
-        const newRow = document.createElement('tr');
-        newRow.innerHTML = `
+        const totalEntries = tableBody.getElementsByTagName('tr').length;
+        document.querySelector('.table-footer span').textContent = `Showing 1 to ${totalEntries} of ${totalEntries} entries`;
+    }
+
+    // Open modal and clear fields
+    document.getElementById('openModal').addEventListener('click', function() {
+        document.getElementById('userModal').style.display = 'block';
+
+        // Clear all input fields when opening modal
+        document.getElementById('username').value = '';
+        document.getElementById('email').value = '';
+        document.getElementById('phone').value = '';
+        document.getElementById('branch').value = ''; // Reset dropdown
+    });
+
+    // Close modal and reset fields
+    document.querySelector('.close').addEventListener('click', function() {
+        document.getElementById('userModal').style.display = 'none';
+
+        // Clear all input fields when closing modal
+        document.getElementById('username').value = '';
+        document.getElementById('email').value = '';
+        document.getElementById('phone').value = '';
+        document.getElementById('branch').value = ''; // Reset dropdown
+    });
+
+    // Save user and add to table
+    document.getElementById('saveUser').addEventListener('click', function() {
+        const username = document.getElementById('username').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const phone = document.getElementById('phone').value.trim();
+        const branchDropdown = document.querySelector('.dropdown-wrapper select');
+        const branch = branchDropdown.options[branchDropdown.selectedIndex].text; // Get selected branch text
+
+        // Validate fields
+        if (username && email && phone && branch !== "Select Branch") {
+            const tableBody = document.getElementById('userTableBody');
+            const newRow = document.createElement('tr');
+            newRow.innerHTML = `
             <td>${username}</td>
             <td>${email}</td>
             <td>${phone}</td>
@@ -220,32 +237,32 @@ document.getElementById('saveUser').addEventListener('click', function() {
                 <button class="activate" onclick="toggleActivation(this, this.closest('tr'))">Activate</button>
             </td>
         `;
-        tableBody.appendChild(newRow);
+            tableBody.appendChild(newRow);
 
-        // Update entry count
-        updateEntryCount();
+            // Update entry count
+            updateEntryCount();
 
-        // Close modal
-        document.getElementById('userModal').style.display = 'none';
+            // Close modal
+            document.getElementById('userModal').style.display = 'none';
 
-        // Clear fields after saving
-        document.getElementById('username').value = '';
-        document.getElementById('email').value = '';
-        document.getElementById('phone').value = '';
-        branchDropdown.selectedIndex = 0; // Reset dropdown
-    } else {
-        alert('Please fill in all fields correctly.');
-    }
-});
+            // Clear fields after saving
+            document.getElementById('username').value = '';
+            document.getElementById('email').value = '';
+            document.getElementById('phone').value = '';
+            branchDropdown.selectedIndex = 0; // Reset dropdown
+        } else {
+            alert('Please fill in all fields correctly.');
+        }
+    });
 
-// Call update function on page load
-updateEntryCount();
+    // Call update function on page load
+    updateEntryCount();
 
-function openPermissionsModal() {
+    function openPermissionsModal() {
         document.getElementById("permissionsModal").style.display = "block";
     }
+
     function closePermissionsModal() {
         document.getElementById("permissionsModal").style.display = "none";
     }
-
 </script>
