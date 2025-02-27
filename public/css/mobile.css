@@ -24,22 +24,24 @@
   background-color: transparent;
   color: #555555;
   position: fixed;
-  z-index: 9999; /* Make sure it stays on top */
+  z-index: 1000; /* Make sure it stays on top */
 }
   
-  .mobile-nav {
-    display: none;
-    flex-direction: column;
-    position: absolute;
-    background: #fff;
-    color: #555555;
-    top: 0;
-    left: 0;
-    height: 100vh;
-    padding: 10px 0;
-    width: 250px;
-    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
-    box-sizing: border-box; /* Ensures padding doesn’t add extra width */
+.mobile-nav {
+  transition: transform 0.3s ease;
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  background: #fff;
+  color: #555555;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  padding: 10px 0;
+  width: 250px;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+  z-index: 999;
 }
   
 .mobile-nav a {
@@ -338,6 +340,7 @@
       overflow-y: scroll;
       height: calc(100vh - 30px);
       width: 100%;
+      z-index: 1;
     }
 
     .intetecards {
@@ -415,33 +418,39 @@
       border-radius: 10px;
       cursor: pointer;
       width: 70px;
-  }
-  
-  .addinans:hover {
-      background: #FFA74D;
-  }
-  
-  .addinans:active {
-      background: #CC5E00;
-  }
+    }
+    
+    .addinans:hover {
+        background: #FFA74D;
+    }
+    
+    .addinans:active {
+        background: #CC5E00;
+    }
 
     .finans-table-container {
-        overflow-x: auto;
-        padding: 5px;
+      width: 100%;
+      max-width: 100%;
+      overflow-x: auto;
+      padding: 5px;
+      display: block;
     }
 
     .finans-table {
-        width: 100%;
+        width: max-content;
         margin-left: 0;
         margin-right: 0;
         box-shadow: none;
         overflow-x: auto;
+        white-space: nowrap;
+        display: block;
     }
 
     .finans-table th, .finans-table td {
         font-size: 14px;
         padding: 8px;
-        white-space: wrap;
+        white-space: nowrap;
+        overflow: visible;
     }
 
     .finans-toast {
@@ -449,6 +458,119 @@
         bottom: 10px;
         max-width: 100%;
     }
+
+    /* end of finance section */
+
+    /*  section */
+
+    .kiz-content {
+      margin: 40px 0;
+      padding: 15px;
+    }
+  
+    .kiz-subtitle {
+      font-size: 14px;
+      margin-left: 0;
+      white-space: wrap;
+    }
+  
+    .kiz-description {
+      font-size: 12px;
+      margin-left: 0;
+      margin-bottom: 15px;
+      white-space: wrap;
+    }
+
+    .kiz-btn, 
+    .kiz-btn-primary, 
+    .kiz-btn-secondary {
+      width: 100%;
+      padding: 8px 12px;
+      font-size: 14px;
+      text-align: center;
+    }
+  
+    .botons {
+      flex-direction: column;
+      gap: 8px;
+      max-width: 80%;
+      margin: 0;
+    }
+  
+    .kiz-table-con {
+      width: 100%;
+      margin-left: 0;
+      padding: 5px;
+    }
+  
+    .kiz-api-table th, 
+    .kiz-api-table td {
+      padding: 10px;
+      font-size: 12px;
+    }
+  
+    .kiz-btn-view {
+      font-size: 12px;
+      padding: 6px 10px;
+    }
+  
+    .kiz-form {
+      flex-direction: column;
+      margin-left: 0;
+      gap: 10px;
+    }
+  
+    .kiz-dropdown-menu {
+      width: 80% !important;
+      font-size: 12px;
+      padding: 8px;
+      margin: 0;
+    }
+  
+    .kiz-api-header {
+      margin-left: 0;
+      width: 100%;
+      max-width: 100%;
+      font-size: 12px;
+      padding: 8px;
+    }
+  
+    .kiz-warning, 
+    .kiz-error {
+      margin-left: 0;
+    }
+  
+    .kunci-label {
+      font-size: 12px;
+      margin-left: 0;
+      margin-bottom: 10px;
+    }
+  
+    .kunci-input-group {
+      font-size: 12px;
+      margin-left: 0;
+      margin-bottom: 15px;
+      max-width: 100%;
+    }
+    
+    .kunci-btn-copy {
+      width: 10%;
+    }
+  
+    .kunci-kotak {
+      padding: 8px;
+      width: 70%;
+      border-radius: 8px;
+    }
+  
+    .kunci {
+      margin-left: 0;
+      padding-top: 8px;
+      width: 100%;
+      position: relative;
+    }
+
+    /* end of keys section */
 
 }
 
