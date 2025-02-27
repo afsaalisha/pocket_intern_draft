@@ -2483,6 +2483,8 @@ body {
   background: #e66c00;
 }
 
+/* detete section */
+
 /* Main Container */
 .detete-container {
   display: block;
@@ -2495,7 +2497,7 @@ body {
   padding: 25px;
   border-radius: 12px;
   box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
-  text-align: center;
+  text-align: center; /* Changed from center to left */
   width: 40%;
   max-width: 600px;
 }
@@ -2563,9 +2565,11 @@ body {
   border: none;
 }
 
+/* Updated Back Button Styling */
 .detete-btn.back {
   background-color: #FFA74D;
   color: white;
+  width: 20%;
 }
 
 .detete-btn.back:hover {

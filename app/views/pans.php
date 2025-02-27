@@ -70,7 +70,7 @@ $paymentLink = htmlspecialchars($paymentLink);
 
     <!-- Hidden Pupu Form View (pupu.php content) -->
     <div id="pupuForm" style="display: none;">
-        <h1 class="title">Generate New Payment Links</h1>
+        <h1 class="stuh-title">Generate New Payment Links</h1>
         <p class="description">Here you can manage your payment links, view details, and add new links easily.</p>
 
         <div class="payment-container">
@@ -113,7 +113,7 @@ $paymentLink = htmlspecialchars($paymentLink);
             </button>
         </div>
         <div class="detete-buttons">
-            <button class="btn btn-back" id="deteteBackButton">Back</button>
+            <button class="detete-btn back" id="deteteBackButton">Back</button>
             <button class="detete-btn delete">Delete Link</button>
         </div>
     </div>
@@ -121,6 +121,9 @@ $paymentLink = htmlspecialchars($paymentLink);
 </div>
 
 <script>
+// Global variable to store the current row being viewed
+let currentRow = null;
+
 // 1. Fix the "Add New Link" button position
 function fixAddButton() {
     const button = document.querySelector(".add-button");
@@ -131,8 +134,6 @@ function fixAddButton() {
     }
 }
 fixAddButton();
-
-// Observe mutations so the button remains fixed
 const observer = new MutationObserver(() => fixAddButton());
 observer.observe(document.body, { childList: true, subtree: true });
 
@@ -196,14 +197,14 @@ document.querySelector(".btn-generate").addEventListener("click", function(event
 // 5. When a "Details" button is clicked, show the detete container
 document.addEventListener("click", function(event) {
     if (event.target.classList.contains("Details")) {
-        // Get the row that was clicked
-        const row = event.target.closest("tr");
+        // Get the row that was clicked and store it in the global variable
+        currentRow = event.target.closest("tr");
 
         // Extract the data from the row cells
-        const rowTerminalId   = row.cells[0].innerText;
-        const rowTerminalName = row.cells[1].innerText;
-        const rowRedirectLink = row.cells[2].querySelector("a").href;
-        const rowPaymentLink  = row.cells[3].querySelector("a").href;
+        const rowTerminalId   = currentRow.cells[0].innerText;
+        const rowTerminalName = currentRow.cells[1].innerText;
+        const rowRedirectLink = currentRow.cells[2].querySelector("a").href;
+        const rowPaymentLink  = currentRow.cells[3].querySelector("a").href;
 
         // Populate the detete container fields
         document.getElementById("deteteTerminalId").textContent = rowTerminalId;
@@ -225,7 +226,23 @@ document.getElementById("deteteBackButton").addEventListener("click", function()
     window.location.href = "pans";
 });
 
-// 7. Copy-to-Clipboard functionality
+// 7. Make Delete Link functional: remove the row from the table
+document.querySelector(".detete-btn.delete").addEventListener("click", function() {
+    if (currentRow) {
+        if (confirm("Are you sure you want to delete this link?")) {
+            // Remove the row from the table
+            currentRow.remove();
+            currentRow = null;
+            // Hide the detete container and show the table view and management container
+            document.querySelector(".detete-container").style.display = "none";
+            document.getElementById("tableView").style.display = "block";
+            document.getElementById("managePaymentLinks").style.display = "block";
+            document.getElementById("addNewLinkButton").style.display = "block";
+        }
+    }
+});
+
+// 8. Copy-to-Clipboard functionality
 function copyToClipboard() {
     var copyText = document.getElementById("paymentLinkField");
     copyText.select();
@@ -243,3 +260,4 @@ function copyToClipboard() {
     }, 1500);
 }
 </script>
+

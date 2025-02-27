@@ -119,52 +119,6 @@
     </div>
 </div>
 
-
-<!-- Permissions Modal -->
-<div id="permissionsModal" class="modal" style="display:none;">
-    <div class="modal-content">
-        <div class="modal-header">
-            <span class="close" onclick="closePermissionsModal()">&times;</span>
-            <h2>Permissions</h2>
-        </div>
-        <table>
-            <thead>
-                <tr>
-                    <th>Page</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><input type="checkbox"> Statement</td>
-                </tr>
-                <tr>
-                    <td><input type="checkbox"> Terminal</td>
-                </tr>
-                <tr>
-                    <td><input type="checkbox"> Settings</td>
-                </tr>
-                <tr>
-                    <td><input type="checkbox"> Finance</td>
-                </tr>
-                <tr>
-                    <td><input type="checkbox"> Deals</td>
-                </tr>
-                <tr>
-                    <td><input type="checkbox"> Rent to Own</td>
-                </tr>
-                <tr>
-                    <td><input type="checkbox"> Membership</td>
-                </tr>
-                <tr>
-                    <td><input type="checkbox"> Gifts</td>
-                </tr>
-            </tbody>
-        </table>
-        <div class="modal-footer">
-            <button class="update-permission">Update permission</button>
-        </div>
-    </div>
-</div>
 <?php require_once 'layouts/footer.php'; ?>
 
 <script>
@@ -257,12 +211,4 @@
 
     // Call update function on page load
     updateEntryCount();
-
-    function openPermissionsModal() {
-        document.getElementById("permissionsModal").style.display = "block";
-    }
-
-    function closePermissionsModal() {
-        document.getElementById("permissionsModal").style.display = "none";
-    }
 </script>
