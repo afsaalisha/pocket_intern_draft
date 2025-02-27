@@ -574,4 +574,62 @@
 
 }
 
+/* home section */
+
+@media (max-width: 768px) {
+  .change-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  /* Show only the notification sidebar by default */
+  .change-notifications {
+    width: 100%;
+    border-radius: 10px 10px 0 0;
+    background-color: #fff;
+  }
+
+  /* Hide the notification details by default */
+  .change-card {
+    display: none;
+    width: 100%;
+    min-width: unset;
+    border-radius: 0;
+  }
+
+  /* Show notification details when active */
+  .change-card.active {
+    display: flex;
+  }
+
+  /* Hide sidebar when viewing details */
+  .change-notifications.hidden {
+    display: none;
+  }
+
+  /* Back button for mobile */
+  .change-back-btn {
+    display: block;
+    background: #ff7f00;
+    color: white;
+    padding: 10px;
+    border: none;
+    width: 100%;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    border-bottom: 2px solid #cc5e00;
+  }
+
+  .change-back-btn:hover {
+    background: #e66c00;
+  }
+}
+
+/* Default: Hide back button on larger screens */
+.change-back-btn {
+  display: none;
+}
 

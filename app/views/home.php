@@ -100,7 +100,7 @@
             { name: 'Nurul Huda', ref: '876543' },
             { name: 'Kumar Raj', ref: '567890' },
             { name: 'Adachi Kiyoshi', ref: '143223'},
-            { name: 'Joe Biden', ref: '123456'}
+            { name: 'Joe Biden', ref: '069420'}
         ];
 
         const statuses = ['Pending', 'Approved', 'Denied'];
@@ -135,6 +135,7 @@
 
         addNotification('#change-notifications', notificationHTML);
     }, 1000); // Adds a new notification every 1 second (1000 ms)
+
 </script>
 
 <?php require_once 'layouts/footer.php'; ?>
