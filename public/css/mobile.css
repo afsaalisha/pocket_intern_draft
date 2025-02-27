@@ -370,34 +370,60 @@
     }
 
     .finans-pepep {
-        margin-left: 10px;
+        margin-left: 0;
         font-size: 18px;
         text-align: center;
     }
 
-    .finans-table-controls,
-    .finans-table-footer {
-        flex-direction: column;
+    .finans-table-controls{
+        display: flex;
+        justify-content: space-between;
         align-items: center;
-        text-align: center;
         margin: 10px 0;
+    }
+
+    .finans-table-footer {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      margin: 10px 0;
+    }
+
+    .search {
+      margin: 10px 0;
+      width: 40%; 
+      max-width: 100%;
     }
 
     .finans-pagination {
-        width: 100%;
-        justify-content: center;
-        margin: 10px 0;
+      max-width: 100%;
+      width: 60%;
+      justify-content: center;
+      margin: 5% 0;
     }
 
     .addinans {
-        width: auto;
-        top: auto;
-        position: relative;
-        margin: 10px auto;
-        display: block;
-        text-align: center;
-        padding: 10px 15px;
-    }
+      position: absolute; 
+      right: 0;
+      top: 70px; 
+      padding: 10px 15px;
+      background-color: #ff7f00;
+      color: #fcfdff;
+      font-size: 12px;
+      /* font-weight: bold; */
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      width: 70px;
+  }
+  
+  .addinans:hover {
+      background: #FFA74D;
+  }
+  
+  .addinans:active {
+      background: #CC5E00;
+  }
 
     .finans-table-container {
         overflow-x: auto;
