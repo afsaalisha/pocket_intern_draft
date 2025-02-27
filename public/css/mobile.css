@@ -391,7 +391,6 @@
 
     .addinans {
         width: auto;
-        right: auto;
         top: auto;
         position: relative;
         margin: 10px auto;
@@ -410,19 +409,19 @@
         margin-left: 0;
         margin-right: 0;
         box-shadow: none;
+        overflow-x: auto;
     }
 
     .finans-table th, .finans-table td {
         font-size: 14px;
         padding: 8px;
-        white-space: normal; /* Allow text to wrap */
+        white-space: wrap;
     }
 
     .finans-toast {
-        width: 90%;
+        width: 50%;
         bottom: 10px;
-        right: 5%;
-        min-width: auto;
+        max-width: 100%;
     }
 
 }
