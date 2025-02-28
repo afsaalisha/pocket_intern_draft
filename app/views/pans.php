@@ -24,7 +24,7 @@ $paymentLink = htmlspecialchars($paymentLink);
     </div>
     
     <!-- Table View Container -->
-    <div id="tableView">
+    <div id="tableView" class="tetris-table-wrapper">
         <table>
             <thead>
                 <tr>

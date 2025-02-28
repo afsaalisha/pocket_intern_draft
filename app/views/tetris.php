@@ -34,32 +34,33 @@
   </div>
 
   <!-- Table View Container -->
-  <div id="tetris-tableView" class="tetris-table">
-    <table>
-      <thead>
-        <tr>
-          <th>Terminal ID</th>
-          <th>Terminal Name</th>
-          <th>Terminal Bank</th>
-          <th>Branch</th>
-          <th>Actions</th>
-        </tr>
-      </thead>
-      <tbody id="terminalTableBody">
-        <tr>
-          <td>001</td>
-          <td>Coffee</td>
-          <td>BADURI (0200740441749)</td>
-          <td>ThreeG Media (Kulai)</td>
-          <td><button class="Details">Details</button></td>
-        </tr>
-        <tr>
-          <td>224</td>
-          <td>diff_name</td>
-          <td>BIBD (00001010034340)</td>
-          <td>ThreeG Media (Kulai)</td>
-          <td><button class="Details">Details</button></td>
-        </tr>
+<!-- Table View Container -->
+<div class="tetris-table-wrapper">
+  <table class="tetris-table">
+    <thead>
+      <tr>
+        <th>Terminal ID</th>
+        <th>Terminal Name</th>
+        <th>Terminal Bank</th>
+        <th>Branch</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody id="terminalTableBody">
+      <tr>
+        <td>001</td>
+        <td>Coffee</td>
+        <td>BADURI (0200740441749)</td>
+        <td>ThreeG Media (Kulai)</td>
+        <td><button class="Details">Details</button></td>
+      </tr>
+      <tr>
+        <td>224</td>
+        <td>diff_name</td>
+        <td>BIBD (00001010034340)</td>
+        <td>ThreeG Media (Kulai)</td>
+        <td><button class="Details">Details</button></td>
+      </tr>
         <tr>
           <td>300</td>
           <td>POS API</td>
@@ -74,8 +75,10 @@
           <td>ThreeG Media (Kulai)</td>
           <td><button class="Details">Details</button></td>
         </tr>
-      </tbody>
-    </table>
+    </tbody>
+  </table>
+</div>
+
   </div>
 </div>
 
@@ -91,7 +94,8 @@
   </ul>
   <button id="teame-generateQR">Generate QR</button>
   <button id="teame-assignPhone">Assign New Phone</button>
-  <button id="teame-closeDetails">Close</button>
+  <span id="teame-closeDetails" class="close">&times;</span>
+
 </div>
 </div>
 
@@ -100,7 +104,8 @@
   <label for="teame-newPhoneInput">Phone Number:</label>
   <input type="text" id="teame-newPhoneInput" class="tetris-input-box" value="+673 " maxlength="12">
   <button id="teame-addPhone">Add</button>
-  <button id="teame-backToDetails">Back</button>
+  <span id="teame-backToDetails" class="close">&times;</span>
+
 </div>
 
 <script>

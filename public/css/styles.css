@@ -1126,7 +1126,7 @@ body {
   font-size: 40px;
   color: #FF7F00;
   position: absolute;
-  top: 15px;
+  top: 10px;
   right: 20px;
 }
 
@@ -1786,18 +1786,6 @@ body {
     z-index: 10;
   }
   
-  
-  @media (max-width: 768px) {
-    .tetris-form {
-      grid-template-columns: 1fr;
-    }
-  
-    .tetris-management {
-      margin: 20px;
-      width: calc(100% - 40px);
-    }
-  }
-  
   #teame-detailsSection {
     display: none; /* Hidden by default */
     position: absolute;
@@ -1842,7 +1830,6 @@ body {
 #teame-detailsSection button:hover {
     background: #CC5E00; /* Dark orange */
 }
-
 
 #teame-assignPhoneSection {
   display: none; /* Hidden by default */
@@ -1991,110 +1978,6 @@ body {
 .btn:hover {
   transform: scale(1.05);
   opacity: 0.9;
-}
-
-@media (max-width: 768px) {
-  /* body {
-    padding-left: 0;
-    justify-content: center;
-  } */
-  .payment-container {
-    width: 95%;
-  }
-}
-
-#detailsView {
-  padding: 30px;
-  border-radius: 12px;
-  max-width: 600px;
-  margin: 30px auto;
-  font-family: 'Arial', sans-serif; /* More modern font */
-  margin-left: 40px;
-}
-
-#detailsView h2 {
-  color: #ff7f00; /* Warm, inviting orange */
-  font-size: 24px;
-  text-align: center;
-  font-weight: bold;
-  margin-bottom: 20px;
-}
-
-#detailsView label {
-  font-weight: 600;
-  display: block;
-  margin-top: 15px;
-  color: #333;
-  font-size: 16px;
-}
-
-#detailPaymentLink {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ff7f00;
-  border-radius: 8px;
-  margin-top: 10px;
-  font-size: 16px;
-  transition: all 0.3s ease;
-  box-sizing: border-box;
-}
-
-#detailPaymentLink:focus {
-  border-color: #cc5e00; /* Slightly darker orange for focus state */
-  outline: none; /* Remove default focus outline */
-}
-
-#backButton {
-  background: #ff7f00; /* Vibrant orange button */
-  padding: 10px 20px;
-  font-size: 16px;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  margin-top: 20px;
-  width: 100%;
-  transition: background 0.3s ease;
-}
-
-#backButton:hover {
-  background: #ff5722; /* Darker orange on hover */
-}
-
-.delete-link {
-  background: #d9534f;
-  color: white;
-  padding: 10px 20px;
-  border-radius: 8px;
-  text-align: center;
-  display: inline-block;
-  font-size: 16px;
-  text-decoration: none;
-  margin-top: 15px;
-  width: 100%;
-  transition: background 0.3s ease;
-}
-
-.delete-link:hover {
-  background: #c9302c;
-}
-
-#detailsView p {
-  font-size: 15px;
-  color: #555;
-  margin: 8px 0;
-  line-height: 1.6;
-}
-
-#detailRedirectLink {
-  color: #ff7f00;
-  text-decoration: none;
-  font-weight: bold;
-  font-size: 16px;
-}
-
-#detailRedirectLink:hover {
-  text-decoration: underline;
 }
 
 

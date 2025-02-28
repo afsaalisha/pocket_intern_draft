@@ -633,3 +633,55 @@
   display: none;
 }
 
+/* terminaks section */
+
+@media (max-width: 768px) {
+  .tetris-form {
+    grid-template-columns: 1fr;
+  }
+
+  .tetris-management {
+    margin: 10px;
+    width: calc(100% - 60px);
+    margin-bottom: 20px;
+  }
+}
+
+  .tetris-input-box, 
+  .tetris-dropdown-menu {
+      width: 100%; /* Full width on small screens */
+  }
+
+  .tetris-input-box {
+      width: 92%; /* Full width on small screens */
+  }
+
+  .tetris-create-btn {
+      width: 100%; /* Make button full width */
+  }
+
+  /* Ensure modal popups fit small screens */
+  #teame-detailsSection, 
+  #teame-assignPhoneSection {
+      width: 80%;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+  }
+  
+  /* Table scrollable on smaller screens */
+  .tetris-table-wrapper {
+      overflow-x: auto;
+      width: 100%;
+  }
+
+  .tetris-table {
+      width: 100%;
+      min-width: 600px; /* Ensures table maintains structure */
+      margin: 10px !important;
+      padding: 0 !important;
+  }
+
+  /* pans section */
+
+  
