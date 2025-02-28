@@ -96,9 +96,9 @@
   margin-top: 70px;
 }
 
-.content.shifted {
+/* .content.shifted {
   margin-left: 250px;
-}
+} */
   
 /* Mobile view adjustments */
 @media screen and (max-width: 768px) {
