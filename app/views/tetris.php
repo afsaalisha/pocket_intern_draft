@@ -104,7 +104,7 @@
   <label for="teame-newPhoneInput">Phone Number:</label>
   <input type="text" id="teame-newPhoneInput" class="tetris-input-box" value="+673 " maxlength="12">
   <button id="teame-addPhone">Add</button>
-  <span id="teame-backToDetails" class="close">&times;</span>
+  <button id="teame-backToDetails">Back</button>
 
 </div>
 
